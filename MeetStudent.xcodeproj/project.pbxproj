@@ -416,6 +416,7 @@
 				A4D11F2F1AE997B900374487 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4D11F301AE997B900374487 /* Build configuration list for PBXNativeTarget "MeetStudentTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +425,7 @@
 				A4D11F321AE997B900374487 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

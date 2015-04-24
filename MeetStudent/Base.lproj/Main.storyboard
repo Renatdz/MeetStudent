@@ -1,26 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8y9-88-DQy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="8w1-OX-hcF">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4lm-UX-TVr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController navigationBarHidden="YES" id="8y9-88-DQy" sceneMemberID="viewController">
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1J0-of-Pcf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="5ht-Lo-Z9R"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="-127.5" y="119.5"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -240,7 +223,7 @@
         <!--Instituições-->
         <scene sceneID="hnv-kt-gt6">
             <objects>
-                <tableViewController id="wD2-fj-6YU" sceneMemberID="viewController">
+                <tableViewController modalTransitionStyle="crossDissolve" id="wD2-fj-6YU" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="iUK-Ao-PQW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -279,8 +262,8 @@
                             <outlet property="delegate" destination="wD2-fj-6YU" id="SvX-St-Uup"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Instituições" id="sVg-iw-anq">
-                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="ws9-CW-I1C"/>
+                    <navigationItem key="navigationItem" title="Instituições" id="Zfs-hL-FIL">
+                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="XxE-IC-uzM"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
@@ -291,7 +274,7 @@
         <!--Navigation Controller-->
         <scene sceneID="4GW-Um-ZBM">
             <objects>
-                <navigationController id="uCz-76-oSi" sceneMemberID="viewController">
+                <navigationController modalTransitionStyle="crossDissolve" id="uCz-76-oSi" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JkJ-r0-BIw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

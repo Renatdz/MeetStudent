@@ -33,6 +33,9 @@
 		A4D11F1E1AE997B900374487 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4D11F1C1AE997B900374487 /* LaunchScreen.xib */; };
 		A4D11F2A1AE997B900374487 /* MeetStudentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F291AE997B900374487 /* MeetStudentTests.m */; };
 		A4D11F371AE9CDE200374487 /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F361AE9CDE200374487 /* DataBase.m */; };
+		A4D11F3D1AEAAEB700374487 /* InstituicoesController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F3C1AEAAEB700374487 /* InstituicoesController.m */; };
+		A4D11F401AEAAF5000374487 /* GruposController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F3F1AEAAF5000374487 /* GruposController.m */; };
+		A4D11F431AEAAFC200374487 /* PessoasController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F421AEAAFC200374487 /* PessoasController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,12 @@
 		A4D11F291AE997B900374487 /* MeetStudentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetStudentTests.m; sourceTree = "<group>"; };
 		A4D11F351AE9CDE200374487 /* DataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBase.h; sourceTree = "<group>"; };
 		A4D11F361AE9CDE200374487 /* DataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBase.m; sourceTree = "<group>"; };
+		A4D11F3B1AEAAEB700374487 /* InstituicoesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstituicoesController.h; path = ../InstituicoesController.h; sourceTree = "<group>"; };
+		A4D11F3C1AEAAEB700374487 /* InstituicoesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstituicoesController.m; path = ../InstituicoesController.m; sourceTree = "<group>"; };
+		A4D11F3E1AEAAF5000374487 /* GruposController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GruposController.h; sourceTree = "<group>"; };
+		A4D11F3F1AEAAF5000374487 /* GruposController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GruposController.m; sourceTree = "<group>"; };
+		A4D11F411AEAAFC200374487 /* PessoasController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PessoasController.h; sourceTree = "<group>"; };
+		A4D11F421AEAAFC200374487 /* PessoasController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PessoasController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +225,12 @@
 			children = (
 				025EAD891AE9ECBD00A637B6 /* CadastroController.h */,
 				025EAD8A1AE9ECBD00A637B6 /* CadastroController.m */,
+				A4D11F3E1AEAAF5000374487 /* GruposController.h */,
+				A4D11F3F1AEAAF5000374487 /* GruposController.m */,
+				A4D11F3B1AEAAEB700374487 /* InstituicoesController.h */,
+				A4D11F3C1AEAAEB700374487 /* InstituicoesController.m */,
+				A4D11F411AEAAFC200374487 /* PessoasController.h */,
+				A4D11F421AEAAFC200374487 /* PessoasController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -329,10 +344,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4D11F431AEAAFC200374487 /* PessoasController.m in Sources */,
 				025EAD8B1AE9ECBD00A637B6 /* CadastroController.m in Sources */,
 				A4D11F161AE997B900374487 /* ViewController.m in Sources */,
+				A4D11F401AEAAF5000374487 /* GruposController.m in Sources */,
 				A4D11F131AE997B900374487 /* AppDelegate.m in Sources */,
 				A4D11F371AE9CDE200374487 /* DataBase.m in Sources */,
+				A4D11F3D1AEAAEB700374487 /* InstituicoesController.m in Sources */,
 				A4D11F101AE997B900374487 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

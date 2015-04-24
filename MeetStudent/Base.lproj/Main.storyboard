@@ -80,7 +80,11 @@
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Login" id="O61-Ab-JK9">
-                                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="yHM-Ei-GeQ"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="yHM-Ei-GeQ">
+                                            <connections>
+                                                <segue destination="Wlt-eh-uT8" kind="unwind" unwindAction="returnMainViewController:" id="Ct5-Or-ZkT"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -107,6 +111,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hj-C7-vLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Wlt-eh-uT8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="816.5" y="-225.5"/>
         </scene>
@@ -155,7 +160,11 @@
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Cadastro" id="CAs-9O-37m">
-                                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="1f0-V1-Z9u"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="1f0-V1-Z9u">
+                                            <connections>
+                                                <segue destination="4Q6-x5-ZRr" kind="unwind" unwindAction="returnMainViewController:" id="okD-dO-G68"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -222,13 +231,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3aQ-v0-FBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4Q6-x5-ZRr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="816.5" y="500.5"/>
         </scene>
         <!--Grupos-->
         <scene sceneID="N2k-s3-7XY">
             <objects>
-                <tableViewController id="VEN-hk-njz" sceneMemberID="viewController">
+                <tableViewController id="VEN-hk-njz" customClass="GruposController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="u8B-sV-7bF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -250,18 +260,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Grupos" id="890-J8-NR7">
-                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="qoK-3o-bA7"/>
+                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="qoK-3o-bA7">
+                            <connections>
+                                <segue destination="S5j-Ar-Xxw" kind="unwind" unwindAction="returnTableMainViewController:" id="pJj-1A-raP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3r-NI-uSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="S5j-Ar-Xxw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2700.5" y="119.5"/>
         </scene>
         <!--Instituições-->
         <scene sceneID="hnv-kt-gt6">
             <objects>
-                <tableViewController modalTransitionStyle="crossDissolve" id="wD2-fj-6YU" sceneMemberID="viewController">
+                <tableViewController modalTransitionStyle="crossDissolve" id="wD2-fj-6YU" customClass="InstituicoesController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="iUK-Ao-PQW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -351,7 +366,7 @@
         <!--Perfil da Pessoa-->
         <scene sceneID="z7U-33-py9">
             <objects>
-                <viewController id="nBa-yI-Jad" customClass="AlunoViewController" sceneMemberID="viewController">
+                <viewController id="nBa-yI-Jad" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LGe-YE-z7o"/>
                         <viewControllerLayoutGuide type="bottom" id="PD0-9a-Zfz"/>
@@ -422,7 +437,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Perfil da Pessoa" id="aRf-Re-ms0">
-                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="lEi-Cc-dSM"/>
+                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="lEi-Cc-dSM">
+                            <connections>
+                                <segue destination="Xfw-Tw-vzx" kind="unwind" unwindAction="returnPessoaMainViewController:" id="rzY-Wh-6Mm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -435,6 +454,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePL-Dd-vdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Xfw-Tw-vzx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4066.5" y="119.5"/>
         </scene>
@@ -458,7 +478,7 @@
         <!--Pessoas-->
         <scene sceneID="lCf-Tx-dOJ">
             <objects>
-                <tableViewController id="xSZ-hs-vWi" sceneMemberID="viewController">
+                <tableViewController id="xSZ-hs-vWi" customClass="PessoasController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dH9-r7-WUY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -480,11 +500,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Pessoas" id="aDc-aR-pSk">
-                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="ey8-d5-MCF"/>
+                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="ey8-d5-MCF">
+                            <connections>
+                                <segue destination="qPH-T8-YGV" kind="unwind" unwindAction="returnGrupoMainViewController:" id="rGf-hE-e8c"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rw1-Pr-Jfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qPH-T8-YGV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3607.5" y="119.5"/>
         </scene>

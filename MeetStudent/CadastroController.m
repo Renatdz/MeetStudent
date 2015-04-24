@@ -45,11 +45,16 @@
 //| Define os valores/propriedades padrões
 -(void)defaultValues
 {
+    //set radius image
+    _image.layer.cornerRadius = CGRectGetHeight(_image.bounds) / 2.0;
+    _image.clipsToBounds = YES;
     
     // Carrega a imagem padrao para adicao de foto
     //_image.image = [UIImage imageNamed:@"nome da imagem"];
     //imagemPadrao = _image;
+
     
+    //set keyboar type number
     _idade.keyboardType = UIKeyboardTypeNumberPad;
     _senha.secureTextEntry = YES;
     _confSenha.secureTextEntry = YES;

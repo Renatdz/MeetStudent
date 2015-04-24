@@ -7,6 +7,7 @@
 //
 
 #import "DataBase.h"
+#import <Parse/Parse.h>
 
 @implementation DataBase
 

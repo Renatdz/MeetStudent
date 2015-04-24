@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		025EAD831AE9D42200A637B6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025EAD7D1AE9D42200A637B6 /* Bolts.framework */; };
-		025EAD841AE9D42200A637B6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025EAD7E1AE9D42200A637B6 /* Parse.framework */; };
-		025EAD851AE9D42200A637B6 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025EAD7F1AE9D42200A637B6 /* ParseCrashReporting.framework */; };
-		025EAD861AE9D42200A637B6 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025EAD801AE9D42200A637B6 /* ParseFacebookUtils.framework */; };
-		025EAD871AE9D42200A637B6 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025EAD811AE9D42200A637B6 /* ParseFacebookUtilsV4.framework */; };
-		025EAD881AE9D42200A637B6 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025EAD821AE9D42200A637B6 /* ParseUI.framework */; };
+		025EAD8B1AE9ECBD00A637B6 /* CadastroController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025EAD8A1AE9ECBD00A637B6 /* CadastroController.m */; };
+		025EAD8C1AE9F23800A637B6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025EAD7D1AE9D42200A637B6 /* Bolts.framework */; };
+		025EAD8D1AE9F23800A637B6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025EAD7E1AE9D42200A637B6 /* Parse.framework */; };
+		025EAD8E1AE9F23800A637B6 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025EAD7F1AE9D42200A637B6 /* ParseCrashReporting.framework */; };
+		025EAD8F1AE9F23800A637B6 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025EAD801AE9D42200A637B6 /* ParseFacebookUtils.framework */; };
+		025EAD901AE9F23800A637B6 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025EAD811AE9D42200A637B6 /* ParseFacebookUtilsV4.framework */; };
+		025EAD911AE9F23800A637B6 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025EAD821AE9D42200A637B6 /* ParseUI.framework */; };
 		A4D11F101AE997B900374487 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F0F1AE997B900374487 /* main.m */; };
 		A4D11F131AE997B900374487 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F121AE997B900374487 /* AppDelegate.m */; };
 		A4D11F161AE997B900374487 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F151AE997B900374487 /* ViewController.m */; };
@@ -40,6 +41,8 @@
 		025EAD801AE9D42200A637B6 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		025EAD811AE9D42200A637B6 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		025EAD821AE9D42200A637B6 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		025EAD891AE9ECBD00A637B6 /* CadastroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastroController.h; sourceTree = "<group>"; };
+		025EAD8A1AE9ECBD00A637B6 /* CadastroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastroController.m; sourceTree = "<group>"; };
 		A4D11F0A1AE997B900374487 /* MeetStudent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetStudent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D11F0E1AE997B900374487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4D11F0F1AE997B900374487 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -62,12 +65,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				025EAD881AE9D42200A637B6 /* ParseUI.framework in Frameworks */,
-				025EAD841AE9D42200A637B6 /* Parse.framework in Frameworks */,
-				025EAD851AE9D42200A637B6 /* ParseCrashReporting.framework in Frameworks */,
-				025EAD861AE9D42200A637B6 /* ParseFacebookUtils.framework in Frameworks */,
-				025EAD831AE9D42200A637B6 /* Bolts.framework in Frameworks */,
-				025EAD871AE9D42200A637B6 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				025EAD8C1AE9F23800A637B6 /* Bolts.framework in Frameworks */,
+				025EAD8D1AE9F23800A637B6 /* Parse.framework in Frameworks */,
+				025EAD8E1AE9F23800A637B6 /* ParseCrashReporting.framework in Frameworks */,
+				025EAD8F1AE9F23800A637B6 /* ParseFacebookUtils.framework in Frameworks */,
+				025EAD901AE9F23800A637B6 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				025EAD911AE9F23800A637B6 /* ParseUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +162,8 @@
 		A4D11F331AE9CBC600374487 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				025EAD891AE9ECBD00A637B6 /* CadastroController.h */,
+				025EAD8A1AE9ECBD00A637B6 /* CadastroController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				025EAD8B1AE9ECBD00A637B6 /* CadastroController.m in Sources */,
 				A4D11F161AE997B900374487 /* ViewController.m in Sources */,
 				A4D11F131AE997B900374487 /* AppDelegate.m in Sources */,
 				A4D11F371AE9CDE200374487 /* DataBase.m in Sources */,

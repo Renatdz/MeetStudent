@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
-@interface AppDelegate () //<UINavigationControllerDelegate>
+@interface AppDelegate ()
 
 @end
 
@@ -16,8 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-//    [(UINavigationController *) self.window.rootViewController setDelegate:self];
+
+//    // conexao do banco
+//    [Parse enableLocalDatastore];
+//
+//    // Initialize Parse.
+//    [Parse setApplicationId:@"tujAI1LqcE6klqjHyQOI9zB9whgkEn8Vq7JnkCXr"
+//                  clientKey:@"tujAI1LqcE6klqjHyQOI9zB9whgkEn8Vq7JnkCXr"];
     
     return YES;
 }

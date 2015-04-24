@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -110,10 +110,10 @@
             </objects>
             <point key="canvasLocation" x="816.5" y="-225.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Cadastro Controller-->
         <scene sceneID="rmm-uj-vTG">
             <objects>
-                <viewController id="6c8-yM-2lt" sceneMemberID="viewController">
+                <viewController id="6c8-yM-2lt" customClass="CadastroController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bkb-jq-xYA"/>
                         <viewControllerLayoutGuide type="bottom" id="YNX-mb-fyr"/>
@@ -129,11 +129,6 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sobrenome" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E4y-Rj-NtT">
                                 <rect key="frame" x="191" y="287" width="168" height="30"/>
-                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Idade" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="38s-67-SZW">
-                                <rect key="frame" x="15" y="325" width="167" height="30"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -190,13 +185,31 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uCz-76-oSi" kind="show" id="aPo-hM-78D"/>
+                                    <action selector="enviarDados:" destination="6c8-yM-2lt" eventType="touchUpInside" id="8Wh-2X-04O"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Idade" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="38s-67-SZW">
+                                <rect key="frame" x="16" y="325" width="167" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="confSenha" destination="on9-3l-5zv" id="MzH-zW-dzr"/>
+                        <outlet property="descricao" destination="Qrx-6h-vht" id="AcQ-7z-nUY"/>
+                        <outlet property="email" destination="Fvl-Eh-cWS" id="TVQ-kR-0mY"/>
+                        <outlet property="idade" destination="38s-67-SZW" id="SaY-oo-hRf"/>
+                        <outlet property="image" destination="TAp-Ae-ccy" id="pUz-YR-dVl"/>
+                        <outlet property="nome" destination="ED3-HD-gee" id="z5f-pA-kDW"/>
+                        <outlet property="senha" destination="Y6p-Dp-bag" id="LDI-4B-HID"/>
+                        <outlet property="sexo" destination="HJd-8B-hGf" id="O0v-zd-mQm"/>
+                        <outlet property="sobrenome" destination="E4y-Rj-NtT" id="LWD-Or-n1O"/>
+                        <outlet property="urlSocial" destination="tKS-Oo-Yo6" id="0Li-Zd-bLe"/>
+                        <segue destination="uCz-76-oSi" kind="presentation" identifier="CadastroSuccess" id="Ifx-Vz-BKa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3aQ-v0-FBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -462,6 +475,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aPo-hM-78D"/>
+        <segue reference="Ifx-Vz-BKa"/>
     </inferredMetricsTieBreakers>
 </document>

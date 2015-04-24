@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DataBase : NSObject
+@interface DataBase : NSObject{
+    
+}
 
 +(DataBase *)dataBase;
 -(void)clean;

@@ -11,12 +11,12 @@
 @implementation DataBase
 
 + (DataBase *) dataBase{
-    static DataBase *sharedMyManager = nil;
+    static DataBase *dataAccess = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedMyManager = [[self alloc] init];
+        dataAccess = [[self alloc] init];
     });
-    return sharedMyManager;
+    return dataAccess;
 }
 
 -(void)initia{

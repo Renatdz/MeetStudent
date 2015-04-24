@@ -18,12 +18,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-//    // conexao do banco
-//    [Parse enableLocalDatastore];
-//
-//    // Initialize Parse.
-//    [Parse setApplicationId:@"tujAI1LqcE6klqjHyQOI9zB9whgkEn8Vq7JnkCXr"
-//                  clientKey:@"tujAI1LqcE6klqjHyQOI9zB9whgkEn8Vq7JnkCXr"];
+    // conexao do banco
+    //https://parse.com/docs/ios_guide#localdatastore/iOS
+    [Parse enableLocalDatastore];
+    
+    // Initialize Parse.
+    [Parse setApplicationId:@"tujAI1LqcE6klqjHyQOI9zB9whgkEn8Vq7JnkCXr"
+                  clientKey:@"4mODPFqVOKfqGLdIauIbWKP86XjENjZW8N9kpel7"];
+    
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     return YES;
 }

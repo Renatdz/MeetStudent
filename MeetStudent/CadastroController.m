@@ -54,6 +54,12 @@
     _senha.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
     _senha.layer.borderWidth = 1.0;
     _senha.layer.cornerRadius = 5.0;
+    _confSenha.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
+    _confSenha.layer.borderWidth = 1.0;
+    _confSenha.layer.cornerRadius = 5.0;
+    _descricao.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
+    _descricao.layer.borderWidth = 1.0;
+    _descricao.layer.cornerRadius = 5.0;
     
 }
 
@@ -129,16 +135,21 @@
         if([_senha.text isEqualToString:_confSenha.text])
         {
             _senha.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
+            _confSenha.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
             _senha.layer.borderWidth = 1.0;
             _senha.layer.cornerRadius = 5.0;
+            _confSenha.layer.borderWidth = 1.0;
+            _confSenha.layer.cornerRadius = 5.0;
         }else{
             _senha.layer.borderColor = [[UIColor redColor] CGColor];
+            _confSenha.layer.borderColor = [[UIColor redColor] CGColor];
             _confSenha.text = @"";
             //return status false
             return 0;
         }
     }else{
             _senha.layer.borderColor = [[UIColor redColor] CGColor];
+            _confSenha.layer.borderColor = [[UIColor redColor] CGColor];
         //return status false
         return 0;
 
@@ -146,8 +157,9 @@
     
     NSString *desc = _descricao.text;
     if( (desc != nil) && (([desc stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]).length > 0)){
-        //_email.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
+        _descricao.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
     }else{
+        _descricao.layer.borderColor = [[UIColor redColor] CGColor];
         _descricao.text = @"Eu sou uma pessoa...";
         //return status false
         return 0;

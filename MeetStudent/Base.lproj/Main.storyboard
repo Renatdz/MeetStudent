@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -291,11 +291,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Instituições" id="Zfs-hL-FIL">
-                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="XxE-IC-uzM"/>
+                        <barButtonItem key="leftBarButtonItem" title="Sair" id="XxE-IC-uzM">
+                            <connections>
+                                <segue destination="Iun-Tv-h6E" kind="unwind" unwindAction="logout:" id="51v-MU-APm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGi-rS-L02" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Iun-Tv-h6E" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1771.5" y="119.5"/>
         </scene>

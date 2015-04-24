@@ -24,4 +24,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+//return for view controller and logout user
+- (IBAction)logout:(UIStoryboardSegue*)sender
+{
+    
+}
+
 @end

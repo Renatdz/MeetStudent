@@ -3,32 +3,53 @@
 //  MeetStudent
 //
 //  Created by Rafael Cabral on 24/04/15.
+//  Updated by Renato Mendes on 24/04/15.
 //  Copyright (c) 2015 RR. All rights reserved.
 //
 
 #import "CadastroController.h"
+#import "DataBase.h"
 
 @interface CadastroController ()
+<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIActionSheetDelegate>
+{
+    UIImageView *imagemPadrao; //imagem padrão a ser usada caso o usuário não defina uma.
+}
+
 
 @end
 
 @implementation CadastroController
 
+//|----------------------------------------------
+//|Sera executado quando a view for aparecer (carregada)
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self defaultValues];
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//|----------------------------------------------
+//|Sera executado quando a view for desaparecer (descarregada)
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+    // Referencia o Singleton
+    //DataBase *singleton = [DataBase dataBase];
+    
+    // Salva as informacoes do usuario no Singleton
+    //[singleton variavel = @""];
 }
 
 //|----------------------------------------------
 //| Define os valores/propriedades padrões
 -(void)defaultValues
 {
+    
+    // Carrega a imagem padrao para adicao de foto
+    //_image.image = [UIImage imageNamed:@"nome da imagem"];
+    //imagemPadrao = _image;
+    
     _idade.keyboardType = UIKeyboardTypeNumberPad;
     _senha.secureTextEntry = YES;
     _confSenha.secureTextEntry = YES;
@@ -169,5 +190,112 @@
     return 1;
 }
 
+//|-------------------------------------------------
+//|Aciona a câmera e tira foto para a imagem de perfil
+- (void)takePicture
+{
+    // Inicializa um imagePickerController
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    // Verifica se o device possui uma camera, caso contrario ira a penas carregar a biblioteca de fotos
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    }
+    // Delega ao controlador
+    imagePicker.delegate = self;
+    
+    // Comportamento diferente do imagePicker caso o device seja um iPad
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        // Utilizar o popOver
+        UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
+        
+        // Adiciona a operacao do popover para a fila de Operacoes
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [popover presentPopoverFromRect:_image.bounds inView:_image permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+            self.popOver = popover;
+        }];
+        
+    } else {
+        // Caso seja iphone, apresentar o imagePicker normalmente
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
+}
+
+//|-------------------------------------------------
+//|Pega a imagem da biblioteca ou da câmera e seta ela na imageView da view.
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // Recebe a imagem escolhida do dicionario info
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    // Seta a imagem escolhida na nossa view profileImage
+    _image.image = image;
+    
+    // Retira o imagePicker da tela
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+//|-------------------------------------------------
+//|Chama a aplicacao da biblioteca de fotos (nativa)
+-(void)choosePicture
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    // Seta como o tipo do imagePicker sendo a biblioteca de fotos
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    
+    // Delega ao controlador e retira o imagePicker da tela
+    imagePicker.delegate = self;
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+//|-------------------------------------------------
+//|Menu de escolha entre camera e biblioteca de fotos
+- (void)actionSheet:(UIActionSheet *)modalView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        // Troca entre os estilos da navigation bar
+        switch (buttonIndex)
+        {
+            case 0: // Camera
+                [self takePicture];
+                break;
+            case 1: // Biblioteca de fotos
+                [self choosePicture];
+                break;
+        }
+        // just add picker code here and it will work fine.
+        
+        
+        // Ask the system to re-query our -preferredStatusBarStyle.
+        // Pede ao sistema para atualizar o status da navBar
+        [self setNeedsStatusBarAppearanceUpdate];
+    }];
+}
+
+//|-------------------------------------------------
+//|Inicializa actionSheet (menu de escolhas) e seta seus valores.
+- (IBAction)optionBar:(id)sender
+{
+    // Inicializa a navBar
+    UIActionSheet *styleAlert = [[UIActionSheet alloc] initWithTitle:nil
+                                                            delegate:self
+                                                   cancelButtonTitle:NSLocalizedString(@"Cancel", @"")
+                                              destructiveButtonTitle:nil
+                                                   otherButtonTitles:NSLocalizedString(@"Tirar Foto", @""),
+                                 NSLocalizedString(@"Escolher Foto", @""),
+                                 nil];
+    
+    // Seta o mesmo estilo (navigationBar)
+    styleAlert.actionSheetStyle = (UIActionSheetStyle)self.navigationController.navigationBar.barStyle;
+    
+    // Mostra o navBar na self.view
+    [styleAlert showInView:self.view];
+}
 
 @end

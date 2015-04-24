@@ -193,11 +193,21 @@
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozc-dH-u13">
+                                <rect key="frame" x="0.0" y="66" width="375" height="213"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="optionBar:" destination="6c8-yM-2lt" eventType="touchUpInside" id="yxB-FC-MMh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="buttonImage" destination="ozc-dH-u13" id="Rp1-cp-z3A"/>
                         <outlet property="confSenha" destination="on9-3l-5zv" id="MzH-zW-dzr"/>
                         <outlet property="descricao" destination="Qrx-6h-vht" id="AcQ-7z-nUY"/>
                         <outlet property="email" destination="Fvl-Eh-cWS" id="TVQ-kR-0mY"/>

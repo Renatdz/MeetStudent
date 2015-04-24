@@ -9,6 +9,8 @@
 
 #import "CadastroController.h"
 #import "DataBase.h"
+#import <Parse/Parse.h>
+#import <CommonCrypto/CommonDigest.h>
 
 @interface CadastroController ()
 <UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIActionSheetDelegate>
@@ -95,20 +97,77 @@
     
     //validate
     if([self validate]){
-        NSLog(@"Informações válidas %d", [self validate]);
-        //redirect
-        [self performSegueWithIdentifier:@"CadastroSuccess" sender:self];
+        if([self isDuplicateEmail]){
+        
+        //define table database
+        PFObject *user = [PFObject objectWithClassName:@"usuarios"];
+        user[@"nome"] = _nome.text;
+        user[@"idade"] = _idade.text;
+        user[@"url_social"] = _urlSocial.text;
+        
+        //image
+        CGDataProviderRef provider = CGImageGetDataProvider(_image.image.CGImage);
+        NSData *dataImage = (id) CFBridgingRelease(CGDataProviderCopyData(provider));
+        NSString *nameImage = @"";
+        nameImage = [[self encryptPassword:_email.text] stringByAppendingString:@".jpg"];
+        PFFile *fileImage = [PFFile fileWithName:nameImage data:dataImage];
+        user[@"imagem"] = fileImage;
+        
+        user[@"descricao"] = _descricao.text;
+        user[@"sobrenome"] = _sobrenome.text;
+        user[@"sexo"] = _sexo.text;
+        user[@"email"] = _email.text;
+        user[@"senha"] = [self encryptPassword:_senha.text];
+        
+        [user saveInBackgroundWithBlock:^(BOOL success, NSError *error){
+            if(success){
+                //redirect
+                [self performSegueWithIdentifier:@"CadastroSuccess" sender:self];
+            }
+        }];
+            
+        }
     }else{
         NSLog(@"Informações não válidas");
     }
     
 }
 //|-------------------------------------------------
+//valid duplicidade de e-mail
+-(bool)isDuplicateEmail
+{
+
+    PFQuery *query = [PFQuery queryWithClassName:@"usuarios"];
+    [query whereKey:@"email" equalTo:_email.text];
+    NSArray *result = [query findObjects];
+    if([result count] > 0){
+        _email.layer.borderColor = [[UIColor redColor] CGColor];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atenção, o e-mail informado já existe no sistema!"
+                                                        message:@""
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return 0;
+    }else{
+        _email.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
+        return 1;
+    }
+}
+
+//|-------------------------------------------------
 //|Validação das informaçoes submetidas
 -(bool)validate
 {
+    if(_image.image == nil){
+        _image.layer.borderColor = [[UIColor redColor] CGColor];
+        return 0;
+    }else{
+        _image.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
+    }
+    
     NSString *name = _nome.text;
-
     if( (name != nil) && (([name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]).length > 0)){
         self.nome.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
     }else{
@@ -301,6 +360,23 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     // Mostra o navBar na self.view
     [styleAlert showInView:self.view];
+}
+
+//|----------------------------------------
+//Encrypt password
+-(NSString *)encryptPassword:(NSString *)key
+{
+    const char *cStr = [key UTF8String];
+    unsigned char digest[CC_MD5_DIGEST_LENGTH];
+    int size =  (int)[key length];
+    
+    CC_MD5(cStr, size, digest);
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    
+    return  output;
 }
 
 @end

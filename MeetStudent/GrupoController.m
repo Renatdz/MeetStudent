@@ -1,35 +1,30 @@
 //
-//  GruposController.m
+//  GrupoController.m
 //  MeetStudent
 //
 //  Created by Renato Mendes on 24/04/15.
 //  Copyright (c) 2015 RR. All rights reserved.
 //
 
-#import "GruposController.h"
+#import "GrupoController.h"
 
-@interface GruposController ()
+@interface GrupoController ()
 
 @end
 
-@implementation GruposController
+@implementation GrupoController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//|-----------------------------------------------
+//|Envio para a tabela o novo grupo
+- (IBAction)creatingGroup:(id)sender {
+    //_nomeNovoGrupo.text
 }
-
-//|-------------------------------------------------
-//|return for grupo mainview controller
-- (IBAction)returnGrupoMainViewController:(UIStoryboardSegue*)sender
-{
-}
-
+    
 /*
 #pragma mark - Navigation
 

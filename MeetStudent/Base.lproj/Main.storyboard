@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -80,7 +80,7 @@
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Login" id="O61-Ab-JK9">
-                                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="yHM-Ei-GeQ">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="yHM-Ei-GeQ">
                                             <connections>
                                                 <segue destination="Wlt-eh-uT8" kind="unwind" unwindAction="returnMainViewController:" id="Ct5-Or-ZkT"/>
                                             </connections>
@@ -96,9 +96,10 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nP-5P-4fN">
                                 <rect key="frame" x="16" y="357" width="343" height="39"/>
-                                <color key="backgroundColor" red="0.33796953909999999" green="0.33796953909999999" blue="0.33796953909999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.40784313729999999" green="0.63529411759999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Entrar">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -160,7 +161,7 @@
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Cadastro" id="CAs-9O-37m">
-                                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="1f0-V1-Z9u">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="1f0-V1-Z9u">
                                             <connections>
                                                 <segue destination="4Q6-x5-ZRr" kind="unwind" unwindAction="returnMainViewController:" id="okD-dO-G68"/>
                                             </connections>
@@ -185,9 +186,10 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qr1-0C-yWO">
                                 <rect key="frame" x="0.0" y="628" width="375" height="39"/>
-                                <color key="backgroundColor" red="0.33796953909999999" green="0.33796953909999999" blue="0.33796953909999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.40784313729999999" green="0.63529411759999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Cadastrar">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -235,6 +237,56 @@
             </objects>
             <point key="canvasLocation" x="816.5" y="500.5"/>
         </scene>
+        <!--Novo grupo-->
+        <scene sceneID="1Th-I6-0Ie">
+            <objects>
+                <viewController id="KsN-8u-92r" customClass="GrupoController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e04-FV-5Jw"/>
+                        <viewControllerLayoutGuide type="bottom" id="U2T-Bb-xVI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hTd-eW-vo1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U2m-4A-33C">
+                                <rect key="frame" x="16" y="216" width="343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kyy-Qv-wPi">
+                                <rect key="frame" x="16" y="288" width="343" height="39"/>
+                                <color key="backgroundColor" red="0.40784313729999999" green="0.63529411759999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Criar grupo">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="creatingGroup:" destination="KsN-8u-92r" eventType="touchUpInside" id="TH4-9X-mL7"/>
+                                    <segue destination="0L3-sK-RRH" kind="unwind" unwindAction="returnGrupoMainViewController:" id="2Bf-n1-DHa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Novo grupo" id="EQ2-cx-pdC">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="Pk9-mV-378">
+                            <connections>
+                                <segue destination="0L3-sK-RRH" kind="unwind" unwindAction="returnGrupoMainViewController:" id="pg2-fU-8z7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="nomeNovoGrupo" destination="U2m-4A-33C" id="vn3-t1-cEm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Dq-JK-IPZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="0L3-sK-RRH" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3197.5" y="-638.5"/>
+        </scene>
         <!--Grupos-->
         <scene sceneID="N2k-s3-7XY">
             <objects>
@@ -263,6 +315,11 @@
                         <barButtonItem key="leftBarButtonItem" title="Voltar" id="qoK-3o-bA7">
                             <connections>
                                 <segue destination="S5j-Ar-Xxw" kind="unwind" unwindAction="returnTableMainViewController:" id="pJj-1A-raP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="g59-DI-0u9">
+                            <connections>
+                                <segue destination="KsN-8u-92r" kind="show" id="hT2-gO-tXR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -444,19 +501,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="consideracoesView" destination="hRX-8g-zoS" id="HWv-YC-7uh"/>
-                        <outlet property="idadeField" destination="2JH-y8-nRg" id="vej-Dl-kRv"/>
-                        <outlet property="imageView" destination="fNG-tT-Qhh" id="Aas-JC-Sfx"/>
-                        <outlet property="mediaField" destination="6bh-yD-qs5" id="5gd-T1-DXQ"/>
-                        <outlet property="nameField" destination="ulC-yd-yxJ" id="h45-7K-iW1"/>
-                        <outlet property="sexoField" destination="yNP-7S-oFW" id="RtH-65-N9Y"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePL-Dd-vdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Xfw-Tw-vzx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4066.5" y="119.5"/>
+            <point key="canvasLocation" x="4106.5" y="119.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="91p-7m-HGz">
@@ -473,7 +522,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvu-5R-zG9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3158.5" y="119.5"/>
+            <point key="canvasLocation" x="3197.5" y="119.5"/>
         </scene>
         <!--Pessoas-->
         <scene sceneID="lCf-Tx-dOJ">
@@ -511,7 +560,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rw1-Pr-Jfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qPH-T8-YGV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3607.5" y="119.5"/>
+            <point key="canvasLocation" x="3653.5" y="119.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

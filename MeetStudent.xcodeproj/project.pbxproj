@@ -36,6 +36,7 @@
 		A4D11F3D1AEAAEB700374487 /* InstituicoesController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F3C1AEAAEB700374487 /* InstituicoesController.m */; };
 		A4D11F401AEAAF5000374487 /* GruposController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F3F1AEAAF5000374487 /* GruposController.m */; };
 		A4D11F431AEAAFC200374487 /* PessoasController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F421AEAAFC200374487 /* PessoasController.m */; };
+		A4D11F461AEACFC300374487 /* GrupoController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F451AEACFC300374487 /* GrupoController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,8 @@
 		A4D11F3F1AEAAF5000374487 /* GruposController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GruposController.m; sourceTree = "<group>"; };
 		A4D11F411AEAAFC200374487 /* PessoasController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PessoasController.h; sourceTree = "<group>"; };
 		A4D11F421AEAAFC200374487 /* PessoasController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PessoasController.m; sourceTree = "<group>"; };
+		A4D11F441AEACFC300374487 /* GrupoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrupoController.h; sourceTree = "<group>"; };
+		A4D11F451AEACFC300374487 /* GrupoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrupoController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +234,8 @@
 				A4D11F3C1AEAAEB700374487 /* InstituicoesController.m */,
 				A4D11F411AEAAFC200374487 /* PessoasController.h */,
 				A4D11F421AEAAFC200374487 /* PessoasController.m */,
+				A4D11F441AEACFC300374487 /* GrupoController.h */,
+				A4D11F451AEACFC300374487 /* GrupoController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -350,6 +355,7 @@
 				A4D11F401AEAAF5000374487 /* GruposController.m in Sources */,
 				A4D11F131AE997B900374487 /* AppDelegate.m in Sources */,
 				A4D11F371AE9CDE200374487 /* DataBase.m in Sources */,
+				A4D11F461AEACFC300374487 /* GrupoController.m in Sources */,
 				A4D11F3D1AEAAEB700374487 /* InstituicoesController.m in Sources */,
 				A4D11F101AE997B900374487 /* main.m in Sources */,
 			);

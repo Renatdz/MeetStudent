@@ -80,7 +80,7 @@
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Login" id="O61-Ab-JK9">
-                                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="yHM-Ei-GeQ">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="yHM-Ei-GeQ">
                                             <connections>
                                                 <segue destination="Wlt-eh-uT8" kind="unwind" unwindAction="returnMainViewController:" id="Ct5-Or-ZkT"/>
                                             </connections>
@@ -98,7 +98,7 @@
                                 <rect key="frame" x="16" y="357" width="343" height="39"/>
                                 <color key="backgroundColor" red="0.40784313729999999" green="0.63529411759999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Entrar">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -161,7 +161,7 @@
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Cadastro" id="CAs-9O-37m">
-                                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="1f0-V1-Z9u">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="1f0-V1-Z9u">
                                             <connections>
                                                 <segue destination="4Q6-x5-ZRr" kind="unwind" unwindAction="returnMainViewController:" id="okD-dO-G68"/>
                                             </connections>
@@ -188,7 +188,7 @@
                                 <rect key="frame" x="0.0" y="628" width="375" height="39"/>
                                 <color key="backgroundColor" red="0.40784313729999999" green="0.63529411759999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Cadastrar">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>

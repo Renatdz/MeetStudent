@@ -20,7 +20,7 @@
     [super viewDidLoad];
     //set defaults
     if([self isLogin]){
-        
+        [self performSegueWithIdentifier:@"LoginSuccess" sender:self];
     }
     
     [self genericValues:_usuario];
@@ -38,8 +38,10 @@
 {
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
     NSLog(@"%@",[user objectForKey:@"nome"]);
-    
-    return true;
+    if([user objectForKey:@"nome"] == nil)
+        return false;
+    else
+        return true;
 }
 - (IBAction)logar:(id)sender {
     if([self validate]){

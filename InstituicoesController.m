@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //Test Section
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    
+    NSLog(@"%@",[user objectForKey:@"nome"]);
+    
 }
 
 - (void)didReceiveMemoryWarning {

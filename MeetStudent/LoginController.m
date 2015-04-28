@@ -35,13 +35,20 @@
         [query whereKey:@"email" equalTo:_usuario.text];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error && ([objects count] > 0) ) {
+                NSString *nome  = [objects[0] objectForKey:@"nome"];
                 NSString *email = [objects[0] objectForKey:@"email"];
-                NSString *pass = [objects[0] objectForKey:@"senha"];
+                NSString *pass  = [objects[0] objectForKey:@"senha"];
                 
                 if( [email stringByAppendingString:_usuario.text]
-                   && [pass stringByAppendingString:_password.text] )
+                   && [pass stringByAppendingString:_password.text] ){
+                    NSUserDefaults *section = [NSUserDefaults standardUserDefaults];
+                    
+                    //set section on userDefaults
+                    [section setObject:nome forKey:@"nome"];
+                    [section setObject:email forKey:@"email"];
+                    
                     [self performSegueWithIdentifier:@"LoginSuccess" sender:self];
-                else
+                }else
                     [self alertView];
                 
             }else{

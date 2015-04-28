@@ -37,6 +37,19 @@
     
 }
 
+//|----------------------------------------------
+//logout
+- (IBAction)logout:(id)sender {
+    NSLog(@"logout");
+    NSUserDefaults *session = [NSUserDefaults standardUserDefaults];
+    [session removeObjectForKey:@"email"];
+    [session removeObjectForKey:@"nome"];
+    session = nil;
+
+    
+   // [self performSegueWithIdentifier:@"ViewInit" sender:self];
+}
+
 /*
 #pragma mark - Navigation
 

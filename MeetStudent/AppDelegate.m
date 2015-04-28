@@ -29,9 +29,28 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    if([self isLogin]){
+        self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        
+        //construct storyboard
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *controller = [story instantiateViewControllerWithIdentifier:@"NavigationInit"];
+        [self.window setRootViewController:controller];//set view controller
+    }
+    
     return YES;
 }
-
+//|-------------------------------------------------
+// Usuário logado?
+-(bool)isLogin
+{
+    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+    NSLog(@"%@",[user objectForKey:@"nome"]);
+    if([user objectForKey:@"nome"] == nil)
+        return false;
+    else
+        return true;
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

@@ -19,10 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //set defaults
-    if([self isLogin]){
-        [self performSegueWithIdentifier:@"LoginSuccess" sender:self];
-    }
-    
     [self genericValues:_usuario];
     [self genericValues:_password];
     _password.secureTextEntry = YES;
@@ -32,17 +28,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-//|-------------------------------------------------
-// Usuário logado
--(bool)isLogin
-{
-    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-    NSLog(@"%@",[user objectForKey:@"nome"]);
-    if([user objectForKey:@"nome"] == nil)
-        return false;
-    else
-        return true;
-}
+
 - (IBAction)logar:(id)sender {
     if([self validate]){
         

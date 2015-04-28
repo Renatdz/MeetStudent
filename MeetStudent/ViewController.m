@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "InstituicoesController.h"
 
 @interface ViewController ()
 
@@ -16,20 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-//|-------------------------------------------------
-//|return for view controller and logout user
-- (IBAction)logout:(UIStoryboardSegue*)sender
-{
-    
 }
 
 //|-------------------------------------------------

@@ -18,11 +18,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //Test Section
-    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-    
-    NSLog(@"%@",[user objectForKey:@"nome"]);
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,14 +35,12 @@
 //|----------------------------------------------
 //logout
 - (IBAction)logout:(id)sender {
-    NSLog(@"logout");
     NSUserDefaults *session = [NSUserDefaults standardUserDefaults];
     [session removeObjectForKey:@"email"];
     [session removeObjectForKey:@"nome"];
     session = nil;
-
     
-   // [self performSegueWithIdentifier:@"ViewInit" sender:self];
+    [self performSegueWithIdentifier:@"LogoutSuccess" sender:self];
 }
 
 /*

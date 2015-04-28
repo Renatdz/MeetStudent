@@ -29,17 +29,19 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *controller = [story instantiateViewControllerWithIdentifier:@"InitView"];
+    [self.window setRootViewController:controller];//set view controller
+    
     if([self isLogin]){
-        self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        
-        //construct storyboard
-        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UIViewController *controller = [story instantiateViewControllerWithIdentifier:@"NavigationInit"];
         [self.window setRootViewController:controller];//set view controller
     }
     
     return YES;
 }
+
 //|-------------------------------------------------
 // Usuário logado?
 -(bool)isLogin

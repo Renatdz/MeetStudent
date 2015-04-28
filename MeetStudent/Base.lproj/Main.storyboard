@@ -103,7 +103,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uCz-76-oSi" kind="show" id="roN-9D-BWE"/>
+                                    <action selector="logar:" destination="HNI-2e-WFd" eventType="touchUpInside" id="O2n-zQ-Pcl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -113,6 +113,7 @@
                     <connections>
                         <outlet property="password" destination="eXO-44-gYe" id="WG6-VD-OJR"/>
                         <outlet property="usuario" destination="bp8-a0-ByW" id="vXP-vC-mM2"/>
+                        <segue destination="uCz-76-oSi" kind="presentation" identifier="LoginSuccess" id="jDQ-Re-Fqk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hj-C7-vLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -568,6 +569,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="roN-9D-BWE"/>
+        <segue reference="jDQ-Re-Fqk"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -52,7 +52,7 @@
     _image.clipsToBounds = YES;
     
     // Carrega a imagem padrao para adicao de foto
-    //_image.image = [UIImage imageNamed:@"nome da imagem"];
+    _image.image = [UIImage imageNamed:@"add-photo.png"];
     //imagemPadrao = _image;
 
     
@@ -60,35 +60,38 @@
     _idade.keyboardType = UIKeyboardTypeNumberPad;
     _senha.secureTextEntry = YES;
     _confSenha.secureTextEntry = YES;
-    //set border and radius
-    self.nome.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
-    _nome.layer.borderWidth = 1.0;
-    _nome.layer.cornerRadius = 5.0;
-    _sobrenome.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
-    _sobrenome.layer.borderWidth = 1.0;
-    _sobrenome.layer.cornerRadius = 5.0;
-    _idade.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
-    _idade.layer.borderWidth = 1.0;
-    _idade.layer.cornerRadius = 5.0;
-    _sexo.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
-    _sexo.layer.borderWidth = 1.0;
-    _sexo.layer.cornerRadius = 5.0;
-    _email.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
-    _urlSocial.layer.borderWidth = 1.0;
-    _urlSocial.layer.cornerRadius = 5.0;
-    _urlSocial.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
-    _email.layer.borderWidth = 1.0;
-    _email.layer.cornerRadius = 5.0;
-    _senha.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
-    _senha.layer.borderWidth = 1.0;
-    _senha.layer.cornerRadius = 5.0;
-    _confSenha.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
-    _confSenha.layer.borderWidth = 1.0;
-    _confSenha.layer.cornerRadius = 5.0;
-    _descricao.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
-    _descricao.layer.borderWidth = 1.0;
-    _descricao.layer.cornerRadius = 5.0;
+    //set generic border and radius
+    [self genericValues:_nome];
+    [self genericValues:_sobrenome];
+    [self genericValues:_idade];
+    [self genericValues:_sexo];
+    [self genericValues:_email];
+    [self genericValues:_senha];
+    [self genericValues:_confSenha];
+    [self genericValues:_urlSocial];
+   
     
+}
+-(void) genericValues:(UITextField *) textField
+{
+    textField.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
+    textField.layer.borderWidth = 1.0;
+    textField.layer.cornerRadius = 5.0;
+    textField.delegate = self;
+}
+
+//|-------------------------------------------------
+//Ocultar teclado
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[self view]endEditing:YES];
+}
+//|----------------------------------------------
+//return keyboard to textField
+-(BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return NO;
 }
 
 //|-----------------------------------------------

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CadastroController : UIViewController
+@interface CadastroController : UIViewController<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UIButton    *buttonImage;

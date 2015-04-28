@@ -193,7 +193,6 @@
 				A4D11F141AE997B900374487 /* ViewController.h */,
 				A4D11F151AE997B900374487 /* ViewController.m */,
 				A4D11F171AE997B900374487 /* Main.storyboard */,
-				A4D11F1A1AE997B900374487 /* Images.xcassets */,
 				A4D11F1C1AE997B900374487 /* LaunchScreen.xib */,
 				A4D11F0D1AE997B900374487 /* Supporting Files */,
 			);
@@ -203,6 +202,7 @@
 		A4D11F0D1AE997B900374487 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A4D11F1A1AE997B900374487 /* Images.xcassets */,
 				A4D11F0E1AE997B900374487 /* Info.plist */,
 				A4D11F0F1AE997B900374487 /* main.m */,
 			);

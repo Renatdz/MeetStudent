@@ -87,6 +87,19 @@
         return 1;
     }
 }
+//|-------------------------------------------------
+//Ocultar teclado
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[self view]endEditing:YES];
+}
+//|----------------------------------------------
+//return keyboard to textField
+-(BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return NO;
+}
 
 //|-------------------------------------------------
 //show message popup

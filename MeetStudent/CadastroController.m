@@ -50,6 +50,7 @@
     //set radius image
     _image.layer.cornerRadius = CGRectGetHeight(_image.bounds) / 2.0;
     _image.clipsToBounds = YES;
+    _image.layer.masksToBounds = YES;
     
     // Carrega a imagem padrao para adicao de foto
     _image.image = [UIImage imageNamed:@"add-photo.png"];

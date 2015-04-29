@@ -80,7 +80,7 @@
     if([result count] > 0){
         _nomeNovoGrupo.layer.borderColor = [[UIColor redColor] CGColor];
         
-        [self messagePopup:@"Atenção, este já existe no sistema!"];
+        [self messagePopup:@"Atenção, este grupo já existe no sistema!"];
         return 0;
     }else{
         _nomeNovoGrupo.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/

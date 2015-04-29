@@ -338,7 +338,6 @@
         <!--Instituições-->
         <scene sceneID="a4f-zC-isA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RHX-9d-P6O" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="zXr-yL-8AE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Instituições" id="1LL-To-B6o"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -351,13 +350,14 @@
                         <segue destination="wD2-fj-6YU" kind="relationship" relationship="rootViewController" id="rdD-8Z-pln"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RHX-9d-P6O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="725.5" y="48.5"/>
         </scene>
         <!--Configurações-->
         <scene sceneID="L8o-Si-19V">
             <objects>
-                <viewController id="AvF-e7-6F6" sceneMemberID="viewController">
+                <viewController id="AvF-e7-6F6" customClass="ConfiguracoesController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MBC-LG-GPw"/>
                         <viewControllerLayoutGuide type="bottom" id="pPb-wt-xzb"/>
@@ -367,16 +367,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rpy-x7-p5h">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <color key="barTintColor" red="0.30588235294117649" green="0.46666666666666667" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Configurações" id="dPs-zd-Gcm"/>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ams-3e-CtM">
+                                <rect key="frame" x="16" y="94" width="359" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWJ-ke-Ohs">
+                                <rect key="frame" x="16" y="123" width="359" height="1"/>
+                                <color key="backgroundColor" red="0.86639419107726123" green="0.86639419107726123" blue="0.86639419107726123" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="highlightedColor" red="0.78016888230000003" green="0.15889503068032867" blue="0.12053038471941728" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CU5-Aq-fcD">
+                                <rect key="frame" x="16" y="214" width="359" height="30"/>
+                                <state key="normal" title="Sair">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout:" destination="AvF-e7-6F6" eventType="touchUpInside" id="fwN-9A-cMj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tl-Z0-fg4">
+                                <rect key="frame" x="16" y="243" width="359" height="1"/>
+                                <color key="backgroundColor" red="0.86639419110000004" green="0.86639419110000004" blue="0.86639419110000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="highlightedColor" red="0.78016888230000003" green="0.1588950307" blue="0.12053038470000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRR-eO-Vgb">
+                                <rect key="frame" x="16" y="151" width="359" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ty4-YP-tLU">
+                                <rect key="frame" x="16" y="180" width="359" height="1"/>
+                                <color key="backgroundColor" red="0.86639419110000004" green="0.86639419110000004" blue="0.86639419110000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="highlightedColor" red="0.78016888230000003" green="0.1588950307" blue="0.12053038470000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </label>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Configurações" id="Esm-b7-Kj1"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="presentation" identifier="LogoutSuccess" id="uJM-Ej-pgF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9f-mp-rSn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -454,17 +500,8 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Instituições" id="PLu-wk-U4n"/>
-                    <navigationItem key="navigationItem" title="Instituições" id="Zfs-hL-FIL">
-                        <barButtonItem key="leftBarButtonItem" title="Sair" id="XxE-IC-uzM">
-                            <connections>
-                                <action selector="logout:" destination="wD2-fj-6YU" id="Hth-T0-dBn"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Instituições" id="Zfs-hL-FIL"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <segue destination="vXZ-lx-hvc" kind="presentation" identifier="LogoutSuccess" id="4m4-LK-C5a"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGi-rS-L02" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

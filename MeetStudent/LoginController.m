@@ -42,7 +42,7 @@
                 NSString *idUser = [objects[0] objectId];
                 
                 if( [email stringByAppendingString:_usuario.text]
-                   && [pass stringByAppendingString:_password.text] ){
+                   && [pass stringByAppendingString: [self encryptPassword:_password.text]] ){
                     NSUserDefaults *section = [NSUserDefaults standardUserDefaults];
                     
                     //set section on userDefaults

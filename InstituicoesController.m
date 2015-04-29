@@ -38,6 +38,7 @@
     NSUserDefaults *session = [NSUserDefaults standardUserDefaults];
     [session removeObjectForKey:@"email"];
     [session removeObjectForKey:@"nome"];
+    [session removeObjectForKey:@"objectID"];
     session = nil;
     
     [self performSegueWithIdentifier:@"LogoutSuccess" sender:self];

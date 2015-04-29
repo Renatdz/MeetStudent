@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GrupoController : UIViewController
+@interface GrupoController : UIViewController<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nomeNovoGrupo;
 

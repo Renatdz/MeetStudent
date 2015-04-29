@@ -39,6 +39,7 @@
                 NSString *nome  = [objects[0] objectForKey:@"nome"];
                 NSString *email = [objects[0] objectForKey:@"email"];
                 NSString *pass  = [objects[0] objectForKey:@"senha"];
+                NSString *idUser = [objects[0] objectId];
                 
                 if( [email stringByAppendingString:_usuario.text]
                    && [pass stringByAppendingString:_password.text] ){
@@ -47,6 +48,7 @@
                     //set section on userDefaults
                     [section setObject:nome forKey:@"nome"];
                     [section setObject:email forKey:@"email"];
+                    [section setObject:idUser forKey:@"objectID"];
                     
                     [self performSegueWithIdentifier:@"LoginSuccess" sender:self];
                 }else

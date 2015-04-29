@@ -269,7 +269,6 @@
                                 </state>
                                 <connections>
                                     <action selector="creatingGroup:" destination="KsN-8u-92r" eventType="touchUpInside" id="TH4-9X-mL7"/>
-                                    <segue destination="0L3-sK-RRH" kind="unwind" unwindAction="returnGrupoMainViewController:" id="2Bf-n1-DHa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -285,12 +284,13 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="nomeNovoGrupo" destination="U2m-4A-33C" id="vn3-t1-cEm"/>
+                        <segue destination="khi-fg-15U" kind="presentation" identifier="CreateGroup" id="Qf7-a0-pUs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Dq-JK-IPZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0L3-sK-RRH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3197.5" y="-638.5"/>
+            <point key="canvasLocation" x="3197.5" y="-694.5"/>
         </scene>
         <!--Grupos-->
         <scene sceneID="N2k-s3-7XY">
@@ -572,5 +572,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="jDQ-Re-Fqk"/>
+        <segue reference="Qf7-a0-pUs"/>
     </inferredMetricsTieBreakers>
 </document>

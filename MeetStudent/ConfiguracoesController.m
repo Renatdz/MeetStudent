@@ -23,6 +23,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+//|----------------------------------------------
+//return start page
+-(IBAction)returnConfiguracoesMainViewController:(UIStoryboardSegue *)sender
+{
+    
+}
 
 //|----------------------------------------------
 //logout

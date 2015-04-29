@@ -375,9 +375,12 @@
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ams-3e-CtM">
                                 <rect key="frame" x="16" y="94" width="359" height="30"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Sobre">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="btl-Hb-vEg" kind="show" id="HGq-xu-W51"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWJ-ke-Ohs">
                                 <rect key="frame" x="16" y="123" width="359" height="1"/>
@@ -551,6 +554,41 @@
             </objects>
             <point key="canvasLocation" x="725.5" y="-768.5"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="MZH-KM-8OG">
+            <objects>
+                <viewController id="btl-Hb-vEg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tF8-lq-MNS"/>
+                        <viewControllerLayoutGuide type="bottom" id="YCv-Wz-NiS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wup-Vs-aBM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HWK-LS-v4z">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Sobre" id="Tfu-yW-zks">
+                                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="21P-Xe-y7P">
+                                            <connections>
+                                                <segue destination="rkl-yp-cNF" kind="unwind" unwindAction="returnConfiguracoesMainViewController:" id="M4P-m9-iTh"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g4p-ak-iw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rkl-yp-cNF" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1727.5" y="-228.5"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="1Xq-fO-Auj">
             <objects>
@@ -712,7 +750,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QVp-7w-1On"/>
         <segue reference="Ifx-Vz-BKa"/>
+        <segue reference="QVp-7w-1On"/>
     </inferredMetricsTieBreakers>
 </document>

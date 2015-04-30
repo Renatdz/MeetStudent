@@ -47,7 +47,6 @@
 -(bool)isLogin
 {
     NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-    NSLog(@"%@",[user objectForKey:@"nome"]);
     if([user objectForKey:@"nome"] == nil)
         return false;
     else

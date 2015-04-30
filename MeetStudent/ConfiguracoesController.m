@@ -29,6 +29,9 @@
 {
     
 }
+- (IBAction)ToGoViewSobre:(id)sender {
+    [self performSegueWithIdentifier:@"Sobre" sender:self];
+}
 
 //|----------------------------------------------
 //logout

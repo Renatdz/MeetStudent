@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GruposController : UITableViewController
+@interface GruposController : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UISearchBar *SearchBarGroup;
+@property (strong, nonatomic) IBOutlet UITableView *TableViewGroup;
 
 @end

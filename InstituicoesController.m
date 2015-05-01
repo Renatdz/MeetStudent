@@ -21,7 +21,8 @@
 
 @implementation InstituicoesController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [self loadDataGroups];
     
@@ -29,7 +30,8 @@
     self.TableViewInstitution.dataSource = self;
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -83,14 +85,28 @@
 }
 
 //|-------------------------------------------------
+//|Change color of cell and pick cell content current
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row%2 == 0) {
+        UIColor *altCellColor = [UIColor colorWithWhite:0.7 alpha:0.1];
+        cell.backgroundColor = altCellColor;
+    }
+    
+    //set instituition current
+    [self sectionCurrent:cell.textLabel.text];
+}
+
+
+//|-------------------------------------------------
 //|Add section of Instituition current
-- (void)sectionCurrent
+- (void)sectionCurrent:(NSString *)cellCurrent
 {
     //alloc singleton
     Section *singleton = [Section section];
     
     //set instituition current
-    [singleton setInstituition:@""];
+    [singleton setInstituition:cellCurrent];
 }
 
 //|-------------------------------------------------
@@ -102,7 +118,8 @@
 
 //|----------------------------------------------
 //logout
-- (IBAction)logout:(id)sender {
+- (IBAction)logout:(id)sender
+{
     NSUserDefaults *session = [NSUserDefaults standardUserDefaults];
     [session removeObjectForKey:@"email"];
     [session removeObjectForKey:@"nome"];

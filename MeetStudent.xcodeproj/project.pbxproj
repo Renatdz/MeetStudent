@@ -34,7 +34,7 @@
 		A4D11F1B1AE997B900374487 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D11F1A1AE997B900374487 /* Images.xcassets */; };
 		A4D11F1E1AE997B900374487 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4D11F1C1AE997B900374487 /* LaunchScreen.xib */; };
 		A4D11F2A1AE997B900374487 /* MeetStudentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F291AE997B900374487 /* MeetStudentTests.m */; };
-		A4D11F371AE9CDE200374487 /* DataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F361AE9CDE200374487 /* DataBase.m */; };
+		A4D11F371AE9CDE200374487 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F361AE9CDE200374487 /* Section.m */; };
 		A4D11F3D1AEAAEB700374487 /* InstituicoesController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F3C1AEAAEB700374487 /* InstituicoesController.m */; };
 		A4D11F401AEAAF5000374487 /* GruposController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F3F1AEAAF5000374487 /* GruposController.m */; };
 		A4D11F431AEAAFC200374487 /* PessoasController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F421AEAAFC200374487 /* PessoasController.m */; };
@@ -88,8 +88,8 @@
 		A4D11F231AE997B900374487 /* MeetStudentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetStudentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D11F281AE997B900374487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4D11F291AE997B900374487 /* MeetStudentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetStudentTests.m; sourceTree = "<group>"; };
-		A4D11F351AE9CDE200374487 /* DataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBase.h; sourceTree = "<group>"; };
-		A4D11F361AE9CDE200374487 /* DataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBase.m; sourceTree = "<group>"; };
+		A4D11F351AE9CDE200374487 /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		A4D11F361AE9CDE200374487 /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
 		A4D11F3B1AEAAEB700374487 /* InstituicoesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstituicoesController.h; path = ../InstituicoesController.h; sourceTree = "<group>"; };
 		A4D11F3C1AEAAEB700374487 /* InstituicoesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstituicoesController.m; path = ../InstituicoesController.m; sourceTree = "<group>"; };
 		A4D11F3E1AEAAF5000374487 /* GruposController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GruposController.h; sourceTree = "<group>"; };
@@ -253,8 +253,8 @@
 		A4D11F341AE9CD7700374487 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A4D11F351AE9CDE200374487 /* DataBase.h */,
-				A4D11F361AE9CDE200374487 /* DataBase.m */,
+				A4D11F351AE9CDE200374487 /* Section.h */,
+				A4D11F361AE9CDE200374487 /* Section.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -366,7 +366,7 @@
 				A4D11F131AE997B900374487 /* AppDelegate.m in Sources */,
 				0295D8FA1AF01A3F00D702F3 /* LoginController.m in Sources */,
 				02D399F11AF18CB900140F12 /* ConfiguracoesController.m in Sources */,
-				A4D11F371AE9CDE200374487 /* DataBase.m in Sources */,
+				A4D11F371AE9CDE200374487 /* Section.m in Sources */,
 				A4D11F461AEACFC300374487 /* GrupoController.m in Sources */,
 				A4D11F3D1AEAAEB700374487 /* InstituicoesController.m in Sources */,
 				A4D11F101AE997B900374487 /* main.m in Sources */,

@@ -6,22 +6,22 @@
 //  Copyright (c) 2015 RR. All rights reserved.
 //
 
-#import "DataBase.h"
+#import "Section.h"
 #import <Parse/Parse.h>
 
-@implementation DataBase
+@implementation Section
 
-+ (DataBase *) dataBase{
-    static DataBase *dataAccess = nil;
++ (Section *) section{
+    static Section *sectionCurrent = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        dataAccess = [[self alloc] init];
+        sectionCurrent = [[self alloc] init];
     });
-    return dataAccess;
+    return sectionCurrent;
 }
 
 -(void)initia{
-
+    
 }
 
 - (id)init {
@@ -29,6 +29,7 @@
     if (self = [super init]) {
         // Instanciando os dicionarios
         [self initia];
+        
     }
     return self;
 }

@@ -8,7 +8,7 @@
 //
 
 #import "CadastroController.h"
-#import "DataBase.h"
+#import "Section.h"
 #import <Parse/Parse.h>
 #import <CommonCrypto/CommonDigest.h>
 
@@ -37,7 +37,7 @@
     [super viewDidDisappear:animated];
     
     // Referencia o Singleton
-    //DataBase *singleton = [DataBase dataBase];
+    //Section *singleton = [Section section];
     
     // Salva as informacoes do usuario no Singleton
     //[singleton variavel = @""];

@@ -9,6 +9,7 @@
 #import "InstituicoesController.h"
 #import <Parse/Parse.h>
 #import <CommonCrypto/CommonDigest.h>
+#import "Section.h"
 
 @interface InstituicoesController ()
 {
@@ -79,6 +80,17 @@
     cell.detailTextLabel.text = [totalSubtitle objectAtIndex:indexPath.row];
     
     return cell;
+}
+
+//|-------------------------------------------------
+//|Add section of Instituition current
+- (void)sectionCurrent
+{
+    //alloc singleton
+    Section *singleton = [Section section];
+    
+    //set instituition current
+    [singleton setInstituition:@""];
 }
 
 //|-------------------------------------------------

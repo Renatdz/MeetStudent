@@ -37,13 +37,18 @@
 //|----------------------------------------------
 //logout
 - (IBAction)logout:(id)sender {
+
+    [self dropSession];
+    //redirect
+    [self performSegueWithIdentifier:@"LogoutSuccess" sender:self];
+}
+-(void)dropSession
+{
     NSUserDefaults *session = [NSUserDefaults standardUserDefaults];
     [session removeObjectForKey:@"email"];
     [session removeObjectForKey:@"nome"];
     [session removeObjectForKey:@"objectID"];
     session = nil;
-    
-    [self performSegueWithIdentifier:@"LogoutSuccess" sender:self];
 }
 - (IBAction)dropAccountConfirm:(id)sender {
     NSLog(@"Apagar conta");
@@ -70,6 +75,7 @@
                 [result removeObjectForKey:@"senha"];
                 [result saveInBackground];
                 
+                [self dropSession];
                 //redirect user
                 [self performSegueWithIdentifier:@"LogoutSuccess" sender:self];
             }

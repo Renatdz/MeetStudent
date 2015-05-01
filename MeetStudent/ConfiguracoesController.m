@@ -7,6 +7,7 @@
 //
 
 #import "ConfiguracoesController.h"
+#import <Parse/Parse.h>
 
 @interface ConfiguracoesController ()
 
@@ -29,17 +30,58 @@
 {
     
 }
+- (IBAction)ToGoViewSobre:(id)sender {
+    [self performSegueWithIdentifier:@"Sobre" sender:self];
+}
 
 //|----------------------------------------------
 //logout
 - (IBAction)logout:(id)sender {
+
+    [self dropSession];
+    //redirect
+    [self performSegueWithIdentifier:@"LogoutSuccess" sender:self];
+}
+-(void)dropSession
+{
     NSUserDefaults *session = [NSUserDefaults standardUserDefaults];
     [session removeObjectForKey:@"email"];
     [session removeObjectForKey:@"nome"];
     [session removeObjectForKey:@"objectID"];
     session = nil;
+}
+- (IBAction)dropAccountConfirm:(id)sender {
+    NSLog(@"Apagar conta");
+    //popup confirm
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Deseja realmente apagar a conta?"
+                                                    message:@" "
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancelar"
+                                          otherButtonTitles:@"Sim",nil];
+    [alert show];
     
-    [self performSegueWithIdentifier:@"LogoutSuccess" sender:self];
+}
+//|-----------------------------------------------
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        //get session user
+        NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+        
+        //drop data
+        PFQuery *query = [PFQuery queryWithClassName:@"usuarios"];
+        [query whereKey:@"objectId" equalTo:[user objectForKey:@"objectID"]];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *result, NSError *error){
+            if(!error){
+                [result removeObjectForKey:@"senha"];
+                [result saveInBackground];
+                
+                [self dropSession];
+                //redirect user
+                [self performSegueWithIdentifier:@"LogoutSuccess" sender:self];
+            }
+        }];
+    }
+    
 }
 
 /*

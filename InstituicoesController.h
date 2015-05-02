@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InstituicoesController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface InstituicoesController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *TableViewInstitution;
+@property (nonatomic) NSMutableArray *totalIdsInstituition;
+@property (nonatomic) NSMutableArray *totalInstitution;
+@property (nonatomic) NSMutableArray *totalSubtitle;
 
 @end

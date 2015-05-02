@@ -13,8 +13,11 @@
 }
 
 @property (nonatomic, retain) NSString *instituition;
+@property (nonatomic, retain) NSString *instituitionId;
 @property (nonatomic, retain) NSString *group;
+@property (nonatomic, retain) NSString *groupId;
 @property (nonatomic, retain) NSString *people;
+@property (nonatomic, retain) NSString *peopleId;
 
 +(Section *)section;
 -(void)clean;

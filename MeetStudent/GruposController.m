@@ -11,11 +11,7 @@
 #import <CommonCrypto/CommonDigest.h>
 
 @interface GruposController ()
-{
-    NSMutableArray *totalGroups;
-    NSMutableArray *filteredGroups;
-    BOOL isFiltered;
-}
+
 @end
 
 @implementation GruposController
@@ -33,51 +29,51 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 //|-------------------------------------------------
 //|Search word on database and return filtered groups
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    if (searchText.length == 0) {
-        isFiltered = NO;
-    } else {
-        isFiltered = YES;
-        filteredGroups = [[NSMutableArray alloc]init];
-        
-        PFQuery *query = [PFQuery queryWithClassName:@"grupo"];
-        [query whereKey:@"nome" equalTo:searchText];
-        
-        filteredGroups = [[NSMutableArray alloc]init];
-        NSArray *result = [query findObjects];
-        
-        for (PFObject *group in result){
-            [filteredGroups addObject:group[@"nome"]];
-        }
-    }
-    [self.TableViewGroup reloadData];
-}
+//-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+//{
+//    if (searchText.length == 0) {
+//        _isFiltered = NO;
+//    } else {
+//        _isFiltered = YES;
+//        _filteredGroups = [[NSMutableArray alloc]init];
+//        
+//        PFQuery *query = [PFQuery queryWithClassName:@"grupo"];
+//        [query whereKey:@"nome" equalTo:searchText];
+//        
+//        _filteredGroups = [[NSMutableArray alloc]init];
+//        NSArray *result = [query findObjects];
+//        
+//        for (PFObject *group in result){
+//            [_filteredGroups addObject:group[@"nome"]];
+//        }
+//    }
+//    [self.TableViewGroup reloadData];
+//}
 
 //|-------------------------------------------------
 //|If search button clicked hidden keyboard
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    [self.TableViewGroup resignFirstResponder];
-}
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+//{
+//    [self.TableViewGroup resignFirstResponder];
+//}
 
 //|-------------------------------------------------
 //|Return information of the database
 - (void)loadDataGroups
 {
     PFQuery *query = [PFQuery queryWithClassName:@"grupo"];
-    [query selectKeys:@[@"nome"]];
+//    [query whereKey:@"pk_instituicao" equalTo:_instituitionId];
     
-    totalGroups = [[NSMutableArray alloc]init];
+    _totalGroups = [[NSMutableArray alloc]init];
+    
     NSArray *result = [query findObjects];
     
     for (PFObject *group in result){
-        [totalGroups addObject:group[@"nome"]];
+        [_totalGroups addObject:group[@"nome"]];
     }
 }
 
@@ -92,26 +88,25 @@
 //|Return number of rows of table
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (isFiltered) {
-        return [filteredGroups count];
+    if (_isFiltered) {
+        return [_filteredGroups count];
     }
-    return [totalGroups count];
+    return [_totalGroups count];
 }
 
 //|-------------------------------------------------
 //|Inject information of the database in table
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"cellGroup";
+    UITableViewCell *cell = [_TableViewGroup dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    if (cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    if (!isFiltered) {
-        cell.textLabel.text = [totalGroups objectAtIndex:indexPath.row];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    if (!_isFiltered) {
+        cell.textLabel.text = [_totalGroups objectAtIndex:indexPath.row];
     } else { // is Filtered
-        cell.textLabel.text = [filteredGroups objectAtIndex:indexPath.row];
+        cell.textLabel.text = [_filteredGroups objectAtIndex:indexPath.row];
     }
     return cell;
 }
@@ -120,6 +115,7 @@
 //|Return for grupo mainview controller
 - (IBAction)returnGrupoMainViewController:(UIStoryboardSegue*)sender
 {
+    
 }
 
 /*

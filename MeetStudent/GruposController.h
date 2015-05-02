@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GruposController : UIViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface GruposController : UITableViewController <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *SearchBarGroup;
 @property (strong, nonatomic) IBOutlet UITableView *TableViewGroup;
+
+@property (nonatomic) NSString *instituition;
+@property (nonatomic) NSString *instituitionId;
+
+@property (nonatomic) NSMutableArray *totalGroups;
+@property (nonatomic) NSMutableArray *filteredGroups;
+
+@property (nonatomic) BOOL isFiltered;
 
 @end

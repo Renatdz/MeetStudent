@@ -10,12 +10,9 @@
 #import <Parse/Parse.h>
 #import <CommonCrypto/CommonDigest.h>
 #import "Section.h"
+#import "GruposController.h"
 
 @interface InstituicoesController ()
-{
-    NSMutableArray *totalInstitution;
-    NSMutableArray *totalSubtitle;
-}
 
 @end
 
@@ -33,7 +30,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 //|-------------------------------------------------
@@ -43,70 +39,72 @@
     //instituicao
     PFQuery *query = [PFQuery queryWithClassName:@"instituicao"];
     
-    totalInstitution = [[NSMutableArray alloc]init];
-    totalSubtitle    = [[NSMutableArray alloc]init];
+    _totalInstitution = [[NSMutableArray alloc]init];
+    _totalSubtitle    = [[NSMutableArray alloc]init];
     NSArray *result = [query findObjects];
     
     for (PFObject *instituition in result){
-        [totalInstitution addObject:instituition[@"instituicao"]];
-        [totalSubtitle addObject:instituition[@"subtitulo"]];
+        [_totalIdsInstituition addObject:instituition[@"objectId"]];
+        [_totalInstitution addObject:instituition[@"instituicao"]];
+        [_totalSubtitle addObject:instituition[@"subtitulo"]];
     }
 }
 
+#pragma mark - Table view data source
+
 //|-------------------------------------------------
 //|Return number of sections on table
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 //|-------------------------------------------------
 //|Return number of rows of table
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [totalInstitution count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_totalInstitution count];
 }
 
 //|-------------------------------------------------
 //|Inject information of the database in table cell
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"cellInstituition";
     
-    if (cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
+    UITableViewCell *cell = [_TableViewInstitution dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text       = [totalInstitution objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [totalSubtitle objectAtIndex:indexPath.row];
+    cell.accessoryType        = UITableViewCellAccessoryDisclosureIndicator;
+    cell.textLabel.text       = [_totalInstitution objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text = [_totalSubtitle objectAtIndex:indexPath.row];
     
     return cell;
 }
 
 //|-------------------------------------------------
-//|Change color of cell and pick cell content current
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row%2 == 0) {
-        UIColor *altCellColor = [UIColor colorWithWhite:0.7 alpha:0.1];
-        cell.backgroundColor = altCellColor;
-    }
-    
-    //set instituition current
-    [self sectionCurrent:cell.textLabel.text];
-}
-
-
-//|-------------------------------------------------
 //|Add section of Instituition current
-- (void)sectionCurrent:(NSString *)cellCurrent
+- (void)sectionCurrent:(NSString *)cellCurrent id:(NSString *)cellCurrentId
 {
     //alloc singleton
     Section *singleton = [Section section];
     
     //set instituition current
     [singleton setInstituition:cellCurrent];
+    [singleton setInstituitionId:cellCurrentId];
+}
+
+//|-------------------------------------------------
+//|send instituition current on groups controller and add instituition on singleton
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *path = [self.TableViewInstitution indexPathForSelectedRow];
+    GruposController *GC;
+    
+    //set instituition current on singleton
+    [self sectionCurrent:[_totalInstitution objectAtIndex:path.row]
+                      id:[_totalIdsInstituition objectAtIndex:path.row]];
+    
+    GC = [segue destinationViewController];
+    GC.instituition   = [_totalInstitution objectAtIndex:path.row];
+    GC.instituitionId = [_totalIdsInstituition objectAtIndex:path.row];
 }
 
 //|-------------------------------------------------
@@ -115,28 +113,5 @@
 {
     
 }
-
-//|----------------------------------------------
-//logout
-- (IBAction)logout:(id)sender
-{
-    NSUserDefaults *session = [NSUserDefaults standardUserDefaults];
-    [session removeObjectForKey:@"email"];
-    [session removeObjectForKey:@"nome"];
-    [session removeObjectForKey:@"objectID"];
-    session = nil;
-    
-    [self performSegueWithIdentifier:@"LogoutSuccess" sender:self];
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

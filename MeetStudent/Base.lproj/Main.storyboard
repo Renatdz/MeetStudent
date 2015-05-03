@@ -930,6 +930,7 @@
                             <outlet property="delegate" destination="xSZ-hs-vWi" id="Bm7-af-fPC"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Pessoas" id="aDc-aR-pSk">
                         <barButtonItem key="leftBarButtonItem" title="Voltar" id="ey8-d5-MCF">
                             <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -937,11 +938,19 @@
                                 <segue destination="qPH-T8-YGV" kind="unwind" unwindAction="returnGrupoMainViewController:" id="rGf-hE-e8c"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WiS-oC-yim">
+                            <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="iAddGroup:" destination="xSZ-hs-vWi" id="ZrS-la-QqP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="SearchBarPeople" destination="Bya-CO-wdD" id="edr-nu-M0B"/>
                         <outlet property="TableViewPeople" destination="dH9-r7-WUY" id="lHa-7N-Mb4"/>
+                        <outlet property="iGroup" destination="WiS-oC-yim" id="zgb-Lt-QU7"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rw1-Pr-Jfe" userLabel="First Responder" sceneMemberID="firstResponder"/>

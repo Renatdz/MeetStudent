@@ -54,7 +54,7 @@
             _sexo.text = [user[@"sexo"] capitalizedString];
             _social.text = user[@"url_social"];
             _email.text = user[@"email"];
-            _descricao.text = [user[@"descricao"] capitalizedString];
+            _descricao.text = user[@"descricao"];
             //set img
             PFFile *file = user[@"imagem"];
             [file getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {

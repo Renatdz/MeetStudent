@@ -13,6 +13,9 @@
 #import "PessoaController.h"
 
 @interface PessoasController ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *iGroup;
+
+@property (nonatomic) Section *singleton;
 
 @end
 
@@ -23,8 +26,8 @@
     [self loadDataGroups];
     
     //define title NavigationItem
-    Section *singleton = [Section section];
-    self.navigationItem.title = singleton.group;
+    self.singleton = [Section section];
+    self.navigationItem.title = self.singleton.group;
     
     self.SearchBarPeople.delegate   = self;
     self.TableViewPeople.delegate   = self;
@@ -34,6 +37,52 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+//|------------------------------------------------
+//Vincular-se ao grupo (singleton.groupId;)
+- (IBAction)iAddGroup:(id)sender {
+
+    NSUserDefaults *userLogado = [NSUserDefaults standardUserDefaults];
+    NSString *objectId = [userLogado objectForKey:@"objectID"];
+    
+    if([self isVinculo:objectId]){
+        
+        PFObject *object = [PFObject objectWithClassName:@"it_group_users"];
+        object[@"pk_usuario"] = objectId;
+        object[@"pk_grupo"] = self.singleton.groupId;
+        
+        [object saveInBackgroundWithBlock:^(BOOL success, NSError *error){
+            if(!error){
+                [self msgAlert:@"Você foi adicionado ao grupo " NSString:@"Sucesso :D"];
+            }else{
+                [self msgAlert:@"Ocorreu um erro inesperado ao tentar vincular sua pessoa ao grupo " NSString:@"Ops :/"];
+            }
+        }];
+    }else
+        [self msgAlert:@"Você já está vinculado ao grupo " NSString:@"Ops :/"];
+}
+-(bool)isVinculo: (NSString *)objectId
+{
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"it_group_users"];
+    [query whereKey:@"pk_usuario" equalTo:objectId];
+    NSArray *result = [query findObjects];
+
+    return ([result count] > 0 ) ? 0 : 1;
+}
+-(void)msgAlert:(NSString *)msg NSString:(NSString *) status
+{
+    NSString *group = @"\"";
+    group = [group stringByAppendingString:self.singleton.group];
+    group = [group stringByAppendingString:@"\"!"];
+    msg = [msg stringByAppendingString:group];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:status
+                                                    message:msg
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 
 //|-------------------------------------------------
 //|Return information of the database

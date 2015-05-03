@@ -119,7 +119,7 @@
 //|Return for grupo mainview controller
 - (IBAction)returnGrupoMainViewController:(UIStoryboardSegue*)sender
 {
-    
+    [super viewDidLoad];
 }
 
 /*

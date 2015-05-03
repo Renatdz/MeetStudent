@@ -17,7 +17,7 @@
 @property (nonatomic) NSString *groupId;
 @property (nonatomic) NSString *instituitionId;
 
-@property (nonatomic) NSMutableArray *totalPeoplesIds;
+@property (nonatomic) NSMutableArray *totalPeoplesId;
 @property (nonatomic) NSMutableArray *totalPeoples;
 @property (nonatomic) NSMutableArray *filteredPeoples;
 

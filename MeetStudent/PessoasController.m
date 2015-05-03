@@ -22,6 +22,10 @@
     [super viewDidLoad];
     [self loadDataGroups];
     
+    //define title NavigationItem
+    Section *singleton = [Section section];
+    self.navigationItem.title = singleton.group;
+    
     self.SearchBarPeople.delegate   = self;
     self.TableViewPeople.delegate   = self;
     self.TableViewPeople.dataSource = self;
@@ -49,23 +53,27 @@
     for (PFObject *aa in result) {
         [groupRelationIds addObject:aa[@"pk_usuario"]];
         //NSLog(@"%@",aa[@"pk_usuario"]);
-    }
-
-    for(NSString *s in groupRelationIds)
-        NSLog(@"%@", s);
-    
+    }    
     //busca as pessoas relacionadas ao grupo
     PFQuery *query2 = [PFQuery queryWithClassName:@"usuarios"];
     [query2 whereKey:@"objectId" containedIn:groupRelationIds];
 
     _totalPeoples    = [[NSMutableArray alloc]init];
-    _totalPeoplesIds = [[NSMutableArray alloc]init];
+    _totalPeoplesId = [[NSMutableArray alloc]init];
     
     NSArray *result2 = [query2 findObjects];
     
-    for (PFObject *people in result2){
-        [_totalPeoples addObject:people[@"nome"]];
-        [_totalPeoplesIds addObject:[people objectId]];
+    for (PFObject *people in result2)
+    {
+        NSString *name  = people[@"nome"];
+        name = [name capitalizedString];
+        name = [name stringByAppendingString:@" "];
+        NSString *sobrenome = people[@"sobrenome"];
+        sobrenome = [sobrenome capitalizedString];
+        name = [name stringByAppendingString:sobrenome];
+        
+        [_totalPeoples addObject:name];
+        [_totalPeoplesId addObject:[people objectId]];
         //NSLog(@"%@",[people objectId]);
     }
 }
@@ -154,7 +162,7 @@
     
     //set people current on singleton
     [self sectionCurrent:[_totalPeoples objectAtIndex:path.row]
-                      id:[_totalPeoplesIds objectAtIndex:path.row]];
+                      id:[_totalPeoplesId objectAtIndex:path.row]];
     
     //Send to pessoasViewController
     PC = [segue destinationViewController];

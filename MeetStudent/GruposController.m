@@ -22,6 +22,9 @@
 {
     [super viewDidLoad];
     [self loadDataGroups];
+    //define title Navigation Item
+    Section *singleton = [Section section];
+    self.navigationItem.title = singleton.instituition;
     
     self.SearchBarGroup.delegate   = self;
     self.TableViewGroup.delegate   = self;

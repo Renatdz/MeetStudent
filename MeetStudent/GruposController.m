@@ -66,7 +66,7 @@
 - (void)loadDataGroups
 {
     PFQuery *query = [PFQuery queryWithClassName:@"grupo"];
-//    [query whereKey:@"pk_instituicao" equalTo:_instituitionId];
+    [query whereKey:@"pk_instituicao" equalTo:_instituitionId];
     
     _totalGroups = [[NSMutableArray alloc]init];
     

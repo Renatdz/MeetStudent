@@ -38,13 +38,13 @@
 {
     //instituicao
     PFQuery *query = [PFQuery queryWithClassName:@"instituicao"];
-    
+    _totalIdsInstituition = [[NSMutableArray alloc]init];
     _totalInstitution = [[NSMutableArray alloc]init];
     _totalSubtitle    = [[NSMutableArray alloc]init];
     NSArray *result = [query findObjects];
     
     for (PFObject *instituition in result){
-        [_totalIdsInstituition addObject:instituition[@"objectId"]];
+        [_totalIdsInstituition addObject:[instituition objectId]];
         [_totalInstitution addObject:instituition[@"instituicao"]];
         [_totalSubtitle addObject:instituition[@"subtitulo"]];
     }

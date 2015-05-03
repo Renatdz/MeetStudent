@@ -36,21 +36,34 @@
 - (void)loadDataGroups
 {
     Section *singleton = [Section section];
-    _instituitionId    = singleton.instituitionId;
     _groupId           = singleton.groupId;
     
-    // ?????
-    PFQuery *query = [PFQuery queryWithClassName:@"pessoa"];
+    //busca o grupo na tabela relacionada
+    PFQuery *query = [PFQuery queryWithClassName:@"it_group_users"];
     [query whereKey:@"pk_grupo" equalTo:_groupId];
-    [query whereKey:@"pk_instituicao" equalTo:_instituitionId];
-    
-    _totalPeoples = [[NSMutableArray alloc]init];
     
     NSArray *result = [query findObjects];
+
+    NSMutableArray *groupRelationIds = [[NSMutableArray alloc]init];
     
-    for (PFObject *people in result){
+    for (PFObject *aa in result) {
+        [groupRelationIds addObject:aa[@"pk_usuario"]];
+        //NSLog(@"%@",aa[@"pk_usuario"]);
+    }
+    
+    //busca as pessoas relacionadas ao grupo
+    PFQuery *query2 = [PFQuery queryWithClassName:@"usuarios"];
+    [query whereKey:@"objectId" containedIn:groupRelationIds];
+
+    _totalPeoples    = [[NSMutableArray alloc]init];
+    _totalPeoplesIds = [[NSMutableArray alloc]init];
+    
+    NSArray *result2 = [query2 findObjects];
+    
+    for (PFObject *people in result2){
         [_totalPeoples addObject:people[@"nome"]];
         [_totalPeoplesIds addObject:[people objectId]];
+        //NSLog(@"%@",[people objectId]);
     }
 }
 
@@ -104,7 +117,7 @@
 //|Inject information of the database in table
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"cellGroup";
+    static NSString *CellIdentifier = @"cellPeople";
     UITableViewCell *cell = [_TableViewPeople dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

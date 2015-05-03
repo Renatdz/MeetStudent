@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PessoasController : UITableViewController
+@interface PessoasController : UITableViewController <UISearchBarDelegate, UITabBarDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UISearchBar *SearchBarPeople;
+@property (strong, nonatomic) IBOutlet UITableView *TableViewPeople;
+
+@property (nonatomic) NSString *group;
+@property (nonatomic) NSString *groupId;
+@property (nonatomic) NSString *instituitionId;
+
+@property (nonatomic) NSMutableArray *totalPeoplesIds;
+@property (nonatomic) NSMutableArray *totalPeoples;
+@property (nonatomic) NSMutableArray *filteredPeoples;
+
+@property (nonatomic) BOOL isFiltered;
 
 @end

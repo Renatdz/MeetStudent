@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <CommonCrypto/CommonDigest.h>
 #import "Section.h"
+#import "PessoasController.h"
 
 @interface GruposController ()
 
@@ -33,36 +34,6 @@
 }
 
 //|-------------------------------------------------
-//|Search word on database and return filtered groups
-//-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-//{
-//    if (searchText.length == 0) {
-//        _isFiltered = NO;
-//    } else {
-//        _isFiltered = YES;
-//        _filteredGroups = [[NSMutableArray alloc]init];
-//        
-//        PFQuery *query = [PFQuery queryWithClassName:@"grupo"];
-//        [query whereKey:@"nome" equalTo:searchText];
-//        
-//        _filteredGroups = [[NSMutableArray alloc]init];
-//        NSArray *result = [query findObjects];
-//        
-//        for (PFObject *group in result){
-//            [_filteredGroups addObject:group[@"nome"]];
-//        }
-//    }
-//    [self.TableViewGroup reloadData];
-//}
-
-//|-------------------------------------------------
-//|If search button clicked hidden keyboard
-//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-//{
-//    [self.TableViewGroup resignFirstResponder];
-//}
-
-//|-------------------------------------------------
 //|Return information of the database
 - (void)loadDataGroups
 {
@@ -78,7 +49,37 @@
     
     for (PFObject *group in result){
         [_totalGroups addObject:group[@"nome"]];
+        [_totalGroupsIds addObject:[group objectId]];
     }
+}
+
+//|-------------------------------------------------
+//|Search word on totalGroups and return filtered groups
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText.length == 0) {
+        _isFiltered = NO;
+    } else {
+        _isFiltered = YES;
+        
+        _filteredGroups = [[NSMutableArray alloc]init];
+        
+        for (NSString *str in _totalGroups) {
+            NSRange stringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            
+            if (stringRange.location != NSNotFound) {
+                [_filteredGroups addObject:str];
+            }
+        }
+    }
+    [self.TableViewGroup reloadData];
+}
+
+//|-------------------------------------------------
+//|If search button clicked hidden keyboard
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self.TableViewGroup resignFirstResponder];
 }
 
 //|-------------------------------------------------
@@ -116,20 +117,37 @@
 }
 
 //|-------------------------------------------------
+//|Add section of Instituition current
+- (void)sectionCurrent:(NSString *)cellCurrent id:(NSString *)cellCurrentId
+{
+    //alloc singleton
+    Section *singleton = [Section section];
+    
+    //set group current
+    [singleton setGroup:cellCurrent];
+    [singleton setGroupId:cellCurrentId];
+}
+
+//|-------------------------------------------------
+//|send group current on peoples controller and add group on singleton
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *path = [self.TableViewGroup indexPathForSelectedRow];
+    PessoasController *PC;
+    
+    //set group current on singleton
+    [self sectionCurrent:[_totalGroups objectAtIndex:path.row]
+                      id:[_totalGroupsIds objectAtIndex:path.row]];
+    
+    //Send to gruposViewController
+    PC = [segue destinationViewController];
+}
+
+//|-------------------------------------------------
 //|Return for grupo mainview controller
 - (IBAction)returnGrupoMainViewController:(UIStoryboardSegue*)sender
 {
-    [super viewDidLoad];
+    //[super viewDidLoad];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

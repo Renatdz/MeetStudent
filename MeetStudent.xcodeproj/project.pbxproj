@@ -27,6 +27,7 @@
 		02DA773C1AEA799200D12731 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02DA773B1AEA799200D12731 /* SystemConfiguration.framework */; };
 		02DA773E1AEA79A400D12731 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02DA773D1AEA79A400D12731 /* libz.dylib */; };
 		02DA77401AEA79B200D12731 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02DA773F1AEA79B200D12731 /* libsqlite3.dylib */; };
+		A45F874C1AF5CDB40035B438 /* PessoaController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F874B1AF5CDB40035B438 /* PessoaController.m */; };
 		A4D11F101AE997B900374487 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F0F1AE997B900374487 /* main.m */; };
 		A4D11F131AE997B900374487 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F121AE997B900374487 /* AppDelegate.m */; };
 		A4D11F161AE997B900374487 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4D11F151AE997B900374487 /* ViewController.m */; };
@@ -75,6 +76,8 @@
 		02DA773B1AEA799200D12731 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		02DA773D1AEA79A400D12731 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		02DA773F1AEA79B200D12731 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		A45F874A1AF5CDB40035B438 /* PessoaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PessoaController.h; sourceTree = "<group>"; };
+		A45F874B1AF5CDB40035B438 /* PessoaController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PessoaController.m; sourceTree = "<group>"; };
 		A4D11F0A1AE997B900374487 /* MeetStudent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetStudent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D11F0E1AE997B900374487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4D11F0F1AE997B900374487 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -234,18 +237,20 @@
 			children = (
 				025EAD891AE9ECBD00A637B6 /* CadastroController.h */,
 				025EAD8A1AE9ECBD00A637B6 /* CadastroController.m */,
-				A4D11F3E1AEAAF5000374487 /* GruposController.h */,
-				A4D11F3F1AEAAF5000374487 /* GruposController.m */,
-				A4D11F3B1AEAAEB700374487 /* InstituicoesController.h */,
-				A4D11F3C1AEAAEB700374487 /* InstituicoesController.m */,
-				A4D11F411AEAAFC200374487 /* PessoasController.h */,
-				A4D11F421AEAAFC200374487 /* PessoasController.m */,
-				A4D11F441AEACFC300374487 /* GrupoController.h */,
-				A4D11F451AEACFC300374487 /* GrupoController.m */,
-				0295D8F81AF01A3F00D702F3 /* LoginController.h */,
-				0295D8F91AF01A3F00D702F3 /* LoginController.m */,
 				02D399EF1AF18CB900140F12 /* ConfiguracoesController.h */,
 				02D399F01AF18CB900140F12 /* ConfiguracoesController.m */,
+				A4D11F3E1AEAAF5000374487 /* GruposController.h */,
+				A4D11F3F1AEAAF5000374487 /* GruposController.m */,
+				A4D11F441AEACFC300374487 /* GrupoController.h */,
+				A4D11F451AEACFC300374487 /* GrupoController.m */,
+				A4D11F3B1AEAAEB700374487 /* InstituicoesController.h */,
+				A4D11F3C1AEAAEB700374487 /* InstituicoesController.m */,
+				0295D8F81AF01A3F00D702F3 /* LoginController.h */,
+				0295D8F91AF01A3F00D702F3 /* LoginController.m */,
+				A4D11F411AEAAFC200374487 /* PessoasController.h */,
+				A4D11F421AEAAFC200374487 /* PessoasController.m */,
+				A45F874A1AF5CDB40035B438 /* PessoaController.h */,
+				A45F874B1AF5CDB40035B438 /* PessoaController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 				0295D8FA1AF01A3F00D702F3 /* LoginController.m in Sources */,
 				02D399F11AF18CB900140F12 /* ConfiguracoesController.m in Sources */,
 				A4D11F371AE9CDE200374487 /* Section.m in Sources */,
+				A45F874C1AF5CDB40035B438 /* PessoaController.m in Sources */,
 				A4D11F461AEACFC300374487 /* GrupoController.m in Sources */,
 				A4D11F3D1AEAAEB700374487 /* InstituicoesController.m in Sources */,
 				A4D11F101AE997B900374487 /* main.m in Sources */,

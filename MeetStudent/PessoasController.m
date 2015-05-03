@@ -50,10 +50,13 @@
         [groupRelationIds addObject:aa[@"pk_usuario"]];
         //NSLog(@"%@",aa[@"pk_usuario"]);
     }
+
+    for(NSString *s in groupRelationIds)
+        NSLog(@"%@", s);
     
     //busca as pessoas relacionadas ao grupo
     PFQuery *query2 = [PFQuery queryWithClassName:@"usuarios"];
-    [query whereKey:@"objectId" containedIn:groupRelationIds];
+    [query2 whereKey:@"objectId" containedIn:groupRelationIds];
 
     _totalPeoples    = [[NSMutableArray alloc]init];
     _totalPeoplesIds = [[NSMutableArray alloc]init];

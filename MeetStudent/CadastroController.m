@@ -110,13 +110,9 @@
         user[@"url_social"] = _urlSocial.text;
         
         //image
-        CGDataProviderRef provider = CGImageGetDataProvider(_image.image.CGImage);
-        NSData *dataImage = (id) CFBridgingRelease(CGDataProviderCopyData(provider));
-        NSString *nameImage = @"";
-        nameImage = [[self encryptPassword:_email.text] stringByAppendingString:@".jpg"];
-        PFFile *fileImage = [PFFile fileWithName:nameImage data:dataImage];
-        user[@"imagem"] = fileImage;
-        
+        NSData *imageData = UIImagePNGRepresentation(_image.image);
+        PFFile *imageFile = [PFFile fileWithName:@"img.png" data:imageData];
+        user[@"imagem"] = imageFile;
         user[@"descricao"] = _descricao.text;
         user[@"sobrenome"] = _sobrenome.text;
         user[@"sexo"] = _sexo.text;

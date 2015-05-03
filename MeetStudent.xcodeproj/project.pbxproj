@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		025EAD8B1AE9ECBD00A637B6 /* CadastroController.m in Sources */ = {isa = PBXBuildFile; fileRef = 025EAD8A1AE9ECBD00A637B6 /* CadastroController.m */; };
+		0283A5341AF6790D009B6B6B /* UserPerfilController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0283A5331AF6790D009B6B6B /* UserPerfilController.m */; };
 		0295D8FA1AF01A3F00D702F3 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0295D8F91AF01A3F00D702F3 /* LoginController.m */; };
 		02D399F11AF18CB900140F12 /* ConfiguracoesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D399F01AF18CB900140F12 /* ConfiguracoesController.m */; };
 		02DA77251AEA783100D12731 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02DA771F1AEA783100D12731 /* Bolts.framework */; };
@@ -55,6 +56,8 @@
 /* Begin PBXFileReference section */
 		025EAD891AE9ECBD00A637B6 /* CadastroController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastroController.h; sourceTree = "<group>"; };
 		025EAD8A1AE9ECBD00A637B6 /* CadastroController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastroController.m; sourceTree = "<group>"; };
+		0283A5321AF6790D009B6B6B /* UserPerfilController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPerfilController.h; sourceTree = "<group>"; };
+		0283A5331AF6790D009B6B6B /* UserPerfilController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPerfilController.m; sourceTree = "<group>"; };
 		0295D8F81AF01A3F00D702F3 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		0295D8F91AF01A3F00D702F3 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		02D399EF1AF18CB900140F12 /* ConfiguracoesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfiguracoesController.h; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 		A4D11F331AE9CBC600374487 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0283A5321AF6790D009B6B6B /* UserPerfilController.h */,
+				0283A5331AF6790D009B6B6B /* UserPerfilController.m */,
 				025EAD891AE9ECBD00A637B6 /* CadastroController.h */,
 				025EAD8A1AE9ECBD00A637B6 /* CadastroController.m */,
 				02D399EF1AF18CB900140F12 /* ConfiguracoesController.h */,
@@ -368,6 +373,7 @@
 				025EAD8B1AE9ECBD00A637B6 /* CadastroController.m in Sources */,
 				A4D11F161AE997B900374487 /* ViewController.m in Sources */,
 				A4D11F401AEAAF5000374487 /* GruposController.m in Sources */,
+				0283A5341AF6790D009B6B6B /* UserPerfilController.m in Sources */,
 				A4D11F131AE997B900374487 /* AppDelegate.m in Sources */,
 				0295D8FA1AF01A3F00D702F3 /* LoginController.m in Sources */,
 				02D399F11AF18CB900140F12 /* ConfiguracoesController.m in Sources */,

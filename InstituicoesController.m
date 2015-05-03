@@ -38,9 +38,11 @@
 {
     //instituicao
     PFQuery *query = [PFQuery queryWithClassName:@"instituicao"];
+    
     _totalIdsInstituition = [[NSMutableArray alloc]init];
-    _totalInstitution = [[NSMutableArray alloc]init];
-    _totalSubtitle    = [[NSMutableArray alloc]init];
+    _totalInstitution     = [[NSMutableArray alloc]init];
+    _totalSubtitle        = [[NSMutableArray alloc]init];
+    
     NSArray *result = [query findObjects];
     
     for (PFObject *instituition in result){
@@ -102,9 +104,8 @@
     [self sectionCurrent:[_totalInstitution objectAtIndex:path.row]
                       id:[_totalIdsInstituition objectAtIndex:path.row]];
     
+    //Send to gruposViewController
     GC = [segue destinationViewController];
-    GC.instituition   = [_totalInstitution objectAtIndex:path.row];
-    GC.instituitionId = [_totalIdsInstituition objectAtIndex:path.row];
 }
 
 //|-------------------------------------------------

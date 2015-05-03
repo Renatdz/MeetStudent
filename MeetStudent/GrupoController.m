@@ -34,6 +34,7 @@
             //save data grupo
             [grupo saveInBackgroundWithBlock:^(BOOL success, NSError *error){
                 if(success){
+                    NSLog(@"sucesso");
                     //define table database relations
                     PFObject *relations = [PFObject objectWithClassName:@"it_group_users"];
                     relations[@"pk_usuario"] = [session objectForKey:@"objectID"];
@@ -51,8 +52,6 @@
                     [self messagePopup:@"Ops :/ \n Algo deu errado, por favor tente novamente"];
                 }
             }];
-            
-            
         }
     }
 }

@@ -9,6 +9,7 @@
 #import "GruposController.h"
 #import <Parse/Parse.h>
 #import <CommonCrypto/CommonDigest.h>
+#import "Section.h"
 
 @interface GruposController ()
 
@@ -65,6 +66,9 @@
 //|Return information of the database
 - (void)loadDataGroups
 {
+    Section *singleton = [Section section];
+    _instituitionId = singleton.instituitionId;
+    
     PFQuery *query = [PFQuery queryWithClassName:@"grupo"];
     [query whereKey:@"pk_instituicao" equalTo:_instituitionId];
     

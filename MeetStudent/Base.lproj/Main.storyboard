@@ -269,6 +269,7 @@
                                 </state>
                                 <connections>
                                     <action selector="creatingGroup:" destination="KsN-8u-92r" eventType="touchUpInside" id="TH4-9X-mL7"/>
+                                    <segue destination="0L3-sK-RRH" kind="unwind" unwindAction="returnGrupoMainViewController:" id="fBZ-Eb-D1H"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -284,7 +285,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="nomeNovoGrupo" destination="U2m-4A-33C" id="vn3-t1-cEm"/>
-                        <segue destination="VEN-hk-njz" kind="presentation" identifier="CreateGroup" id="lIH-n3-Ien"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Dq-JK-IPZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -394,7 +394,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ams-3e-CtM">
-                                <rect key="frame" x="16" y="94" width="359" height="30"/>
+                                <rect key="frame" x="8" y="94" width="359" height="30"/>
                                 <state key="normal" title="Sobre">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -409,15 +409,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="0.78016888230000003" green="0.15889503068032867" blue="0.12053038471941728" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CU5-Aq-fcD">
-                                <rect key="frame" x="16" y="214" width="359" height="30"/>
-                                <state key="normal" title="Sair">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="logout:" destination="AvF-e7-6F6" eventType="touchUpInside" id="fwN-9A-cMj"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tl-Z0-fg4">
                                 <rect key="frame" x="16" y="243" width="359" height="1"/>
                                 <color key="backgroundColor" red="0.86639419110000004" green="0.86639419110000004" blue="0.86639419110000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -426,7 +417,7 @@
                                 <color key="highlightedColor" red="0.78016888230000003" green="0.1588950307" blue="0.12053038470000001" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRR-eO-Vgb">
-                                <rect key="frame" x="16" y="151" width="359" height="30"/>
+                                <rect key="frame" x="8" y="151" width="359" height="30"/>
                                 <state key="normal" title="Apagar Conta">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -441,6 +432,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="0.78016888230000003" green="0.1588950307" blue="0.12053038470000001" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CU5-Aq-fcD">
+                                <rect key="frame" x="8" y="214" width="359" height="30"/>
+                                <state key="normal" title="Sair">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout:" destination="AvF-e7-6F6" eventType="touchUpInside" id="fwN-9A-cMj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -757,6 +757,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ifx-Vz-BKa"/>
-        <segue reference="YMh-b3-jxZ"/>
     </inferredMetricsTieBreakers>
 </document>

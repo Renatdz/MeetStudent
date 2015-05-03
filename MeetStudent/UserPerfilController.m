@@ -25,6 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self getDataUser];
+    
+    //item selecionado na tabBar
+    [self.tabBarController.tabBar.selectedItem setSelectedImage:[UIImage imageNamed:@"profile.png"]];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -22,6 +22,8 @@
 {
     [super viewDidLoad];
     [self loadDataGroups];
+    //item selecionado na tabBar
+    [self.tabBarController.tabBar.selectedItem setSelectedImage:[UIImage imageNamed:@"instituicao.png"]];
     
     self.TableViewInstitution.delegate   = self;
     self.TableViewInstitution.dataSource = self;

@@ -17,7 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    //item selecionado na tabBar
+    [self.tabBarController.tabBar.selectedItem setSelectedImage:[UIImage imageNamed:@"config.png"]];
 }
 
 - (void)didReceiveMemoryWarning {

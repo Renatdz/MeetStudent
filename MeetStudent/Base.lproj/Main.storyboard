@@ -376,7 +376,7 @@
         <scene sceneID="a4f-zC-isA">
             <objects>
                 <navigationController id="zXr-yL-8AE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Instituições" id="1LL-To-B6o"/>
+                    <tabBarItem key="tabBarItem" title="Instituições" image="instituicao" selectedImage="instituicao" id="1LL-To-B6o"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZcA-75-OWS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -473,7 +473,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Configurações" id="Esm-b7-Kj1"/>
+                    <tabBarItem key="tabBarItem" title="Configurações" image="config" selectedImage="config" id="Esm-b7-Kj1"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="presentation" identifier="LogoutSuccess" id="uJM-Ej-pgF"/>
@@ -601,7 +601,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Perfil" id="XFH-5m-pwR"/>
+                    <tabBarItem key="tabBarItem" title="Perfil" image="profile" selectedImage="profile" id="XFH-5m-pwR"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="NameUser" destination="7Sk-50-WNy" id="Yta-VS-2pb"/>
@@ -656,7 +656,7 @@
                             <outlet property="delegate" destination="wD2-fj-6YU" id="SvX-St-Uup"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Instituições" id="PLu-wk-U4n"/>
+                    <tabBarItem key="tabBarItem" title="Instituições" image="instituicao" selectedImage="instituicao" id="PLu-wk-U4n"/>
                     <navigationItem key="navigationItem" title="Instituições" id="Zfs-hL-FIL"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -903,6 +903,11 @@
             <point key="canvasLocation" x="3192.5" y="119.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="config" width="32" height="32"/>
+        <image name="instituicao" width="32" height="32"/>
+        <image name="profile" width="32" height="32"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Ifx-Vz-BKa"/>
     </inferredMetricsTieBreakers>

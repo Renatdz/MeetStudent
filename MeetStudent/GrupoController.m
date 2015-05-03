@@ -8,6 +8,7 @@
 
 #import "GrupoController.h"
 #import <Parse/Parse.h>
+#import "Section.h"
 
 @interface GrupoController ()
 
@@ -26,9 +27,14 @@
     NSLog(@"creatingGroup");
     if([self validate]){
         if([self isDuplicateGroup]){
+            //get singleton
+            Section *singleton = [Section section];
+            
             //define table database
             PFObject *grupo = [PFObject objectWithClassName:@"grupo"];
             grupo[@"nome"] = _nomeNovoGrupo.text;
+            grupo[@"pk_instituicao"] = singleton.instituitionId;
+            
             NSUserDefaults *session = [NSUserDefaults standardUserDefaults];
             grupo[@"pk_usuario"] = [session objectForKey:@"objectID"];
             //save data grupo

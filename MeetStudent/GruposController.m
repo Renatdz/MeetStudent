@@ -69,20 +69,12 @@
         _filteredGroups    = [[NSMutableArray alloc]init];
         _filteredGroupsIds = [[NSMutableArray alloc]init];
         
-        for (NSString *str in _totalGroups) {
-            NSRange stringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
+        for (int i = 0; i < [_totalGroups count]; i++) {
+            NSRange stringRange = [_totalGroups[i] rangeOfString:searchText options:NSCaseInsensitiveSearch];
             
             if (stringRange.location != NSNotFound) {
-                [_filteredGroups addObject:str];
-                
-            }
-        }
-        for (NSString *str in _totalGroupsIds) {
-            NSRange stringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
-            
-            if (stringRange.location != NSNotFound) {
-                [_filteredGroupsIds addObject:str];
-                
+                [_filteredGroups addObject:_totalGroups[i]];
+                [_filteredGroupsIds addObject:_totalGroupsIds[i]];
             }
         }
     }
@@ -152,7 +144,7 @@
     if (_isFiltered) {
         //set group current on singleton
         [self sectionCurrent:[_filteredGroups objectAtIndex:path.row]
-                          id:[_totalGroupsIds objectAtIndex:path.row]];
+                          id:[_filteredGroupsIds objectAtIndex:path.row]];
     }else{
         //set group current on singleton
         [self sectionCurrent:[_totalGroups objectAtIndex:path.row]

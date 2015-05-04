@@ -138,22 +138,20 @@
     } else {
         _isFiltered = YES;
         
-        _filteredPeoples = [[NSMutableArray alloc]init];
+        _filteredPeoples   = [[NSMutableArray alloc]init];
         _filteredPeoplesId = [[NSMutableArray alloc]init];
         
-        for (NSString *str in _totalPeoples) {
-            NSRange stringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
+        for (int i = 0; i < [_totalPeoples count]; i++) {
+            NSRange stringRange = [_totalPeoples[i] rangeOfString:searchText options:NSCaseInsensitiveSearch];
             
             if (stringRange.location != NSNotFound) {
-                [_filteredPeoples addObject:str];
+                [_filteredPeoples addObject:_totalPeoples[i]];
+                [_filteredPeoplesId addObject:_totalPeoplesId[i]];
             }
         }
-        for (NSString *str in _totalPeoplesId) {
-            NSRange stringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
-            
-            if (stringRange.location != NSNotFound) {
-                [_filteredPeoplesId addObject:str];
-            }
+        
+        for (NSString *aa in _filteredPeoplesId) {
+            NSLog(@"%@",aa);
         }
     }
     [self.TableViewPeople reloadData];
@@ -222,7 +220,7 @@
     if (_isFiltered) {
         //set people current on singleton
         [self sectionCurrent:[_filteredPeoples objectAtIndex:path.row]
-                          id:[_totalPeoplesId objectAtIndex:path.row]];
+                          id:[_filteredPeoplesId objectAtIndex:path.row]];
     }else{
         //set people current on singleton
         [self sectionCurrent:[_totalPeoples objectAtIndex:path.row]

@@ -138,12 +138,20 @@
         _isFiltered = YES;
         
         _filteredPeoples = [[NSMutableArray alloc]init];
+        _filteredPeoplesId = [[NSMutableArray alloc]init];
         
         for (NSString *str in _totalPeoples) {
             NSRange stringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
             
             if (stringRange.location != NSNotFound) {
                 [_filteredPeoples addObject:str];
+            }
+        }
+        for (NSString *str in _totalPeoplesId) {
+            NSRange stringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            
+            if (stringRange.location != NSNotFound) {
+                [_filteredPeoplesId addObject:str];
             }
         }
     }
@@ -210,10 +218,15 @@
     NSIndexPath *path = [_TableViewPeople indexPathForSelectedRow];
     PessoaController *PC;
     
-    //set people current on singleton
-    [self sectionCurrent:[_totalPeoples objectAtIndex:path.row]
-                      id:[_totalPeoplesId objectAtIndex:path.row]];
-    
+    if (_isFiltered) {
+        //set people current on singleton
+        [self sectionCurrent:[_filteredPeoples objectAtIndex:path.row]
+                          id:[_totalPeoplesId objectAtIndex:path.row]];
+    }else{
+        //set people current on singleton
+        [self sectionCurrent:[_totalPeoples objectAtIndex:path.row]
+                          id:[_totalPeoplesId objectAtIndex:path.row]];
+    }
     //Send to pessoasViewController
     PC = [segue destinationViewController];
 }

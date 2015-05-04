@@ -19,6 +19,7 @@
 @property (nonatomic) NSMutableArray *totalGroupsIds;
 @property (nonatomic) NSMutableArray *totalGroups;
 @property (nonatomic) NSMutableArray *filteredGroups;
+@property (nonatomic) NSMutableArray *filteredGroupsIds;
 
 @property (nonatomic) BOOL isFiltered;
 

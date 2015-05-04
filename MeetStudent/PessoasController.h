@@ -20,6 +20,7 @@
 @property (nonatomic) NSMutableArray *totalPeoplesId;
 @property (nonatomic) NSMutableArray *totalPeoples;
 @property (nonatomic) NSMutableArray *filteredPeoples;
+@property (nonatomic) NSMutableArray *filteredPeoplesId;
 
 @property (nonatomic) BOOL isFiltered;
 

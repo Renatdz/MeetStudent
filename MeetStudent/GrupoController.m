@@ -27,6 +27,9 @@
     NSLog(@"creatingGroup");
     if([self validate]){
         if([self isDuplicateGroup]){
+            //msg popup
+            [self popupLoading:@"Estamos cadastrando os dados..."];
+            
             //get singleton
             Section *singleton = [Section section];
             
@@ -130,5 +133,25 @@
     data.layer.cornerRadius = 5.0;
     data.returnKeyType = UIReturnKeyDone;
     data.delegate = self;
+}
+
+//|--------------------------------------
+//Message de loading
+//Informa o usuário que o app esta processando a requisição
+-(void) popupLoading: (NSString *) msg
+{
+    UIAlertView *alert;
+    
+    alert = [[UIAlertView alloc] initWithTitle:@"Por favor aguarde!" message:msg delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+    [alert show];
+    
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    
+    // Adjust the indicator so it is up a few pixels from the bottom of the alert
+    indicator.center = CGPointMake(alert.bounds.size.width / 2, alert.bounds.size.height - 50);
+    [indicator startAnimating];
+    [alert addSubview:indicator];
+    
+    [alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 @end

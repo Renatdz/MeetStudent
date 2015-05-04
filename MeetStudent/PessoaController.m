@@ -43,9 +43,9 @@
 //Busca as informações do usuário logado
 -(void)getDataUser
 {
-    NSString *objectId = self.singleton.peopleId;
-    NSLog(@"%@", objectId);
+    [self popupLoading];
     
+    NSString *objectId = self.singleton.peopleId;
     PFQuery *query = [PFQuery queryWithClassName:@"usuarios"];
     [query getObjectInBackgroundWithId:objectId block:^(PFObject *user, NSError *error) {
         if(!error){
@@ -67,5 +67,26 @@
         }
     }];
 }
+
+//|--------------------------------------
+//Message de loading
+//Informa o usuário que o app esta processando a requisição
+-(void) popupLoading
+{
+    UIAlertView *alert;
+    
+    alert = [[UIAlertView alloc] initWithTitle:@"Por favor aguarde!" message:@"Estamos buscando os dados..." delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+    [alert show];
+    
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    
+    // Adjust the indicator so it is up a few pixels from the bottom of the alert
+    indicator.center = CGPointMake(alert.bounds.size.width / 2, alert.bounds.size.height - 50);
+    [indicator startAnimating];
+    [alert addSubview:indicator];
+    
+    [alert dismissWithClickedButtonIndex:0 animated:YES];
+}
+
 
 @end

@@ -106,28 +106,37 @@
     if([self validate]){
         if([self isDuplicateEmail]){
         
-        //define table database
-        PFObject *user = [PFObject objectWithClassName:@"usuarios"];
-        user[@"nome"] = _nome.text;
-        user[@"idade"] = _idade.text;
-        user[@"url_social"] = _urlSocial.text;
+            //msg popup
+            [self popupLoading:@"Estamos cadastrando os dados..."];
+            
+            //define table database
+            PFObject *user = [PFObject objectWithClassName:@"usuarios"];
+            user[@"nome"] = _nome.text;
+            user[@"idade"] = _idade.text;
+            user[@"url_social"] = _urlSocial.text;
         
-        //image
-        NSData *imageData = UIImagePNGRepresentation(_image.image);
-        PFFile *imageFile = [PFFile fileWithName:@"img.png" data:imageData];
-        user[@"imagem"] = imageFile;
-        user[@"descricao"] = _descricao.text;
-        user[@"sobrenome"] = _sobrenome.text;
-        user[@"sexo"] = _sexo.text;
-        user[@"email"] = _email.text;
-        user[@"senha"] = [self encryptPassword:_senha.text];
+            //image
+            NSData *imageData = UIImagePNGRepresentation(_image.image);
+            PFFile *imageFile = [PFFile fileWithName:@"img.png" data:imageData];
+            user[@"imagem"] = imageFile;
+            user[@"descricao"] = _descricao.text;
+            user[@"sobrenome"] = _sobrenome.text;
+            user[@"sexo"] = _sexo.text;
+            user[@"email"] = _email.text;
+            user[@"senha"] = [self encryptPassword:_senha.text];
         
-        [user saveInBackgroundWithBlock:^(BOOL success, NSError *error){
-            if(success){
-                //redirect
-                [self performSegueWithIdentifier:@"CadastroSuccess" sender:self];
-            }
-        }];
+            [user saveInBackgroundWithBlock:^(BOOL success, NSError *error){
+                if(success){
+                    NSUserDefaults *section = [NSUserDefaults standardUserDefaults];
+                    
+                    //set section on userDefaults
+                    [section setObject:_nome.text forKey:@"nome"];
+                    [section setObject:_email.text forKey:@"email"];
+                    [section setObject:[user objectId] forKey:@"objectID"];
+                    //redirect
+                    [self performSegueWithIdentifier:@"CadastroSuccess" sender:self];
+                }
+            }];
             
         }
     }else{
@@ -380,6 +389,26 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         [output appendFormat:@"%02x", digest[i]];
     
     return  output;
+}
+
+//|--------------------------------------
+//Message de loading
+//Informa o usuário que o app esta processando a requisição
+-(void) popupLoading: (NSString *) msg
+{
+    UIAlertView *alert;
+    
+    alert = [[UIAlertView alloc] initWithTitle:@"Por favor aguarde!" message:msg delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+    [alert show];
+    
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    
+    // Adjust the indicator so it is up a few pixels from the bottom of the alert
+    indicator.center = CGPointMake(alert.bounds.size.width / 2, alert.bounds.size.height - 50);
+    [indicator startAnimating];
+    [alert addSubview:indicator];
+    
+    [alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 @end

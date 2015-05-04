@@ -628,8 +628,6 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelEdit:" destination="JCW-Vn-ilB" eventType="touchUpInside" id="h5q-tZ-C7i"/>
-                                    <action selector="enviarDados:" destination="6c8-yM-2lt" eventType="touchUpInside" id="SL9-JC-Xcp"/>
-                                    <action selector="updateData:" destination="JCW-Vn-ilB" eventType="touchUpInside" id="cpB-tM-1Vv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xM2-xn-cYt">

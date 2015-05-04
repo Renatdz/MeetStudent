@@ -66,13 +66,23 @@
     } else {
         _isFiltered = YES;
         
-        _filteredGroups = [[NSMutableArray alloc]init];
+        _filteredGroups    = [[NSMutableArray alloc]init];
+        _filteredGroupsIds = [[NSMutableArray alloc]init];
         
         for (NSString *str in _totalGroups) {
             NSRange stringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
             
             if (stringRange.location != NSNotFound) {
                 [_filteredGroups addObject:str];
+                
+            }
+        }
+        for (NSString *str in _totalGroupsIds) {
+            NSRange stringRange = [str rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            
+            if (stringRange.location != NSNotFound) {
+                [_filteredGroupsIds addObject:str];
+                
             }
         }
     }
@@ -139,10 +149,15 @@
     NSIndexPath *path = [self.TableViewGroup indexPathForSelectedRow];
     PessoasController *PC;
     
-    //set group current on singleton
-    [self sectionCurrent:[_totalGroups objectAtIndex:path.row]
-                      id:[_totalGroupsIds objectAtIndex:path.row]];
-    
+    if (_isFiltered) {
+        //set group current on singleton
+        [self sectionCurrent:[_filteredGroups objectAtIndex:path.row]
+                          id:[_totalGroupsIds objectAtIndex:path.row]];
+    }else{
+        //set group current on singleton
+        [self sectionCurrent:[_totalGroups objectAtIndex:path.row]
+                          id:[_totalGroupsIds objectAtIndex:path.row]];
+    }
     //Send to gruposViewController
     PC = [segue destinationViewController];
 }

@@ -66,6 +66,7 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"it_group_users"];
     [query whereKey:@"pk_usuario" equalTo:objectId];
+    [query whereKey:@"pk_grupo" equalTo:self.singleton.groupId];
     NSArray *result = [query findObjects];
 
     return ([result count] > 0 ) ? 0 : 1;

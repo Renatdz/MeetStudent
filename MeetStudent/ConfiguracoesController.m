@@ -39,7 +39,7 @@
 //|----------------------------------------------
 //logout
 - (IBAction)logout:(id)sender {
-
+    [self msgAlert:@"Ao voltar ao aplicativo, informe seus dados acesso!" NSString:@"Bye! :/"];
     [self dropSession];
     //redirect
     [self performSegueWithIdentifier:@"LogoutSuccess" sender:self];
@@ -86,14 +86,14 @@
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)msgAlert:(NSString *)msg NSString:(NSString *) status
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:status
+                                                    message:msg
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
-*/
 
 @end

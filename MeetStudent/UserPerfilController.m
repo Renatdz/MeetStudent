@@ -53,6 +53,7 @@
     [self.sexo becomeFirstResponder];
     _sexo.delegate = self;
     _idade.enabled = YES;
+    _idade.keyboardType = UIKeyboardTypeNumberPad;
     _idade.delegate = self;
     _social.enabled = YES;
     _social.delegate = self;

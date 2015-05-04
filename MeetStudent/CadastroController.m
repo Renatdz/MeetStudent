@@ -47,6 +47,9 @@
 //| Define os valores/propriedades padrões
 -(void)defaultValues
 {
+    //foco in textField
+    [self.nome becomeFirstResponder];
+    
     //set radius image
     _image.layer.cornerRadius = CGRectGetHeight(_image.bounds) / 2.0;
     _image.clipsToBounds = YES;

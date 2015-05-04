@@ -9,7 +9,7 @@
 #import "UserPerfilController.h"
 #import <Parse/Parse.h>
 
-@interface UserPerfilController ()
+@interface UserPerfilController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *img;
 @property (weak, nonatomic) IBOutlet UITextField *idade;
 @property (weak, nonatomic) IBOutlet UITextField *sexo;
@@ -17,6 +17,10 @@
 @property (weak, nonatomic) IBOutlet UITextView *descricao;
 @property (weak, nonatomic) IBOutlet UINavigationItem *NameUser;
 @property (weak, nonatomic) IBOutlet UITextField *email;
+@property (weak, nonatomic) IBOutlet UIButton *buttonEdit;
+@property (weak, nonatomic) IBOutlet UIButton *buttonCancelEdit;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *navEdit;
+@property (weak, nonatomic) IBOutlet UIButton *editImg;
 
 @end
 
@@ -28,18 +32,56 @@
     
     //item selecionado na tabBar
     [self.tabBarController.tabBar.selectedItem setSelectedImage:[UIImage imageNamed:@"profile.png"]];
+    
+    //hiden btn edit
+    self.buttonEdit.hidden = YES;
+    self.buttonCancelEdit.hidden = YES;
+    self.editImg.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)navigationEdit:(id)sender {
+    
+    //desabilita navigation button edit
+    _navEdit.enabled = NO;
+    
+    //habilita textFields para edição
+    _sexo.enabled = YES;
+    [self.sexo becomeFirstResponder];
+    _sexo.delegate = self;
+    _idade.enabled = YES;
+    _idade.delegate = self;
+    _social.enabled = YES;
+    _social.delegate = self;
+    _descricao.editable = YES;
+    
+    //set visible button update
+    _buttonEdit.hidden = NO;
+    _buttonCancelEdit.hidden = NO;
+    _editImg.hidden = NO;
+}
+//|-------------------------------------------------
+//Ocultar teclado
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[self view]endEditing:YES];
+}
+//|----------------------------------------------
+//return keyboard to textField
+-(BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return NO;
+}
 
 //|------------------------------------------
 //Busca as informações do usuário logado
 -(void)getDataUser
 {
-NSUserDefaults *section = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *section = [NSUserDefaults standardUserDefaults];
     
     PFQuery *query = [PFQuery queryWithClassName:@"usuarios"];
     [query getObjectInBackgroundWithId:[section objectForKey:@"objectID"] block:^(PFObject *user, NSError *error) {
@@ -69,15 +111,209 @@ NSUserDefaults *section = [NSUserDefaults standardUserDefaults];
         }
     }];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)updateData:(id)sender {
+    if([self validate]){
+        NSUserDefaults *section = [NSUserDefaults standardUserDefaults];
+        PFQuery *query = [PFQuery queryWithClassName:@"usuarios"];
+        [query getObjectInBackgroundWithId:[section objectForKey:@"objectID"] block:^(PFObject *user, NSError *error){
+            
+            user[@"idade"] = _idade.text;
+            user[@"url_social"] = _social.text;
+            
+            //image
+            NSData *imageData = UIImagePNGRepresentation(_img.image);
+            PFFile *imageFile = [PFFile fileWithName:@"img.png" data:imageData];
+            user[@"imagem"] = imageFile;
+            user[@"descricao"] = _descricao.text;
+            user[@"sexo"] = _sexo.text;
+            
+            //save data
+            [user saveInBackgroundWithBlock:^(BOOL success, NSError *error){
+                if(success){
+                    [self disabledEdit];
+                    [self getDataUser];
+                    
+                    [self messagePopup:@"Informações atualizadas com sucesso!"];
+                }
+            }];
+        }];
+    }
 }
-*/
+- (IBAction)cancelEdit:(id)sender {
+    //cancela ediação
+    [self disabledEdit];
+    //restart data
+    [self getDataUser];
+}
+-(void)disabledEdit
+{
+    //habilita navigation button edit
+    _navEdit.enabled = YES;
+    
+    //desabilita textFields para edição
+    _sexo.enabled = NO;
+    _idade.enabled = NO;
+    _social.enabled = NO;
+    _descricao.editable = NO;
+    
+    //set visible button update
+    _buttonEdit.hidden = YES;
+    _buttonCancelEdit.hidden = YES;
+    _editImg.hidden = YES;
+}
+
+//|-------------------------------------------------
+//|Aciona a câmera e tira foto para a imagem de perfil
+- (void)takePicture
+{
+    // Inicializa um imagePickerController
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    // Verifica se o device possui uma camera, caso contrario ira a penas carregar a biblioteca de fotos
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    }
+    // Delega ao controlador
+    imagePicker.delegate = self;
+    
+    // Comportamento diferente do imagePicker caso o device seja um iPad
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        // Utilizar o popOver
+        UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:imagePicker];
+        
+        // Adiciona a operacao do popover para a fila de Operacoes
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [popover presentPopoverFromRect:_img.bounds inView:_img permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+            self.popOver = popover;
+        }];
+        
+    } else {
+        // Caso seja iphone, apresentar o imagePicker normalmente
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
+}
+
+//|-------------------------------------------------
+//|Pega a imagem da biblioteca ou da câmera e seta ela na imageView da view.
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // Recebe a imagem escolhida do dicionario info
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    // Seta a imagem escolhida na nossa view profileImage
+    _img.image = image;
+    
+    // Retira o imagePicker da tela
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+//|-------------------------------------------------
+//|Chama a aplicacao da biblioteca de fotos (nativa)
+-(void)choosePicture
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    // Seta como o tipo do imagePicker sendo a biblioteca de fotos
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    
+    // Delega ao controlador e retira o imagePicker da tela
+    imagePicker.delegate = self;
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+//|-------------------------------------------------
+//|Menu de escolha entre camera e biblioteca de fotos
+- (void)actionSheet:(UIActionSheet *)modalView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        // Troca entre os estilos da navigation bar
+        switch (buttonIndex)
+        {
+            case 0: // Camera
+                [self takePicture];
+                break;
+            case 1: // Biblioteca de fotos
+                [self choosePicture];
+                break;
+        }
+        // just add picker code here and it will work fine.
+        
+        
+        // Ask the system to re-query our -preferredStatusBarStyle.
+        // Pede ao sistema para atualizar o status da navBar
+        [self setNeedsStatusBarAppearanceUpdate];
+    }];
+}
+
+//|-------------------------------------------------
+//|Inicializa actionSheet (menu de escolhas) e seta seus valores.
+- (IBAction)optionBar:(id)sender
+{
+    // Inicializa a navBar
+    UIActionSheet *styleAlert = [[UIActionSheet alloc] initWithTitle:nil
+                                                            delegate:self
+                                                   cancelButtonTitle:NSLocalizedString(@"Cancel", @"")
+                                              destructiveButtonTitle:nil
+                                                   otherButtonTitles:NSLocalizedString(@"Tirar Foto", @""),
+                                 NSLocalizedString(@"Escolher Foto", @""),
+                                 nil];
+    
+    // Seta o mesmo estilo (navigationBar)
+    styleAlert.actionSheetStyle = (UIActionSheetStyle)self.navigationController.navigationBar.barStyle;
+    
+    // Mostra o navBar na self.view
+    [styleAlert showInView:self.view];
+}
+
+//|-------------------------------------------------
+//|Validação das informaçoes submetidas
+-(bool)validate
+{
+    NSString *idad = _idade.text;
+    if( (idad != nil) && (([idad stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]).length > 0)){
+    }else{
+        [self messagePopup:@"Idade não pode estar vazio!"];
+        
+        //return status false
+        return 0;
+    }
+    NSString *sex = _sexo.text;
+    if( (sex != nil) && (([sex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]).length > 0)){
+        
+    }else{
+        [self messagePopup:@"Gênero não pode estar vazio!"];
+        //return status false
+        return 0;
+    }
+   
+    
+    NSString *desc = _descricao.text;
+    if( (desc != nil) && (([desc stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]).length > 0)){
+    }else{
+        [self messagePopup:@"Descrição não pode estar vazia!"];
+        //return status false
+        return 0;
+    }
+    
+    //return status success
+    return 1;
+}
+
+//|-------------------------------------------------
+//show message popup
+-(void)messagePopup:(NSString *)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:message
+                                                    message:@""
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
 
 @end

@@ -32,6 +32,7 @@
     self.SearchBarPeople.delegate   = self;
     self.TableViewPeople.delegate   = self;
     self.TableViewPeople.dataSource = self;
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserPerfilController : UIViewController
+@interface UserPerfilController : UIViewController<UITextFieldDelegate>
+@property (weak, nonatomic) UIPopoverController  *popOver; // Controlador do popOver (iPad)
 
 @end

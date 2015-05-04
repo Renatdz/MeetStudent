@@ -122,6 +122,9 @@
 //set generic defaults
 -(void) genericValues:(UITextField *) data
 {
+    //foco in textField
+    [data becomeFirstResponder];
+    
     data.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/
     data.layer.borderWidth = 1.0;
     data.layer.cornerRadius = 5.0;

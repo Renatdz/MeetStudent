@@ -503,7 +503,14 @@
                                     <color key="textColor" red="0.40784313729999999" green="0.63529411759999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Perfil" id="7Sk-50-WNy"/>
+                                    <navigationItem title="Perfil" id="7Sk-50-WNy">
+                                        <barButtonItem key="rightBarButtonItem" title="Editar" id="1vf-Fb-Eis">
+                                            <color key="tintColor" red="0.40568644190000003" green="0.67528235150000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="navigationEdit:" destination="JCW-Vn-ilB" id="xyV-Ks-Z8z"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SQd-03-qRv">
@@ -598,6 +605,42 @@
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZS-pP-g6K">
+                                <rect key="frame" x="0.0" y="579" width="187" height="39"/>
+                                <color key="backgroundColor" red="0.40784313729999999" green="0.63529411759999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Salvar">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="enviarDados:" destination="6c8-yM-2lt" eventType="touchUpInside" id="HmR-G4-uMs"/>
+                                    <action selector="updateData:" destination="JCW-Vn-ilB" eventType="touchUpInside" id="65U-uD-jiq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEN-4j-gQN">
+                                <rect key="frame" x="187" y="579" width="188" height="39"/>
+                                <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Cancelar">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelEdit:" destination="JCW-Vn-ilB" eventType="touchUpInside" id="h5q-tZ-C7i"/>
+                                    <action selector="enviarDados:" destination="6c8-yM-2lt" eventType="touchUpInside" id="SL9-JC-Xcp"/>
+                                    <action selector="updateData:" destination="JCW-Vn-ilB" eventType="touchUpInside" id="cpB-tM-1Vv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xM2-xn-cYt">
+                                <rect key="frame" x="0.0" y="64" width="375" height="224"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="optionBar:" destination="JCW-Vn-ilB" eventType="touchUpInside" id="WEj-qO-o7j"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -605,10 +648,14 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="NameUser" destination="7Sk-50-WNy" id="Yta-VS-2pb"/>
+                        <outlet property="buttonCancelEdit" destination="BEN-4j-gQN" id="v49-V5-WbH"/>
+                        <outlet property="buttonEdit" destination="KZS-pP-g6K" id="ao8-ls-U1A"/>
                         <outlet property="descricao" destination="RIS-8f-F8i" id="BgJ-BJ-mVM"/>
+                        <outlet property="editImg" destination="xM2-xn-cYt" id="QUE-Sl-s5o"/>
                         <outlet property="email" destination="rdb-XF-kfC" id="sdh-26-pIs"/>
                         <outlet property="idade" destination="pYP-J8-KIq" id="lDb-qH-bnc"/>
                         <outlet property="img" destination="SQd-03-qRv" id="MhE-m6-Wpq"/>
+                        <outlet property="navEdit" destination="1vf-Fb-Eis" id="GOM-Sy-Gls"/>
                         <outlet property="sexo" destination="KUw-PY-q5t" id="gBM-XE-hlo"/>
                         <outlet property="social" destination="g3Z-Cf-tak" id="ZNL-tq-6YC"/>
                     </connections>

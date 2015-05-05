@@ -73,7 +73,10 @@
     [self genericValues:_senha];
     [self genericValues:_confSenha];
     [self genericValues:_urlSocial];
-   
+    
+    //set scrollview on view
+    [self.scrollView setScrollEnabled:YES];
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, 562)];
     
 }
 -(void) genericValues:(UITextField *) textField

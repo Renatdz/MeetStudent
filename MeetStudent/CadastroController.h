@@ -10,6 +10,7 @@
 
 @interface CadastroController : UIViewController<UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UIButton    *buttonImage;
 @property (weak, nonatomic) IBOutlet UITextField *nome;

@@ -1393,7 +1393,7 @@ O Serviço faz o prometido da seguinte forma:
                         <viewControllerLayoutGuide type="bottom" id="NEB-GW-12z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hJo-RE-1SE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="2710"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6x-8N-Edu">
@@ -1416,16 +1416,19 @@ O Serviço faz o prometido da seguinte forma:
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wyh-8q-PfL">
-                                <rect key="frame" x="0.0" y="64" width="375" height="3850"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXb-SS-v0x">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="eVZ-ie-R7R">
-                                        <rect key="frame" x="8" y="8" width="359" height="2630"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="2630" id="grs-3K-2Bb"/>
-                                        </constraints>
-                                        <mutableString key="text">Termos de Uso
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAr-ak-2Az">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2648"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="K0a-AO-TLC">
+                                                <rect key="frame" x="8" y="8" width="359" height="2630"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2630" id="8eQ-tX-hnf"/>
+                                                </constraints>
+                                                <mutableString key="text">Termos de Uso
 
 Termos básicos
 
@@ -1467,45 +1470,48 @@ Condições gerais
 7. Você é o único responsável por sua interação com outros usuários do Serviço, seja on-line ou off-line. Você concorda que o MeetStudent não é responsável ou seja responsabilizado pela conduta de nenhum usuário.
 
 8. Você concorda que você é responsável por todas as cobranças de dados a que você ficar sujeito através do uso do Serviço.</mutableString>
-                                        <color key="textColor" red="0.59393150849999998" green="0.59393150849999998" blue="0.59393150849999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                                <color key="textColor" red="0.59393150849999998" green="0.59393150849999998" blue="0.59393150849999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="K0a-AO-TLC" firstAttribute="leading" secondItem="gAr-ak-2Az" secondAttribute="leading" constant="8" id="03T-9i-hrr"/>
+                                            <constraint firstAttribute="bottom" secondItem="K0a-AO-TLC" secondAttribute="bottom" constant="10" id="FC1-m0-JG4"/>
+                                            <constraint firstItem="K0a-AO-TLC" firstAttribute="top" secondItem="gAr-ak-2Az" secondAttribute="top" constant="8" id="q9V-3w-EWr"/>
+                                            <constraint firstAttribute="height" constant="2648" id="rmP-P0-bKm"/>
+                                            <constraint firstAttribute="width" secondItem="K0a-AO-TLC" secondAttribute="width" constant="16" id="s0b-GL-cfO"/>
+                                            <constraint firstAttribute="trailing" secondItem="K0a-AO-TLC" secondAttribute="trailing" constant="8" id="urG-Iw-lQJ"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="eVZ-ie-R7R" firstAttribute="leading" secondItem="wyh-8q-PfL" secondAttribute="leading" constant="8" id="9L8-mo-TYC"/>
-                                    <constraint firstItem="eVZ-ie-R7R" firstAttribute="top" secondItem="wyh-8q-PfL" secondAttribute="top" constant="8" id="CJ0-iX-ai9"/>
-                                    <constraint firstAttribute="width" secondItem="eVZ-ie-R7R" secondAttribute="width" constant="16" id="DrG-Ep-Bxk"/>
-                                    <constraint firstAttribute="bottom" secondItem="eVZ-ie-R7R" secondAttribute="bottom" constant="1212" id="LP3-jM-HhD"/>
-                                    <constraint firstAttribute="height" constant="3850" id="da1-Br-zef"/>
-                                    <constraint firstItem="eVZ-ie-R7R" firstAttribute="trailing" secondItem="wyh-8q-PfL" secondAttribute="trailingMargin" id="gmz-vY-CXg"/>
-                                    <constraint firstAttribute="height" constant="2646" id="syb-P7-cCm"/>
+                                    <constraint firstAttribute="width" secondItem="gAr-ak-2Az" secondAttribute="width" id="4EX-W1-mqo"/>
+                                    <constraint firstItem="gAr-ak-2Az" firstAttribute="top" secondItem="JXb-SS-v0x" secondAttribute="top" id="Moz-Xe-O9o"/>
+                                    <constraint firstItem="gAr-ak-2Az" firstAttribute="leading" secondItem="JXb-SS-v0x" secondAttribute="leading" id="Uqe-TY-89c"/>
+                                    <constraint firstAttribute="bottom" secondItem="gAr-ak-2Az" secondAttribute="bottom" id="fbL-MA-Iv3"/>
+                                    <constraint firstAttribute="trailing" secondItem="gAr-ak-2Az" secondAttribute="trailing" id="rP6-Ly-iog"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="syb-P7-cCm"/>
-                                    </mask>
-                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wyh-8q-PfL" firstAttribute="width" secondItem="hJo-RE-1SE" secondAttribute="width" id="0jk-Sv-nZi"/>
-                            <constraint firstAttribute="bottom" secondItem="wyh-8q-PfL" secondAttribute="bottom" constant="-1204" id="9U3-cq-E8k"/>
+                            <constraint firstItem="JXb-SS-v0x" firstAttribute="leading" secondItem="hJo-RE-1SE" secondAttribute="leading" id="AzR-0t-wSS"/>
+                            <constraint firstItem="JXb-SS-v0x" firstAttribute="top" secondItem="f6x-8N-Edu" secondAttribute="bottom" id="FMh-HV-sXm"/>
                             <constraint firstItem="f6x-8N-Edu" firstAttribute="top" secondItem="Msd-pa-35j" secondAttribute="bottom" id="LyS-TU-yc4"/>
-                            <constraint firstItem="wyh-8q-PfL" firstAttribute="leading" secondItem="hJo-RE-1SE" secondAttribute="leading" id="Quj-VI-8em"/>
+                            <constraint firstItem="NEB-GW-12z" firstAttribute="top" secondItem="JXb-SS-v0x" secondAttribute="bottom" id="jBX-dn-M8q"/>
                             <constraint firstItem="f6x-8N-Edu" firstAttribute="width" secondItem="hJo-RE-1SE" secondAttribute="width" id="jBZ-Yy-mYh"/>
-                            <constraint firstItem="wyh-8q-PfL" firstAttribute="top" secondItem="f6x-8N-Edu" secondAttribute="bottom" id="kxx-4a-akV"/>
+                            <constraint firstAttribute="trailing" secondItem="JXb-SS-v0x" secondAttribute="trailing" id="mVH-VR-GCv"/>
+                            <constraint firstAttribute="width" secondItem="JXb-SS-v0x" secondAttribute="width" id="nT5-T1-nZJ"/>
                             <constraint firstItem="f6x-8N-Edu" firstAttribute="leading" secondItem="hJo-RE-1SE" secondAttribute="leading" id="tUe-40-rfC"/>
                         </constraints>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="2710"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JiH-kL-urs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="V1v-u9-Kq9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2140.5" y="-439"/>
+            <point key="canvasLocation" x="2140.5" y="-439.5"/>
         </scene>
     </scenes>
     <resources>

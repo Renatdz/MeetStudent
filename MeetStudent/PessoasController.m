@@ -200,7 +200,6 @@
                 PFFile *file = [_totalPeoplesImg objectAtIndex:indexPath.row];
                 NSData *imageData = [file getData];
                 UIImage *image = [UIImage imageWithData:imageData];
-                //set border radius
                 cell.imageView.layer.cornerRadius = 20.0;
                 cell.imageView.clipsToBounds = YES;
                 cell.imageView.layer.masksToBounds = YES;

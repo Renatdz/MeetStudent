@@ -29,6 +29,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self getDataUser];
+    [self defaultConstrants];
+    
+    //set scroll view drag hide keyboard
+    self.scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
     //item selecionado na tabBar
     [self.tabBarController.tabBar.selectedItem setSelectedImage:[UIImage imageNamed:@"profile.png"]];
@@ -64,18 +68,38 @@
     _buttonCancelEdit.hidden = NO;
     _editImg.hidden = NO;
 }
-//|-------------------------------------------------
-//Ocultar teclado
--(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [[self view]endEditing:YES];
-}
+
 //|----------------------------------------------
-//return keyboard to textField
--(BOOL) textFieldShouldReturn:(UITextField *)textField
+//|Seta os constrants para quando o teclado aparecer.
+-(void)defaultConstrants
 {
-    [textField resignFirstResponder];
-    return NO;
+    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:self.contentView
+                                                                      attribute:NSLayoutAttributeLeading
+                                                                      relatedBy:0
+                                                                         toItem:self.view
+                                                                      attribute:NSLayoutAttributeLeft
+                                                                     multiplier:1.0
+                                                                       constant:0];
+    [self.view addConstraint:leftConstraint];
+    
+    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:self.contentView
+                                                                       attribute:NSLayoutAttributeTrailing
+                                                                       relatedBy:0
+                                                                          toItem:self.view
+                                                                       attribute:NSLayoutAttributeRight
+                                                                      multiplier:1.0
+                                                                        constant:0];
+    [self.view addConstraint:rightConstraint];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 
 //|------------------------------------------
@@ -356,6 +380,44 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     UIImage *destImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return destImage;
+}
+
+//|-------------------------------------------------
+//Ocultar teclado
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[self view]endEditing:YES];
+}
+//|----------------------------------------------
+//return keyboard to textField
+-(BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return NO;
+}
+
+- (void) keyboardDidShow:(NSNotification *)notification
+{
+    NSDictionary* info = [notification userInfo];
+    CGRect kbRect = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    kbRect = [self.view convertRect:kbRect fromView:nil];
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbRect.size.height, 0.0);
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbRect.size.height;
+    if (!CGRectContainsPoint(aRect, self.descricao.frame.origin) ) {
+        [self.scrollView scrollRectToVisible:self.descricao.frame animated:YES];
+    }
+}
+
+- (void) keyboardWillBeHidden:(NSNotification *)notification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
 }
 
 @end

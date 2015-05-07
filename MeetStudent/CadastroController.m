@@ -86,9 +86,9 @@
     [self.nome becomeFirstResponder];
     
     //set radius image
-    _image.layer.cornerRadius = CGRectGetHeight(_image.bounds) / 2.0;
-    _image.clipsToBounds = YES;
-    _image.layer.masksToBounds = YES;
+    //_image.layer.cornerRadius = CGRectGetHeight(_image.bounds) / 2.0;
+    //_image.clipsToBounds = YES;
+    //_image.layer.masksToBounds = YES;
     
     // Carrega a imagem padrao para adicao de foto
     _image.image = [UIImage imageNamed:@"add-photo.png"];
@@ -113,6 +113,8 @@
     //set scrollview on view
     [self.scrollView setScrollEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, 562)];
+    //set scroll view drag hide keyboard
+    self.scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
 }
 
@@ -133,22 +135,21 @@
 //Ocultar teclado
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [[self view]endEditing:YES];
+    for (UITextField *textField in [self.contentView subviews]) {
+        [textField endEditing:YES];
+    }
+    
+    for (UITextView *textView in [self.contentView subviews]) {
+        [textView endEditing:YES];
+    }
+    
 }
 //|----------------------------------------------
 //return keyboard to textField
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    return NO;
-}
-
-//|----------------------------------------------
-//return keyboard to textField
--(BOOL) textViewShouldReturn:(UITextView *)textView
-{
-    [textView resignFirstResponder];
-    return NO;
+    return YES;
 }
 
 //|-----------------------------------------------
@@ -172,7 +173,7 @@
             CGSize size = CGSizeMake(375.0, 225.0);
             NSData *imageData = UIImagePNGRepresentation([self imageWithImage:_image.image convertToSize:size]);
             //icon
-            CGSize sizeIcon = CGSizeMake(60.0, 60.0);
+            CGSize sizeIcon = CGSizeMake(45.0, 45.0);
             NSData *dataIcon = UIImagePNGRepresentation([self imageWithImage:_image.image convertToSize:sizeIcon]);
             
             PFFile *imageFile = [PFFile fileWithName:@"img.png" data:imageData];
@@ -480,16 +481,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     return destImage;
 }
 
-- (IBAction)textFieldDidBeginEditing:(UITextView *)sender
-{
-    self.descricao = sender;
-}
-
-- (IBAction)textFieldDidEndEditing:(UITextView *)sender
-{
-    self.descricao = nil;
-}
-
 - (void) keyboardDidShow:(NSNotification *)notification
 {
     NSDictionary* info = [notification userInfo];
@@ -513,6 +504,5 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
 }
-
 
 @end

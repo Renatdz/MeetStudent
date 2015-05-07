@@ -92,7 +92,7 @@
     
     // Carrega a imagem padrao para adicao de foto
     _image.image = [UIImage imageNamed:@"add-photo.png"];
-    //imagemPadrao = _image;
+    imagemPadrao = _image;
 
     
     //set keyboar type number
@@ -233,8 +233,12 @@
 //|Validação das informaçoes submetidas
 -(bool)validate
 {
-    if(_image.image == nil){
+    NSData *checkImage        = UIImagePNGRepresentation(_image.image);
+    NSData *checkImageDefault = UIImagePNGRepresentation(imagemPadrao.image);
+    
+    if([checkImage isEqualToData:checkImageDefault]){
         _image.layer.borderColor = [[UIColor redColor] CGColor];
+        
         return 0;
     }else{
         _image.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/

@@ -56,7 +56,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="xAE-AG-40k" kind="presentation" id="Mjg-HT-wIQ"/>
+                                    <action selector="cadastrar:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tBL-Sy-3ty"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MeetStudent" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxo-eI-CT9">
@@ -79,7 +79,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="tLM-qf-4el" kind="presentation" id="YOP-4p-iBJ"/>
+                                    <action selector="politicaPrivacidade:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pMV-fa-RkX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XO1-0T-REe">
@@ -119,6 +119,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="JIw-KG-rx2"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="btnCadastro" destination="Qcf-3f-LEK" id="xfz-YM-VUN"/>
+                        <outlet property="politicaDePrivacidade" destination="cL2-6M-xiD" id="EIV-cs-NXo"/>
+                        <segue destination="xAE-AG-40k" kind="presentation" identifier="Cadastrar" id="v9D-wa-qsh"/>
+                        <segue destination="tLM-qf-4el" kind="presentation" identifier="PoliticaDePrivacidade" id="Rke-8r-ar8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -1041,14 +1047,14 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="587" id="33Q-mr-BhO"/>
                                         </constraints>
-                                        <mutableString key="text">	O MeetStudent é um serviço que visa fomentar a interação entre estudantes, membros, pessoas que frequentam uma mesma instituição, com a finalidade de disseminar o conhecimento sobre as pessoas que estão naquele meio. O MeetStudent contribui para que as pessoas se conheçam e/ou busquem pessoas que sejam em comum ou tenha algum interesse pessoal. 
+                                        <string key="text">	O MeetStudent é um serviço que visa fomentar a interação entre estudantes, membros, pessoas que frequentam uma mesma instituição, com a finalidade de disseminar o conhecimento sobre as pessoas que estão naquele meio. O MeetStudent contribui para que as pessoas se conheçam e/ou busquem pessoas que sejam em comum ou tenha algum interesse pessoal. 
 O Serviço faz o prometido da seguinte forma: 
 	O usuário está vinculado à uma instituição, nesta existem vários grupos (Cursos/Departamentos/tribos) onde o usuário pode se vincular e onde o mesmo também navega entre o perfil de todos os membros que ali estão visíveis. Podendo ver informações de contato, imagem de perfil, descrição e outras informações pertinentes a pessoa.
 
 	O serviço tem restrições de acesso, logo é necessário criar uma conta. Onde suas informações estaram disponíveis para acesso em qualquer dispositivo que tenha o aplicativo MeetStudent instalado. Sendo assim, é possível editar seu perfil, apagar sua conta, criar grupos, se vincular a grupos e visualizar o perfil de outros usuários cadastrados no Serviço.
 
 
-	Responsáveis pela criação e manutenção do Serviço: Rafael Cabral e Renato Mendes Agradecimentos: Designer Bruno Flora, Developer Claudia Tejos, Developer Leonardo Rubio </mutableString>
+	Responsáveis pela criação e manutenção do Serviço: Rafael Cabral e Renato Mendes Agradecimentos: Designer Bruno Flora, Developer Claudia Tejos, Developer Leonardo Rubio </string>
                                         <color key="textColor" red="0.59393150849999998" green="0.59393150849999998" blue="0.59393150849999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1409,7 +1415,7 @@ O Serviço faz o prometido da seguinte forma:
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2988" id="cwO-nU-OEQ"/>
                                                 </constraints>
-                                                <mutableString key="text">Termos básicos
+                                                <string key="text">Termos básicos
 
 1. Você precisa estar vinculado à instituição ou pelos menos já ter sido aluno da mesma para poder se vincular e interagir com os respectivos. Todavia, podemos, mas não iremos monitorar tal questão, ficando você responsável por toda e qualquer ocorrência que houver em detrimento ao seu uso do Serviço.
 
@@ -1448,7 +1454,7 @@ Condições gerais
 
 7. Você é o único responsável por sua interação com outros usuários do Serviço, seja on-line ou off-line. Você concorda que o MeetStudent não é responsável ou seja responsabilizado pela conduta de nenhum usuário.
 
-8. Você concorda que você é responsável por todas as cobranças de dados a que você ficar sujeito através do uso do Serviço.</mutableString>
+8. Você concorda que você é responsável por todas as cobranças de dados a que você ficar sujeito através do uso do Serviço.</string>
                                                 <color key="textColor" red="0.59393150849999998" green="0.59393150849999998" blue="0.59393150849999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1907,7 +1913,7 @@ O MeetStudent pode modificar ou atualizar esta Política de Privacidade de tempo
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2988" id="cXo-oO-2sN"/>
                                                 </constraints>
-                                                <mutableString key="text">Termos básicos
+                                                <string key="text">Termos básicos
 
 1. Você precisa estar vinculado à instituição ou pelos menos já ter sido aluno da mesma para poder se vincular e interagir com os respectivos. Todavia, podemos, mas não iremos monitorar tal questão, ficando você responsável por toda e qualquer ocorrência que houver em detrimento ao seu uso do Serviço.
 
@@ -1946,7 +1952,7 @@ Condições gerais
 
 7. Você é o único responsável por sua interação com outros usuários do Serviço, seja on-line ou off-line. Você concorda que o MeetStudent não é responsável ou seja responsabilizado pela conduta de nenhum usuário.
 
-8. Você concorda que você é responsável por todas as cobranças de dados a que você ficar sujeito através do uso do Serviço.</mutableString>
+8. Você concorda que você é responsável por todas as cobranças de dados a que você ficar sujeito através do uso do Serviço.</string>
                                                 <color key="textColor" red="0.59393150849999998" green="0.59393150849999998" blue="0.59393150849999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

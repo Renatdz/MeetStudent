@@ -1192,14 +1192,14 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="587" id="33Q-mr-BhO"/>
                                         </constraints>
-                                        <mutableString key="text">	O MeetStudent é um serviço que visa fomentar a interação entre estudantes, membros, pessoas que frequentam uma mesma instituição, com a finalidade de disseminar o conhecimento sobre as pessoas que estão naquele meio. O MeetStudent contribui para que as pessoas se conheçam e/ou busquem pessoas que sejam em comum ou tenha algum interesse pessoal. 
+                                        <string key="text">	O MeetStudent é um serviço que visa fomentar a interação entre estudantes, membros, pessoas que frequentam uma mesma instituição, com a finalidade de disseminar o conhecimento sobre as pessoas que estão naquele meio. O MeetStudent contribui para que as pessoas se conheçam e/ou busquem pessoas que sejam em comum ou tenha algum interesse pessoal. 
 O Serviço faz o prometido da seguinte forma: 
 	O usuário está vinculado à uma instituição, nesta existem vários grupos (Cursos/Departamentos/tribos) onde o usuário pode se vincular e onde o mesmo também navega entre o perfil de todos os membros que ali estão visíveis. Podendo ver informações de contato, imagem de perfil, descrição e outras informações pertinentes a pessoa.
 
 	O serviço tem restrições de acesso, logo é necessário criar uma conta. Onde suas informações estaram disponíveis para acesso em qualquer dispositivo que tenha o aplicativo MeetStudent instalado. Sendo assim, é possível editar seu perfil, apagar sua conta, criar grupos, se vincular a grupos e visualizar o perfil de outros usuários cadastrados no Serviço.
 
 
-	Responsáveis pela criação e manutenção do Serviço: Rafael Cabral e Renato Mendes Agradecimentos: Designer Bruno Flora, Developer Claudia Tejos </mutableString>
+	Responsáveis pela criação e manutenção do Serviço: Rafael Cabral e Renato Mendes Agradecimentos: Designer Bruno Flora, Developer Claudia Tejos </string>
                                         <color key="textColor" red="0.59393150849999998" green="0.59393150849999998" blue="0.59393150849999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1790,6 +1790,6 @@ O MeetStudent pode modificar ou atualizar esta Política de Privacidade de tempo
         <image name="profile" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jDQ-Re-Fqk"/>
+        <segue reference="Ifx-Vz-BKa"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CadastroController : UIViewController<UITextFieldDelegate>
+@interface CadastroController : UIViewController<UITextFieldDelegate, UITextViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UIButton    *buttonImage;

@@ -19,8 +19,10 @@
 
 @property (nonatomic) NSMutableArray *totalPeoplesId;
 @property (nonatomic) NSMutableArray *totalPeoples;
+@property (nonatomic) NSMutableArray *totalPeoplesImg;
 @property (nonatomic) NSMutableArray *filteredPeoples;
 @property (nonatomic) NSMutableArray *filteredPeoplesId;
+@property (nonatomic) NSMutableArray *filteredPeoplesImg;
 
 @property (nonatomic) BOOL isFiltered;
 

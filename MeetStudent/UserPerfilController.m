@@ -125,11 +125,17 @@
             
             user[@"idade"] = _idade.text;
             user[@"url_social"] = _social.text;
-            
             //image
-            NSData *imageData = UIImagePNGRepresentation(_img.image);
+            CGSize size = CGSizeMake(375.0, 225.0);
+            NSData *imageData = UIImagePNGRepresentation([self imageWithImage:_img.image convertToSize:size]);
+            //icon
+            CGSize sizeIcon = CGSizeMake(60.0, 60.0);
+            NSData *dataIcon = UIImagePNGRepresentation([self imageWithImage:_img.image convertToSize:sizeIcon]);
+            
             PFFile *imageFile = [PFFile fileWithName:@"img.png" data:imageData];
+            PFFile *imageIcon = [PFFile fileWithName:@"icon.png" data:dataIcon];
             user[@"imagem"] = imageFile;
+            user[@"icon"] = imageIcon;
             user[@"descricao"] = _descricao.text;
             user[@"sexo"] = _sexo.text;
             
@@ -340,6 +346,16 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [alert addSubview:indicator];
     
     [alert dismissWithClickedButtonIndex:0 animated:YES];
+}
+
+//|--------------------------------------
+// resize UIImage
+- (UIImage *)imageWithImage:(UIImage *)image convertToSize:(CGSize)size {
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *destImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return destImage;
 }
 
 @end

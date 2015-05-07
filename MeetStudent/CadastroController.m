@@ -234,11 +234,10 @@
 -(bool)validate
 {
     NSData *checkImage        = UIImagePNGRepresentation(_image.image);
-    NSData *checkImageDefault = UIImagePNGRepresentation(imagemPadrao.image);
+    NSData *checkImageDefault = UIImagePNGRepresentation([UIImage imageNamed:@"add-photo.png"]);
     
     if([checkImage isEqualToData:checkImageDefault]){
         _image.layer.borderColor = [[UIColor redColor] CGColor];
-        
         return 0;
     }else{
         _image.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/

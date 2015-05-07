@@ -171,9 +171,14 @@
             //image
             CGSize size = CGSizeMake(375.0, 225.0);
             NSData *imageData = UIImagePNGRepresentation([self imageWithImage:_image.image convertToSize:size]);
-
+            //icon
+            CGSize sizeIcon = CGSizeMake(60.0, 60.0);
+            NSData *dataIcon = UIImagePNGRepresentation([self imageWithImage:_image.image convertToSize:sizeIcon]);
+            
             PFFile *imageFile = [PFFile fileWithName:@"img.png" data:imageData];
+            PFFile *imageIcon = [PFFile fileWithName:@"icon.png" data:dataIcon];
             user[@"imagem"] = imageFile;
+            user[@"icon"] = imageIcon;
             user[@"descricao"] = _descricao.text;
             user[@"sobrenome"] = _sobrenome.text;
             user[@"sexo"] = _sexo.text;

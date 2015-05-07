@@ -111,6 +111,7 @@
 
     _totalPeoples    = [[NSMutableArray alloc]init];
     _totalPeoplesId = [[NSMutableArray alloc]init];
+    _totalPeoplesImg = [[NSMutableArray alloc] init];
     
     NSArray *result2 = [query2 findObjects];
     
@@ -123,10 +124,14 @@
         sobrenome = [sobrenome capitalizedString];
         name = [name stringByAppendingString:sobrenome];
         
+        PFFile *file = people[@"icon"];
+        
         [_totalPeoples addObject:name];
         [_totalPeoplesId addObject:[people objectId]];
+        [_totalPeoplesImg addObject:file];
         //NSLog(@"%@",[people objectId]);
     }
+
 }
 
 //|-------------------------------------------------
@@ -140,6 +145,7 @@
         
         _filteredPeoples   = [[NSMutableArray alloc]init];
         _filteredPeoplesId = [[NSMutableArray alloc]init];
+        _filteredPeoplesImg = [[NSMutableArray alloc] init];
         
         for (int i = 0; i < [_totalPeoples count]; i++) {
             NSRange stringRange = [_totalPeoples[i] rangeOfString:searchText options:NSCaseInsensitiveSearch];
@@ -147,12 +153,10 @@
             if (stringRange.location != NSNotFound) {
                 [_filteredPeoples addObject:_totalPeoples[i]];
                 [_filteredPeoplesId addObject:_totalPeoplesId[i]];
+                [_filteredPeoplesImg addObject:_totalPeoplesImg[i]];
             }
         }
-        
-        for (NSString *aa in _filteredPeoplesId) {
-            NSLog(@"%@",aa);
-        }
+       
     }
     [self.TableViewPeople reloadData];
 }
@@ -192,8 +196,26 @@
     
     if (!_isFiltered) {
         cell.textLabel.text = [_totalPeoples objectAtIndex:indexPath.row];
+        
+                PFFile *file = [_totalPeoplesImg objectAtIndex:indexPath.row];
+                NSData *imageData = [file getData];
+                UIImage *image = [UIImage imageWithData:imageData];
+                //set border radius
+                cell.imageView.layer.cornerRadius = 20.0;
+                cell.imageView.clipsToBounds = YES;
+                cell.imageView.layer.masksToBounds = YES;
+                cell.imageView.image = image;
+        
     } else { // is Filtered
         cell.textLabel.text = [_filteredPeoples objectAtIndex:indexPath.row];
+        PFFile *file = [_filteredPeoplesImg objectAtIndex:indexPath.row];
+        NSData *imageData = [file getData];
+        UIImage *image = [UIImage imageWithData:imageData];
+        //set border radius
+        cell.imageView.layer.cornerRadius = 20.0;
+        cell.imageView.clipsToBounds = YES;
+        cell.imageView.layer.masksToBounds = YES;
+        cell.imageView.image = image;
     }
     return cell;
 }

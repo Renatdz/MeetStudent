@@ -1683,7 +1683,6 @@ O MeetStudent pode modificar ou atualizar esta Política de Privacidade de tempo
                                 </state>
                                 <connections>
                                     <action selector="enviarDados:" destination="xAE-AG-40k" eventType="touchUpInside" id="jGV-GL-ny1"/>
-                                    <segue destination="uCz-76-oSi" kind="presentation" id="kGH-9Q-9Nj"/>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4vE-c5-8Jv">
@@ -1862,6 +1861,7 @@ O MeetStudent pode modificar ou atualizar esta Política de Privacidade de tempo
                         <outlet property="sexo" destination="GVz-rK-AI4" id="z8Q-Zq-Uos"/>
                         <outlet property="sobrenome" destination="HYj-zT-8xC" id="4Yv-Qj-3Pg"/>
                         <outlet property="urlSocial" destination="b77-FA-LUc" id="B8R-Hb-9MD"/>
+                        <segue destination="uCz-76-oSi" kind="presentation" identifier="CadastroSuccess" id="BzN-ba-Wl0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IYk-V5-YTb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2143,6 +2143,6 @@ O MeetStudent pode modificar ou atualizar esta Política de Privacidade de tempo
         <image name="profile" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kGH-9Q-9Nj"/>
+        <segue reference="BzN-ba-Wl0"/>
     </inferredMetricsTieBreakers>
 </document>

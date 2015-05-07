@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -644,6 +645,9 @@
                                     <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="2oT-UP-9ZC" kind="presentation" id="kZv-Wl-MKV"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gn-Ot-4FR">
                                 <rect key="frame" x="16" y="211" width="359" height="1"/>
@@ -759,8 +763,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fJO-1M-Eiw">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJO-1M-Eiw">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="cyn-x2-es8"/>
+                                </constraints>
                                 <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="0.40784313729999999" green="0.63529411759999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -776,101 +783,12 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SQd-03-qRv">
-                                <rect key="frame" x="0.0" y="64" width="375" height="230"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gênero:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zrz-YH-2Ai">
-                                <rect key="frame" x="13" y="313" width="62" height="21"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
-                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KUw-PY-q5t">
-                                <rect key="frame" x="77" y="309" width="96" height="30"/>
-                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mk-rR-JWM">
-                                <rect key="frame" x="13" y="338" width="160" height="1"/>
-                                <color key="backgroundColor" red="0.86639419110000004" green="0.86639419110000004" blue="0.86639419110000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" red="0.78016888230000003" green="0.1588950307" blue="0.12053038470000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Idade:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XU2-XF-XoX">
-                                <rect key="frame" x="202" y="313" width="56" height="21"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
-                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pYP-J8-KIq">
-                                <rect key="frame" x="256" y="309" width="106" height="30"/>
-                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-83-iHl">
-                                <rect key="frame" x="202" y="338" width="160" height="1"/>
-                                <color key="backgroundColor" red="0.86639419110000004" green="0.86639419110000004" blue="0.86639419110000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" red="0.78016888230000003" green="0.1588950307" blue="0.12053038470000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="E-mail:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnf-xi-1ec">
-                                <rect key="frame" x="13" y="351" width="56" height="21"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
-                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wn-Qr-QHK">
-                                <rect key="frame" x="13" y="375" width="349" height="1"/>
-                                <color key="backgroundColor" red="0.86639419110000004" green="0.86639419110000004" blue="0.86639419110000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" red="0.78016888230000003" green="0.1588950307" blue="0.12053038470000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Url Social:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6V-Ra-5vE">
-                                <rect key="frame" x="13" y="389" width="78" height="21"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
-                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g3Z-Cf-tak">
-                                <rect key="frame" x="87" y="385" width="275" height="30"/>
-                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4O-ke-FA4">
-                                <rect key="frame" x="13" y="411" width="349" height="1"/>
-                                <color key="backgroundColor" red="0.86639419110000004" green="0.86639419110000004" blue="0.86639419110000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" red="0.78016888230000003" green="0.1588950307" blue="0.12053038470000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Descrição:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opP-8r-WKu">
-                                <rect key="frame" x="13" y="425" width="352" height="21"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
-                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="RIS-8f-F8i">
-                                <rect key="frame" x="13" y="442" width="346" height="151"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="textColor" red="0.59393150849999998" green="0.59393150849999998" blue="0.59393150849999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rdb-XF-kfC">
-                                <rect key="frame" x="68" y="347" width="297" height="30"/>
-                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZS-pP-g6K">
-                                <rect key="frame" x="0.0" y="579" width="187" height="39"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZS-pP-g6K">
+                                <rect key="frame" x="0.0" y="580" width="188" height="39"/>
                                 <color key="backgroundColor" red="0.40784313729999999" green="0.63529411759999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="7uH-3i-Nd0"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="Salvar">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -881,9 +799,12 @@
                                     <action selector="updateData:" destination="JCW-Vn-ilB" eventType="touchUpInside" id="65U-uD-jiq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEN-4j-gQN">
-                                <rect key="frame" x="187" y="579" width="188" height="39"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEN-4j-gQN">
+                                <rect key="frame" x="188" y="580" width="188" height="39"/>
                                 <color key="backgroundColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="EIy-ws-Hg0"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="Cancelar">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -893,17 +814,228 @@
                                     <action selector="cancelEdit:" destination="JCW-Vn-ilB" eventType="touchUpInside" id="h5q-tZ-C7i"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xM2-xn-cYt">
-                                <rect key="frame" x="0.0" y="64" width="375" height="224"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="optionBar:" destination="JCW-Vn-ilB" eventType="touchUpInside" id="WEj-qO-o7j"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSX-4k-dxe">
+                                <rect key="frame" x="0.0" y="64" width="375" height="516"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SQd-03-qRv">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gênero:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zrz-YH-2Ai">
+                                        <rect key="frame" x="13" y="249" width="62" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="0FM-dO-AVK"/>
+                                            <constraint firstAttribute="width" constant="62" id="YEB-Lf-5HC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                        <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KUw-PY-q5t">
+                                        <rect key="frame" x="77" y="245" width="96" height="30"/>
+                                        <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mk-rR-JWM">
+                                        <rect key="frame" x="13" y="274" width="160" height="1"/>
+                                        <color key="backgroundColor" red="0.86639419110000004" green="0.86639419110000004" blue="0.86639419110000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Pf8-RX-cpQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.78016888230000003" green="0.1588950307" blue="0.12053038470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Idade:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XU2-XF-XoX">
+                                        <rect key="frame" x="202" y="249" width="56" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="56" id="KYc-26-Rp9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                        <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pYP-J8-KIq">
+                                        <rect key="frame" x="256" y="245" width="106" height="30"/>
+                                        <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-83-iHl">
+                                        <rect key="frame" x="202" y="274" width="160" height="1"/>
+                                        <color key="backgroundColor" red="0.86639419110000004" green="0.86639419110000004" blue="0.86639419110000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Acb-hQ-qqd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.78016888230000003" green="0.1588950307" blue="0.12053038470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnf-xi-1ec">
+                                        <rect key="frame" x="13" y="287" width="56" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="56" id="i1c-sX-8s6"/>
+                                            <constraint firstAttribute="height" constant="21" id="vI1-nK-gf8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                        <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wn-Qr-QHK">
+                                        <rect key="frame" x="13" y="311" width="349" height="1"/>
+                                        <color key="backgroundColor" red="0.86639419110000004" green="0.86639419110000004" blue="0.86639419110000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="uDK-Em-N50"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.78016888230000003" green="0.1588950307" blue="0.12053038470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Url Social:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6V-Ra-5vE">
+                                        <rect key="frame" x="13" y="325" width="78" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="78" id="UpG-cS-oph"/>
+                                            <constraint firstAttribute="height" constant="21" id="waq-SW-Txz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                        <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g3Z-Cf-tak">
+                                        <rect key="frame" x="87" y="321" width="275" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="NTP-nD-IQF"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4O-ke-FA4">
+                                        <rect key="frame" x="13" y="347" width="349" height="1"/>
+                                        <color key="backgroundColor" red="0.86639419110000004" green="0.86639419110000004" blue="0.86639419110000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="SZQ-mP-zGp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.78016888230000003" green="0.1588950307" blue="0.12053038470000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrição:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opP-8r-WKu">
+                                        <rect key="frame" x="13" y="361" width="352" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="Oap-zt-QP8"/>
+                                            <constraint firstAttribute="width" constant="352" id="Pbn-hl-MQI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                        <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="RIS-8f-F8i">
+                                        <rect key="frame" x="13" y="384" width="346" height="151"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="151" id="Chc-RQ-nKE"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.59393150849999998" green="0.59393150849999998" blue="0.59393150849999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rdb-XF-kfC">
+                                        <rect key="frame" x="68" y="283" width="297" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="HKt-S4-bVS"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xM2-xn-cYt">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="224"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="224" id="4GI-Qx-NtD"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="optionBar:" destination="JCW-Vn-ilB" eventType="touchUpInside" id="WEj-qO-o7j"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="a6V-Ra-5vE" firstAttribute="top" secondItem="rdb-XF-kfC" secondAttribute="bottom" constant="12" id="16k-bi-BpP"/>
+                                    <constraint firstItem="Cnf-xi-1ec" firstAttribute="top" secondItem="2Mk-rR-JWM" secondAttribute="bottom" constant="12" id="3tM-qT-JRL"/>
+                                    <constraint firstItem="RIS-8f-F8i" firstAttribute="top" secondItem="opP-8r-WKu" secondAttribute="bottom" constant="2" id="5ke-Oq-WyZ"/>
+                                    <constraint firstItem="g3Z-Cf-tak" firstAttribute="leading" secondItem="qSX-4k-dxe" secondAttribute="leading" constant="87" id="7WX-wA-4my"/>
+                                    <constraint firstItem="Zrz-YH-2Ai" firstAttribute="firstBaseline" secondItem="XU2-XF-XoX" secondAttribute="firstBaseline" id="7d0-AT-wzg"/>
+                                    <constraint firstItem="g3Z-Cf-tak" firstAttribute="leading" secondItem="a6V-Ra-5vE" secondAttribute="trailing" constant="-4" id="BEB-DU-3si"/>
+                                    <constraint firstItem="pYP-J8-KIq" firstAttribute="top" secondItem="xM2-xn-cYt" secondAttribute="bottom" constant="21" id="BIs-Ge-CLN"/>
+                                    <constraint firstItem="opP-8r-WKu" firstAttribute="leading" secondItem="qSX-4k-dxe" secondAttribute="leading" constant="13" id="Gdi-uV-o0i"/>
+                                    <constraint firstItem="xM2-xn-cYt" firstAttribute="leading" secondItem="qSX-4k-dxe" secondAttribute="leading" id="GtS-ka-vmr"/>
+                                    <constraint firstItem="RIS-8f-F8i" firstAttribute="leading" secondItem="qSX-4k-dxe" secondAttribute="leading" constant="13" id="JZs-qv-Qil"/>
+                                    <constraint firstAttribute="width" secondItem="SQd-03-qRv" secondAttribute="width" id="JaW-xF-wk2"/>
+                                    <constraint firstAttribute="height" constant="516" id="LM9-Nc-K6c"/>
+                                    <constraint firstItem="B4O-ke-FA4" firstAttribute="top" secondItem="a6V-Ra-5vE" secondAttribute="bottom" constant="1" id="Mp4-fY-tkt"/>
+                                    <constraint firstAttribute="trailing" secondItem="rdb-XF-kfC" secondAttribute="trailing" constant="10" id="Mtz-PR-XcW"/>
+                                    <constraint firstAttribute="trailing" secondItem="B4O-ke-FA4" secondAttribute="trailing" constant="13" id="NUP-10-YRo"/>
+                                    <constraint firstAttribute="bottom" secondItem="KUw-PY-q5t" secondAttribute="bottom" constant="241" id="Ngl-uZ-18Z"/>
+                                    <constraint firstItem="opP-8r-WKu" firstAttribute="top" secondItem="g3Z-Cf-tak" secondAttribute="bottom" constant="10" id="NsT-zT-Y5f"/>
+                                    <constraint firstItem="rdb-XF-kfC" firstAttribute="top" secondItem="N9L-83-iHl" secondAttribute="bottom" constant="8" id="Pof-Vn-Knp"/>
+                                    <constraint firstItem="KUw-PY-q5t" firstAttribute="leading" secondItem="Zrz-YH-2Ai" secondAttribute="trailing" constant="2" id="QI3-Z6-gw5"/>
+                                    <constraint firstAttribute="trailing" secondItem="g3Z-Cf-tak" secondAttribute="trailing" constant="13" id="RlQ-BM-QPV"/>
+                                    <constraint firstItem="4wn-Qr-QHK" firstAttribute="top" secondItem="Cnf-xi-1ec" secondAttribute="bottom" constant="3" id="SDr-R2-rVh"/>
+                                    <constraint firstItem="pYP-J8-KIq" firstAttribute="leading" secondItem="KUw-PY-q5t" secondAttribute="trailing" constant="83" id="Tat-c4-LXp"/>
+                                    <constraint firstItem="xM2-xn-cYt" firstAttribute="width" secondItem="SQd-03-qRv" secondAttribute="height" multiplier="75:46" id="Ux2-TE-vje"/>
+                                    <constraint firstItem="Zrz-YH-2Ai" firstAttribute="baseline" secondItem="XU2-XF-XoX" secondAttribute="baseline" id="VLR-7a-c7W"/>
+                                    <constraint firstItem="a6V-Ra-5vE" firstAttribute="leading" secondItem="qSX-4k-dxe" secondAttribute="leading" constant="13" id="VaD-fT-gSy"/>
+                                    <constraint firstAttribute="trailing" secondItem="xM2-xn-cYt" secondAttribute="trailing" id="XCc-0I-YOI"/>
+                                    <constraint firstItem="2Mk-rR-JWM" firstAttribute="width" secondItem="N9L-83-iHl" secondAttribute="width" id="XNO-5X-CCO"/>
+                                    <constraint firstItem="Cnf-xi-1ec" firstAttribute="leading" secondItem="qSX-4k-dxe" secondAttribute="leading" constant="13" id="Yen-K0-qU6"/>
+                                    <constraint firstItem="pYP-J8-KIq" firstAttribute="trailing" secondItem="N9L-83-iHl" secondAttribute="trailing" id="aSC-fp-S3h"/>
+                                    <constraint firstItem="rdb-XF-kfC" firstAttribute="leading" secondItem="qSX-4k-dxe" secondAttribute="leading" constant="68" id="bEN-7l-zgf"/>
+                                    <constraint firstAttribute="trailing" secondItem="SQd-03-qRv" secondAttribute="trailing" id="enC-EI-EYh"/>
+                                    <constraint firstItem="XU2-XF-XoX" firstAttribute="top" secondItem="xM2-xn-cYt" secondAttribute="bottom" constant="25" id="eni-kt-JlA"/>
+                                    <constraint firstItem="xM2-xn-cYt" firstAttribute="top" secondItem="qSX-4k-dxe" secondAttribute="top" id="f1H-rK-N0s"/>
+                                    <constraint firstItem="rdb-XF-kfC" firstAttribute="top" secondItem="KUw-PY-q5t" secondAttribute="bottom" constant="8" symbolic="YES" id="fBi-a9-w7F"/>
+                                    <constraint firstItem="pYP-J8-KIq" firstAttribute="baseline" secondItem="KUw-PY-q5t" secondAttribute="baseline" id="fvm-7g-2bD"/>
+                                    <constraint firstItem="rdb-XF-kfC" firstAttribute="leading" secondItem="Cnf-xi-1ec" secondAttribute="trailing" constant="-1" id="hqn-p2-rHI"/>
+                                    <constraint firstItem="SQd-03-qRv" firstAttribute="leading" secondItem="qSX-4k-dxe" secondAttribute="leading" id="hsu-vR-u6K"/>
+                                    <constraint firstItem="N9L-83-iHl" firstAttribute="leading" secondItem="2Mk-rR-JWM" secondAttribute="trailing" constant="29" id="i0q-aD-Gp1"/>
+                                    <constraint firstAttribute="trailing" secondItem="N9L-83-iHl" secondAttribute="trailing" constant="13" id="iRb-PK-kDM"/>
+                                    <constraint firstItem="2Mk-rR-JWM" firstAttribute="top" secondItem="Zrz-YH-2Ai" secondAttribute="bottom" constant="4" id="klI-x7-gYU"/>
+                                    <constraint firstItem="4wn-Qr-QHK" firstAttribute="leading" secondItem="qSX-4k-dxe" secondAttribute="leading" constant="13" id="lzL-Ov-hTa"/>
+                                    <constraint firstItem="XU2-XF-XoX" firstAttribute="leading" secondItem="N9L-83-iHl" secondAttribute="leading" id="mfr-Zp-Vs3"/>
+                                    <constraint firstItem="2Mk-rR-JWM" firstAttribute="leading" secondItem="qSX-4k-dxe" secondAttribute="leading" constant="13" id="nLB-pJ-OXe"/>
+                                    <constraint firstItem="Zrz-YH-2Ai" firstAttribute="top" secondItem="SQd-03-qRv" secondAttribute="bottom" constant="19" id="pVN-c2-a8y"/>
+                                    <constraint firstItem="SQd-03-qRv" firstAttribute="top" secondItem="qSX-4k-dxe" secondAttribute="top" id="qaT-6v-s7X"/>
+                                    <constraint firstAttribute="trailing" secondItem="4wn-Qr-QHK" secondAttribute="trailing" constant="13" id="qo1-Rp-OMi"/>
+                                    <constraint firstItem="B4O-ke-FA4" firstAttribute="leading" secondItem="qSX-4k-dxe" secondAttribute="leading" constant="13" id="rE0-9h-dVZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="RIS-8f-F8i" secondAttribute="trailing" constant="16" id="tID-dY-hRK"/>
+                                    <constraint firstItem="g3Z-Cf-tak" firstAttribute="top" secondItem="rdb-XF-kfC" secondAttribute="bottom" constant="8" id="tKH-Q9-rea"/>
+                                    <constraint firstItem="KUw-PY-q5t" firstAttribute="trailing" secondItem="2Mk-rR-JWM" secondAttribute="trailing" id="tUP-Gi-iUn"/>
+                                    <constraint firstItem="KUw-PY-q5t" firstAttribute="top" secondItem="SQd-03-qRv" secondAttribute="bottom" constant="15" id="vD9-dl-pa8"/>
+                                    <constraint firstItem="KUw-PY-q5t" firstAttribute="bottom" secondItem="2Mk-rR-JWM" secondAttribute="bottom" id="x1f-GM-5Hm"/>
+                                    <constraint firstItem="rdb-XF-kfC" firstAttribute="top" secondItem="pYP-J8-KIq" secondAttribute="bottom" constant="8" symbolic="YES" id="xsK-Tb-yTx"/>
+                                    <constraint firstItem="Zrz-YH-2Ai" firstAttribute="leading" secondItem="2Mk-rR-JWM" secondAttribute="leading" id="yEI-ej-OiW"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qSX-4k-dxe" firstAttribute="leading" secondItem="lOz-Zc-f5J" secondAttribute="leading" id="0Uo-Hf-v3L"/>
+                            <constraint firstItem="KZS-pP-g6K" firstAttribute="width" secondItem="BEN-4j-gQN" secondAttribute="width" id="3Hi-MR-F4I"/>
+                            <constraint firstAttribute="bottom" secondItem="KZS-pP-g6K" secondAttribute="bottom" constant="48" id="DtB-WX-FNE"/>
+                            <constraint firstAttribute="trailing" secondItem="fJO-1M-Eiw" secondAttribute="trailing" id="JK9-yq-ehP"/>
+                            <constraint firstItem="fJO-1M-Eiw" firstAttribute="leading" secondItem="lOz-Zc-f5J" secondAttribute="leading" id="KSb-8E-Gvl"/>
+                            <constraint firstAttribute="bottom" secondItem="BEN-4j-gQN" secondAttribute="bottom" constant="48" id="Kpv-XG-ns8"/>
+                            <constraint firstItem="qSX-4k-dxe" firstAttribute="top" secondItem="fJO-1M-Eiw" secondAttribute="bottom" id="NXA-XB-RPp"/>
+                            <constraint firstAttribute="bottom" secondItem="qSX-4k-dxe" secondAttribute="bottom" constant="87" id="Oxt-Ur-EIM"/>
+                            <constraint firstItem="BEN-4j-gQN" firstAttribute="leading" secondItem="KZS-pP-g6K" secondAttribute="trailing" id="V76-Ls-p7E"/>
+                            <constraint firstItem="KZS-pP-g6K" firstAttribute="leading" secondItem="lOz-Zc-f5J" secondAttribute="leading" id="cDa-8o-cym"/>
+                            <constraint firstAttribute="trailing" secondItem="BEN-4j-gQN" secondAttribute="trailing" constant="-1" id="crB-gR-uU5"/>
+                            <constraint firstItem="fJO-1M-Eiw" firstAttribute="top" secondItem="Imi-oA-IRm" secondAttribute="bottom" id="eSe-yv-Z55"/>
+                            <constraint firstAttribute="trailing" secondItem="qSX-4k-dxe" secondAttribute="trailing" id="wPb-4Z-ubY"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Perfil" image="profile" selectedImage="profile" id="XFH-5m-pwR"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -1060,14 +1192,14 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="587" id="33Q-mr-BhO"/>
                                         </constraints>
-                                        <mutableString key="text">	O MeetStudent é um serviço que visa fomentar a interação entre estudantes, membros, pessoas que frequentam uma mesma instituição, com a finalidade de disseminar o conhecimento sobre as pessoas que estão naquele meio. O MeetStudent contribui para que as pessoas se conheçam e/ou busquem pessoas que sejam em comum ou tenha algum interesse pessoal. 
+                                        <string key="text">	O MeetStudent é um serviço que visa fomentar a interação entre estudantes, membros, pessoas que frequentam uma mesma instituição, com a finalidade de disseminar o conhecimento sobre as pessoas que estão naquele meio. O MeetStudent contribui para que as pessoas se conheçam e/ou busquem pessoas que sejam em comum ou tenha algum interesse pessoal. 
 O Serviço faz o prometido da seguinte forma: 
 	O usuário está vinculado à uma instituição, nesta existem vários grupos (Cursos/Departamentos/tribos) onde o usuário pode se vincular e onde o mesmo também navega entre o perfil de todos os membros que ali estão visíveis. Podendo ver informações de contato, imagem de perfil, descrição e outras informações pertinentes a pessoa.
 
 	O serviço tem restrições de acesso, logo é necessário criar uma conta. Onde suas informações estaram disponíveis para acesso em qualquer dispositivo que tenha o aplicativo MeetStudent instalado. Sendo assim, é possível editar seu perfil, apagar sua conta, criar grupos, se vincular a grupos e visualizar o perfil de outros usuários cadastrados no Serviço.
 
 
-	Responsáveis pela criação e manutenção do Serviço: Rafael Cabral e Renato Mendes        Agradecimentos: Designer Bruno Flora, Developer Claudia Tejos </mutableString>
+	Responsáveis pela criação e manutenção do Serviço: Rafael Cabral e Renato Mendes        Agradecimentos: Designer Bruno Flora, Developer Claudia Tejos </string>
                                         <color key="textColor" red="0.59393150849999998" green="0.59393150849999998" blue="0.59393150849999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1099,7 +1231,7 @@ O Serviço faz o prometido da seguinte forma:
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g4p-ak-iw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rkl-yp-cNF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1721.5" y="-438.5"/>
+            <point key="canvasLocation" x="1712.5" y="-668.5"/>
         </scene>
         <!--Perfil da Pessoa-->
         <scene sceneID="z7U-33-py9">
@@ -1393,11 +1525,11 @@ O Serviço faz o prometido da seguinte forma:
                         <viewControllerLayoutGuide type="bottom" id="NEB-GW-12z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hJo-RE-1SE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f6x-8N-Edu">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="dH5-u1-KKG"/>
                                 </constraints>
@@ -1417,20 +1549,18 @@ O Serviço faz o prometido da seguinte forma:
                                 </items>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXb-SS-v0x">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAr-ak-2Az">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2648"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="3005"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="K0a-AO-TLC">
-                                                <rect key="frame" x="8" y="8" width="359" height="2630"/>
+                                                <rect key="frame" x="8" y="8" width="304" height="2988"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="2630" id="8eQ-tX-hnf"/>
+                                                    <constraint firstAttribute="height" constant="2988" id="cwO-nU-OEQ"/>
                                                 </constraints>
-                                                <mutableString key="text">Termos de Uso
-
-Termos básicos
+                                                <string key="text">Termos básicos
 
 1. Você precisa estar vinculado à instituição ou pelos menos já ter cido aluno da mesma para poder se vincular e interagir com os respectivos. Todavia, podemos, mas não iremos monitorar tal questão, ficando você responsável por toda e qualquer ocorrência que haver em detrimento ao seu uso do Serviço.
 
@@ -1469,7 +1599,7 @@ Condições gerais
 
 7. Você é o único responsável por sua interação com outros usuários do Serviço, seja on-line ou off-line. Você concorda que o MeetStudent não é responsável ou seja responsabilizado pela conduta de nenhum usuário.
 
-8. Você concorda que você é responsável por todas as cobranças de dados a que você ficar sujeito através do uso do Serviço.</mutableString>
+8. Você concorda que você é responsável por todas as cobranças de dados a que você ficar sujeito através do uso do Serviço.</string>
                                                 <color key="textColor" red="0.59393150849999998" green="0.59393150849999998" blue="0.59393150849999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1477,41 +1607,180 @@ Condições gerais
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="K0a-AO-TLC" firstAttribute="leading" secondItem="gAr-ak-2Az" secondAttribute="leading" constant="8" id="03T-9i-hrr"/>
-                                            <constraint firstAttribute="bottom" secondItem="K0a-AO-TLC" secondAttribute="bottom" constant="10" id="FC1-m0-JG4"/>
-                                            <constraint firstItem="K0a-AO-TLC" firstAttribute="top" secondItem="gAr-ak-2Az" secondAttribute="top" constant="8" id="q9V-3w-EWr"/>
-                                            <constraint firstAttribute="height" constant="2648" id="rmP-P0-bKm"/>
-                                            <constraint firstAttribute="width" secondItem="K0a-AO-TLC" secondAttribute="width" constant="16" id="s0b-GL-cfO"/>
-                                            <constraint firstAttribute="trailing" secondItem="K0a-AO-TLC" secondAttribute="trailing" constant="8" id="urG-Iw-lQJ"/>
+                                            <constraint firstItem="K0a-AO-TLC" firstAttribute="top" secondItem="gAr-ak-2Az" secondAttribute="top" constant="8" id="ITB-Qv-tcf"/>
+                                            <constraint firstAttribute="width" secondItem="K0a-AO-TLC" secondAttribute="width" constant="16" id="LxY-tI-xZA"/>
+                                            <constraint firstAttribute="trailing" secondItem="K0a-AO-TLC" secondAttribute="trailing" constant="8" id="MxJ-7f-jhD"/>
+                                            <constraint firstAttribute="bottom" secondItem="K0a-AO-TLC" secondAttribute="bottom" constant="9" id="S1n-Pc-Rqn"/>
+                                            <constraint firstAttribute="height" constant="3005" id="uhu-yr-rCn"/>
+                                            <constraint firstItem="K0a-AO-TLC" firstAttribute="leading" secondItem="gAr-ak-2Az" secondAttribute="leading" constant="8" id="wKb-Br-nkc"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="gAr-ak-2Az" secondAttribute="width" id="4EX-W1-mqo"/>
-                                    <constraint firstItem="gAr-ak-2Az" firstAttribute="top" secondItem="JXb-SS-v0x" secondAttribute="top" id="Moz-Xe-O9o"/>
-                                    <constraint firstItem="gAr-ak-2Az" firstAttribute="leading" secondItem="JXb-SS-v0x" secondAttribute="leading" id="Uqe-TY-89c"/>
-                                    <constraint firstAttribute="bottom" secondItem="gAr-ak-2Az" secondAttribute="bottom" id="fbL-MA-Iv3"/>
-                                    <constraint firstAttribute="trailing" secondItem="gAr-ak-2Az" secondAttribute="trailing" id="rP6-Ly-iog"/>
+                                    <constraint firstAttribute="trailing" secondItem="gAr-ak-2Az" secondAttribute="trailing" id="6P7-t0-xjh"/>
+                                    <constraint firstItem="gAr-ak-2Az" firstAttribute="leading" secondItem="JXb-SS-v0x" secondAttribute="leading" id="hTH-90-6Wm"/>
+                                    <constraint firstItem="gAr-ak-2Az" firstAttribute="top" secondItem="JXb-SS-v0x" secondAttribute="top" id="m6f-3c-XcJ"/>
+                                    <constraint firstAttribute="width" secondItem="gAr-ak-2Az" secondAttribute="width" id="mGZ-Dg-LJS"/>
+                                    <constraint firstAttribute="height" constant="504" id="rY2-QF-Dw4"/>
+                                    <constraint firstAttribute="bottom" secondItem="gAr-ak-2Az" secondAttribute="bottom" id="spM-kx-Xee"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JXb-SS-v0x" firstAttribute="leading" secondItem="hJo-RE-1SE" secondAttribute="leading" id="AzR-0t-wSS"/>
-                            <constraint firstItem="JXb-SS-v0x" firstAttribute="top" secondItem="f6x-8N-Edu" secondAttribute="bottom" id="FMh-HV-sXm"/>
+                            <constraint firstAttribute="width" secondItem="JXb-SS-v0x" secondAttribute="width" id="7zm-y8-M0Y"/>
                             <constraint firstItem="f6x-8N-Edu" firstAttribute="top" secondItem="Msd-pa-35j" secondAttribute="bottom" id="LyS-TU-yc4"/>
-                            <constraint firstItem="NEB-GW-12z" firstAttribute="top" secondItem="JXb-SS-v0x" secondAttribute="bottom" id="jBX-dn-M8q"/>
+                            <constraint firstAttribute="trailing" secondItem="JXb-SS-v0x" secondAttribute="trailing" id="PXo-rh-94C"/>
                             <constraint firstItem="f6x-8N-Edu" firstAttribute="width" secondItem="hJo-RE-1SE" secondAttribute="width" id="jBZ-Yy-mYh"/>
-                            <constraint firstAttribute="trailing" secondItem="JXb-SS-v0x" secondAttribute="trailing" id="mVH-VR-GCv"/>
-                            <constraint firstAttribute="width" secondItem="JXb-SS-v0x" secondAttribute="width" id="nT5-T1-nZJ"/>
+                            <constraint firstItem="NEB-GW-12z" firstAttribute="top" secondItem="JXb-SS-v0x" secondAttribute="bottom" id="mDP-nd-3ez"/>
+                            <constraint firstItem="JXb-SS-v0x" firstAttribute="top" secondItem="f6x-8N-Edu" secondAttribute="bottom" id="r4U-2r-SV6"/>
+                            <constraint firstItem="JXb-SS-v0x" firstAttribute="leading" secondItem="hJo-RE-1SE" secondAttribute="leading" id="t5C-38-qsW"/>
                             <constraint firstItem="f6x-8N-Edu" firstAttribute="leading" secondItem="hJo-RE-1SE" secondAttribute="leading" id="tUe-40-rfC"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JiH-kL-urs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="V1v-u9-Kq9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2140.5" y="-439.5"/>
+            <point key="canvasLocation" x="2125" y="-718"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eip-YH-SXw">
+            <objects>
+                <viewController id="2oT-UP-9ZC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zm2-yK-Zmv"/>
+                        <viewControllerLayoutGuide type="bottom" id="DnW-ey-HAs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vPc-qO-yhe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L5z-Lu-Soj">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ecL-RA-evx"/>
+                                </constraints>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.40784313729999999" green="0.63529411759999999" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Política de privacidade" id="v5v-df-eqH">
+                                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="4US-G4-bA7">
+                                            <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <segue destination="Nh5-MF-yMd" kind="unwind" unwindAction="returnConfiguracoesMainViewController:" id="LrL-mg-DiM"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8R-nE-Xjy">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DMP-fw-j5G">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="3100"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="VTl-ws-xNQ">
+                                                <rect key="frame" x="8" y="0.0" width="304" height="3087"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="3087" id="YGp-YG-mdo"/>
+                                                </constraints>
+                                                <mutableString key="text">1. Informações que coletamos
+
+Nós coletamos os seguintes tipos de informações.
+
+Informações que você fornece para nós diretamente:
+Seu nome de usuário/e-mail, senha, nome, sobrenome, foto, idade, gênero sexual, url social e descrição de seu perfil  quando você se registra para uma conta do MeetStudent.
+Informações de perfil que você fornece para seu perfil de usuário (por exemplo, nome e sobrenome, foto). Essas informações permitem que nós ajudemos você e outras pessoas a serem "encontradas" no MeetStudent.
+Conteúdo de Usuário (por exemplo, fotos, comentários e outros materiais) que você publica no Serviço.
+Comunicações entre você e o MeetStudent. Por exemplo, nós podemos enviar a você e-mails relacionados ao Serviço (por exemplo, verificação de conta, alterações/atualizações de recursos do Serviço, avisos técnicos e de segurança). Observe que você não pode recusar o recebimento de e-mails relacionados ao Serviço.
+
+
+Metadados:
+Os metadados são normalmente dados técnicos associados ao Conteúdo do Usuário. Por exemplo, Metadados podem descrever como, quando e por quem uma parte de Conteúdo do Usuário foi coletada e como este conteúdo está formatado.
+
+
+2. Como nós usamos suas informações
+
+Além de alguns dos usos específicos de informações que descrevemos nesta Política de Privacidade, nós podemos usar as informações que recebemos para:
+ajudá-lo a acessar suas informações de forma eficiente após seu login
+lembrar suas informações para que você não tenha que reinseri-las durante sua visita ou na próxima vez que acessar o Serviço;
+fornecer informações e conteúdo personalizados para você e outros, o que pode incluir anúncios ou outras formas de marketing;
+fornecer, aprimorar, testar e monitorar a eficiência de nosso Serviço
+desenvolver e testar novos produtos e recursos
+monitorar métricas como o número total de visitantes, tráfego e padrões demográficos
+diagnosticar ou corrigir problemas de tecnologia
+atualizar automaticamente o aplicativo do MeetStudent no seu dispositivo
+
+
+3. Compartilhamento de suas informações
+
+Nós não alugaremos nem venderemos suas informações a terceiros fora do Instagram (ou do grupo de empresas do qual o Instagram faz parte) sem a sua autorização, exceto conforme descrito nesta Política. 
+
+Partes com as quais podemos compartilhar suas informações:
+Nós podemos remover partes de dados que possam identificá-lo e compartilhar dados anônimos com outras partes. Nós também podemos combinar suas informações com outras informações para que elas não fiquem mais associadas a você e compartilhar essas informações agregadas.
+Partes com quem você pode escolher compartilhar seu Conteúdo do Usuário:
+Qualquer informação ou conteúdo que você divulga voluntariamente para publicação no Serviço, como Conteúdo do Usuário, é disponibilizado para o público.
+Se você remover informações que você publicou no Serviço, cópias podem permanecer visualizáveis em páginas armazenadas em cache e arquivadas do Serviço.
+O que acontece no caso de uma alteração de controle:
+Se nós vendermos ou transferirmos parte ou todo o MeetStudent ou nossos ativos para outra organização (por exemplo, durante uma transação de fusão, aquisição, falência, dissolução, liquidação), suas informações, como nome e endereço de e-mail, Conteúdo do Usuário e qualquer outra informação coletada através do Serviço pode estar entre os itens vendidos ou transferidos. Você continuará a ser o proprietário do seu Conteúdo do Usuário. O comprador ou cessionário terá que respeitar os compromissos que fizemos nesta Política de Privacidade.
+Atendendo a solicitações judiciais e evitando prejuízos:
+Nós podemos acessar, reter e compartilhar suas informações em resposta a uma solicitação judicial (como um mandado de busca, ordem judicial ou intimação) se acreditarmos em boa fé que a lei nos obriga a fazer isso. Isso pode incluir a resposta a solicitações judiciais de jurisdições fora dos Estados Unidos quando acreditarmos de boa fé que a resposta é exigida por lei na jurisdição em questão, diz respeito aos usuários na jurisdição em questão e está em conformidade com padrões reconhecidos internacionalmente. Nós também podemos acessar, reter e compartilhar informações quando acreditarmos em boa fé que isso se faz necessário para: detectar, impedir e tratar fraudes e outras atividades ilegais; para nos proteger, proteger você e outros, inclusive como parte de investigações; e impedir mortes ou lesões corporais iminentes. As informações que recebemos sobre você podem ser acessadas, processadas e retidas por um período prolongado quando estiverem relacionadas a uma solicitação ou obrigação jurídica, investigação governamental ou investigações relacionadas a possíveis violações de nossos termos ou políticas, ou, então, para impedir prejuízos.
+
+
+4. Como entrar em contato conosco
+
+Se tiver quaisquer dúvidas sobre essa Política de privacidade ou sobre o Serviço, entre em contato via e-mail com Rafael Cabral e/ou Rentato Mendes, rafaelcabral.14@icloud.com e renatodz86@gmail.com respectivamente.
+
+5. Alterações em nossa política de privacidade
+
+O MeetStudent pode modificar ou atualizar esta Política de Privacidade de tempos em tempos, portanto verifique-a periodicamente. Nós podemos fornecer a você formas adicionais de aviso sobre modificações ou atualizações conforme apropriado mediante as circunstâncias. A continuação do seu uso do MeetStudent ou do Serviço após qualquer modificação desta Política de Privacidade constituirá sua aceitação das modificações em questão.</mutableString>
+                                                <color key="textColor" red="0.59393150849999998" green="0.59393150849999998" blue="0.59393150849999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="VTl-ws-xNQ" firstAttribute="leading" secondItem="DMP-fw-j5G" secondAttribute="leadingMargin" id="eU2-fc-Y6z"/>
+                                            <constraint firstAttribute="width" secondItem="VTl-ws-xNQ" secondAttribute="width" constant="16" id="mRQ-CD-gGC"/>
+                                            <constraint firstItem="VTl-ws-xNQ" firstAttribute="top" secondItem="DMP-fw-j5G" secondAttribute="top" id="r2V-3F-unW"/>
+                                            <constraint firstAttribute="bottom" secondItem="VTl-ws-xNQ" secondAttribute="bottom" constant="13" id="wpD-JU-YoG"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="DMP-fw-j5G" secondAttribute="trailing" id="VHP-Td-uMd"/>
+                                    <constraint firstItem="DMP-fw-j5G" firstAttribute="width" secondItem="b8R-nE-Xjy" secondAttribute="width" id="dZa-5Q-7WV"/>
+                                    <constraint firstAttribute="bottom" secondItem="DMP-fw-j5G" secondAttribute="bottom" id="dtA-DZ-EYc"/>
+                                    <constraint firstItem="DMP-fw-j5G" firstAttribute="top" secondItem="b8R-nE-Xjy" secondAttribute="top" id="hEj-pf-87Q"/>
+                                    <constraint firstAttribute="height" constant="504" id="qXd-pB-BWL"/>
+                                    <constraint firstItem="DMP-fw-j5G" firstAttribute="leading" secondItem="b8R-nE-Xjy" secondAttribute="leading" id="zzZ-j1-WrU"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b8R-nE-Xjy" firstAttribute="leading" secondItem="vPc-qO-yhe" secondAttribute="leading" id="Mkb-B9-Txx"/>
+                            <constraint firstItem="L5z-Lu-Soj" firstAttribute="top" secondItem="zm2-yK-Zmv" secondAttribute="bottom" id="Ngw-pD-TwE"/>
+                            <constraint firstItem="b8R-nE-Xjy" firstAttribute="top" secondItem="L5z-Lu-Soj" secondAttribute="bottom" id="ORx-aF-2U4"/>
+                            <constraint firstItem="L5z-Lu-Soj" firstAttribute="leading" secondItem="vPc-qO-yhe" secondAttribute="leading" id="Oed-TJ-0hT"/>
+                            <constraint firstAttribute="trailing" secondItem="b8R-nE-Xjy" secondAttribute="trailing" id="Q9B-qf-WgZ"/>
+                            <constraint firstItem="DnW-ey-HAs" firstAttribute="top" secondItem="b8R-nE-Xjy" secondAttribute="bottom" id="jHc-1n-Lp3"/>
+                            <constraint firstItem="L5z-Lu-Soj" firstAttribute="width" secondItem="vPc-qO-yhe" secondAttribute="width" id="l02-ag-QM2"/>
+                            <constraint firstAttribute="width" secondItem="b8R-nE-Xjy" secondAttribute="width" id="mr6-wO-TOk"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4u6-DE-Dob" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Nh5-MF-yMd" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2503" y="-718"/>
         </scene>
     </scenes>
     <resources>

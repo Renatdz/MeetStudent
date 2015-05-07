@@ -119,7 +119,9 @@
             user[@"url_social"] = _urlSocial.text;
         
             //image
-            NSData *imageData = UIImagePNGRepresentation(_image.image);
+            CGSize size = CGSizeMake(375.0, 225.0);
+            NSData *imageData = UIImagePNGRepresentation([self imageWithImage:_image.image convertToSize:size]);
+
             PFFile *imageFile = [PFFile fileWithName:@"img.png" data:imageData];
             user[@"imagem"] = imageFile;
             user[@"descricao"] = _descricao.text;
@@ -412,6 +414,15 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     [alert addSubview:indicator];
     
     [alert dismissWithClickedButtonIndex:0 animated:YES];
+}
+//|--------------------------------------
+// resize UIImage
+- (UIImage *)imageWithImage:(UIImage *)image convertToSize:(CGSize)size {
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *destImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return destImage;
 }
 
 @end

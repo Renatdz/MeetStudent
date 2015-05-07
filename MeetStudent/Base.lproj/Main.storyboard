@@ -1186,20 +1186,20 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCY-aY-mfX">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mk3-p1-uYJ">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="mk3-p1-uYJ">
                                         <rect key="frame" x="8" y="8" width="359" height="587"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="587" id="33Q-mr-BhO"/>
                                         </constraints>
-                                        <string key="text">	O MeetStudent é um serviço que visa fomentar a interação entre estudantes, membros, pessoas que frequentam uma mesma instituição, com a finalidade de disseminar o conhecimento sobre as pessoas que estão naquele meio. O MeetStudent contribui para que as pessoas se conheçam e/ou busquem pessoas que sejam em comum ou tenha algum interesse pessoal. 
+                                        <mutableString key="text">	O MeetStudent é um serviço que visa fomentar a interação entre estudantes, membros, pessoas que frequentam uma mesma instituição, com a finalidade de disseminar o conhecimento sobre as pessoas que estão naquele meio. O MeetStudent contribui para que as pessoas se conheçam e/ou busquem pessoas que sejam em comum ou tenha algum interesse pessoal. 
 O Serviço faz o prometido da seguinte forma: 
 	O usuário está vinculado à uma instituição, nesta existem vários grupos (Cursos/Departamentos/tribos) onde o usuário pode se vincular e onde o mesmo também navega entre o perfil de todos os membros que ali estão visíveis. Podendo ver informações de contato, imagem de perfil, descrição e outras informações pertinentes a pessoa.
 
 	O serviço tem restrições de acesso, logo é necessário criar uma conta. Onde suas informações estaram disponíveis para acesso em qualquer dispositivo que tenha o aplicativo MeetStudent instalado. Sendo assim, é possível editar seu perfil, apagar sua conta, criar grupos, se vincular a grupos e visualizar o perfil de outros usuários cadastrados no Serviço.
 
 
-	Responsáveis pela criação e manutenção do Serviço: Rafael Cabral e Renato Mendes        Agradecimentos: Designer Bruno Flora, Developer Claudia Tejos </string>
+	Responsáveis pela criação e manutenção do Serviço: Rafael Cabral e Renato Mendes Agradecimentos: Designer Bruno Flora, Developer Claudia Tejos </mutableString>
                                         <color key="textColor" red="0.59393150849999998" green="0.59393150849999998" blue="0.59393150849999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1689,7 +1689,7 @@ Condições gerais
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="3087" id="YGp-YG-mdo"/>
                                                 </constraints>
-                                                <mutableString key="text">1. Informações que coletamos
+                                                <string key="text">1. Informações que coletamos
 
 Nós coletamos os seguintes tipos de informações.
 
@@ -1738,7 +1738,7 @@ Se tiver quaisquer dúvidas sobre essa Política de privacidade ou sobre o Servi
 
 5. Alterações em nossa política de privacidade
 
-O MeetStudent pode modificar ou atualizar esta Política de Privacidade de tempos em tempos, portanto verifique-a periodicamente. Nós podemos fornecer a você formas adicionais de aviso sobre modificações ou atualizações conforme apropriado mediante as circunstâncias. A continuação do seu uso do MeetStudent ou do Serviço após qualquer modificação desta Política de Privacidade constituirá sua aceitação das modificações em questão.</mutableString>
+O MeetStudent pode modificar ou atualizar esta Política de Privacidade de tempos em tempos, portanto verifique-a periodicamente. Nós podemos fornecer a você formas adicionais de aviso sobre modificações ou atualizações conforme apropriado mediante as circunstâncias. A continuação do seu uso do MeetStudent ou do Serviço após qualquer modificação desta Política de Privacidade constituirá sua aceitação das modificações em questão.</string>
                                                 <color key="textColor" red="0.59393150849999998" green="0.59393150849999998" blue="0.59393150849999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

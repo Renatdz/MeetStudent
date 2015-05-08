@@ -10,7 +10,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="DaI-XK-iSq">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="DaI-XK-iSq">
                     <rect key="frame" x="43" y="135" width="288" height="260"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="288" id="7J3-IM-8cI"/>
@@ -41,6 +41,6 @@
         </view>
     </objects>
     <resources>
-        <image name="iTunesArtwork" width="512" height="512"/>
+        <image name="logo" width="1024" height="1024"/>
     </resources>
 </document>

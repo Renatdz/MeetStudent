@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="N60-dh-L3x">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="N60-dh-L3x">
                                 <rect key="frame" x="43" y="135" width="288" height="260"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="LmM-xm-3oF"/>
@@ -2138,8 +2138,8 @@ O MeetStudent pode modificar ou atualizar esta Política de Privacidade de tempo
     </scenes>
     <resources>
         <image name="config" width="32" height="32"/>
-        <image name="iTunesArtwork" width="512" height="512"/>
         <image name="instituicao" width="32" height="32"/>
+        <image name="logo" width="1024" height="1024"/>
         <image name="profile" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>

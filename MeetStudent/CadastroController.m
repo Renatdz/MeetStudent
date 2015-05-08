@@ -91,8 +91,8 @@
     //_image.layer.masksToBounds = YES;
     
     // Carrega a imagem padrao para adicao de foto
-    _image.image = [UIImage imageNamed:@"add-photo.png"];
-    imagemPadrao = _image;
+    _image.image = [UIImage imageNamed:@"add_photo.png"];
+    //imagemPadrao = _image;
 
     
     //set keyboar type number
@@ -234,10 +234,12 @@
 -(bool)validate
 {
     NSData *checkImage        = UIImagePNGRepresentation(_image.image);
-    NSData *checkImageDefault = UIImagePNGRepresentation([UIImage imageNamed:@"add-photo.png"]);
+    NSData *checkImageDefault = UIImagePNGRepresentation([UIImage imageNamed:@"add_photo.png"]);
     
     if([checkImage isEqualToData:checkImageDefault]){
         _image.layer.borderColor = [[UIColor redColor] CGColor];
+        _image.image = [UIImage imageNamed:@"add_photo_erro.png"]; //set image validade erro
+        
         return 0;
     }else{
         _image.layer.borderColor = [[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1] CGColor]; /*#cccccc*/

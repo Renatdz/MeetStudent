@@ -236,7 +236,6 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSIndexPath *path = [_TableViewPeople indexPathForSelectedRow];
-    PessoaController *PC;
     
     if (_isFiltered) {
         //set people current on singleton
@@ -248,7 +247,8 @@
                           id:[_totalPeoplesId objectAtIndex:path.row]];
     }
     //Send to pessoasViewController
-    PC = [segue destinationViewController];
+    PessoaController *PC = [segue destinationViewController];
+    NSLog(@"pc -> %@", PC);
 }
 
 //|-------------------------------------------------

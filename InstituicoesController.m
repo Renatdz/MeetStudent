@@ -100,14 +100,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSIndexPath *path = [self.TableViewInstitution indexPathForSelectedRow];
-    GruposController *GC;
     
     //set instituition current on singleton
     [self sectionCurrent:[_totalInstitution objectAtIndex:path.row]
                       id:[_totalIdsInstituition objectAtIndex:path.row]];
     
     //Send to gruposViewController
-    GC = [segue destinationViewController];
+    GruposController *GC = [segue destinationViewController];
+    NSLog(@"gc -> %@", GC);
 }
 
 //|-------------------------------------------------

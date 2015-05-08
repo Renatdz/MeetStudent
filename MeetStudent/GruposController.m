@@ -139,7 +139,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSIndexPath *path = [self.TableViewGroup indexPathForSelectedRow];
-    PessoasController *PC;
+//    PessoasController *PC;
     
     if (_isFiltered) {
         //set group current on singleton
@@ -151,7 +151,8 @@
                           id:[_totalGroupsIds objectAtIndex:path.row]];
     }
     //Send to gruposViewController
-    PC = [segue destinationViewController];
+    PessoasController *PC = [segue destinationViewController];
+    NSLog(@" pc -> %@", PC);
 }
 
 //|-------------------------------------------------

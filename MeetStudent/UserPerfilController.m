@@ -62,6 +62,7 @@
     _social.enabled = YES;
     _social.delegate = self;
     _descricao.editable = YES;
+    _descricao.delegate = self;
     
     //set visible button update
     _buttonEdit.hidden = NO;
@@ -411,8 +412,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     CGRect aRect = self.view.frame;
     aRect.size.height -= kbRect.size.height;
-    if (!CGRectContainsPoint(aRect, self.descricao.frame.origin) ) {
-        [self.scrollView scrollRectToVisible:self.descricao.frame animated:YES];
+    if (!CGRectContainsPoint(aRect, _descricao.frame.origin) ) {
+        [self.scrollView scrollRectToVisible:_descricao.frame animated:YES];
     }
 }
 

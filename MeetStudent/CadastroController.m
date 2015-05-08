@@ -18,7 +18,6 @@
     UIImageView *imagemPadrao; //imagem padrão a ser usada caso o usuário não defina uma.
 }
 
-
 @end
 
 @implementation CadastroController

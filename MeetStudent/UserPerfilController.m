@@ -388,6 +388,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [[self view]endEditing:YES];
 }
+
 //|----------------------------------------------
 //return keyboard to textField
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
@@ -396,6 +397,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     return NO;
 }
 
+//|--------------------------------------
+// quando o teclado aparecer, verifica se o campo está vizivel, se não estiver, move a scroll para cima
 - (void) keyboardDidShow:(NSNotification *)notification
 {
     NSDictionary* info = [notification userInfo];
@@ -413,6 +416,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     }
 }
 
+//|--------------------------------------
+// quando o teclado desaparecer, move a scroll para baixo.
 - (void) keyboardWillBeHidden:(NSNotification *)notification
 {
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;

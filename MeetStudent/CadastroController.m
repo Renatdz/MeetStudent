@@ -476,6 +476,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     [alert dismissWithClickedButtonIndex:0 animated:YES];
 }
+
 //|--------------------------------------
 // resize UIImage
 - (UIImage *)imageWithImage:(UIImage *)image convertToSize:(CGSize)size {
@@ -486,6 +487,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     return destImage;
 }
 
+//|--------------------------------------
+// quando o teclado aparecer, verifica se o campo está vizivel, se não estiver, move a scroll para cima
 - (void) keyboardDidShow:(NSNotification *)notification
 {
     NSDictionary* info = [notification userInfo];
@@ -503,6 +506,8 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     }
 }
 
+//|--------------------------------------
+// quando o teclado desaparecer, move a scroll para baixo.
 - (void) keyboardWillBeHidden:(NSNotification *)notification
 {
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;

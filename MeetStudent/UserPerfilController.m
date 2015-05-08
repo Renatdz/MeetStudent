@@ -153,7 +153,7 @@
             CGSize size = CGSizeMake(375.0, 225.0);
             NSData *imageData = UIImagePNGRepresentation([self imageWithImage:_img.image convertToSize:size]);
             //icon
-            CGSize sizeIcon = CGSizeMake(60.0, 60.0);
+            CGSize sizeIcon = CGSizeMake(40.0, 40.0);
             NSData *dataIcon = UIImagePNGRepresentation([self imageWithImage:_img.image convertToSize:sizeIcon]);
             
             PFFile *imageFile = [PFFile fileWithName:@"img.png" data:imageData];

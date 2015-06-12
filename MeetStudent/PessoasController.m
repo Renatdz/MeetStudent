@@ -249,7 +249,15 @@
     //Send to pessoasViewController
     PessoaController *PC = [segue destinationViewController];
     NSLog(@"pc -> %@", PC);
+    
+//    [self callViewWithName:@"PessoaController"];
 }
+
+//- (void)callViewWithName:(NSString *)name {
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:name];
+//    [self presentViewController:viewController animated:YES completion:nil];
+//}
 
 //|-------------------------------------------------
 //|return for pessoas main view controller

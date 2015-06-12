@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -391,7 +391,7 @@
         <!--Instituições-->
         <scene sceneID="a4f-zC-isA">
             <objects>
-                <navigationController id="zXr-yL-8AE" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" id="zXr-yL-8AE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Instituições" image="instituicao" selectedImage="instituicao" id="1LL-To-B6o"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZcA-75-OWS">
@@ -1078,7 +1078,7 @@ O Serviço faz o prometido da seguinte forma:
         <!--Perfil da Pessoa-->
         <scene sceneID="z7U-33-py9">
             <objects>
-                <viewController id="nBa-yI-Jad" customClass="PessoaController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PessoaController" id="nBa-yI-Jad" customClass="PessoaController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LGe-YE-z7o"/>
                         <viewControllerLayoutGuide type="bottom" id="PD0-9a-Zfz"/>
@@ -1275,7 +1275,12 @@ O Serviço faz o prometido da seguinte forma:
                         <barButtonItem key="leftBarButtonItem" title="Voltar" id="lEi-Cc-dSM">
                             <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="Xfw-Tw-vzx" kind="unwind" unwindAction="returnPessoaMainViewController:" id="rzY-Wh-6Mm"/>
+                                <segue destination="Xfw-Tw-vzx" kind="unwind" unwindAction="returnPessoaMainViewController:" id="oGV-XF-kpT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Reportar" id="mI1-Cz-nKQ">
+                            <connections>
+                                <action selector="report:" destination="nBa-yI-Jad" id="Bqi-bG-t6V"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1296,7 +1301,7 @@ O Serviço faz o prometido da seguinte forma:
         <!--Pessoas-->
         <scene sceneID="lCf-Tx-dOJ">
             <objects>
-                <tableViewController id="xSZ-hs-vWi" customClass="PessoasController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PessoasController" id="xSZ-hs-vWi" customClass="PessoasController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="22" sectionFooterHeight="22" id="dH9-r7-WUY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1321,7 +1326,7 @@ O Serviço faz o prometido da seguinte forma:
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="nBa-yI-Jad" kind="show" id="zZv-41-nze"/>
+                                    <segue destination="nBa-yI-Jad" kind="show" id="bRP-RN-6RF"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

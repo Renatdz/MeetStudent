@@ -88,5 +88,48 @@
     [alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 
+//|--------------------------------------
+//  Report
+// Reporta usuário ao banco
+- (IBAction)report:()sender {
+    NSUserDefaults *section = [NSUserDefaults standardUserDefaults];
+    
+    NSString *objectUserReportedId  = [section objectForKey:@"objectID"];
+    NSString *objectUserId = self.singleton.peopleId;
+    NSDate *date           = [NSDate date];
+    
+    PFObject *report = [PFObject objectWithClassName:@"report"];
+    report[@"reportIdUser"] = objectUserId;
+    report[@"reportIdReported"] = objectUserReportedId;
+    report[@"reportDate"]  = date;
+    [report saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self alert:@"Usuário reportado"];
+            [self callViewWithName:@"NavigationController"];
+        } else {
+            [self alert:@"OPS! Ocorreu uma falha"];
+        }
+    }];
+}
+
+//|--------------------------------------
+// alert
+//Informa o titulo do alerta e o exibe
+- (void)alert:(NSString *)title {
+    UIAlertView *alert;
+    
+    alert = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
+    [alert show];
+    [alert dismissWithClickedButtonIndex:0 animated:YES];
+}
+
+//|--------------------------------------
+// callViewWithName
+//Informa o nome da view e chama ela
+- (void)callViewWithName:(NSString *)name {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:name];
+    [self presentViewController:viewController animated:YES completion:nil];
+}
 
 @end

@@ -105,7 +105,7 @@
     [report saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             [self alert:@"Usuário reportado"];
-            [self callViewWithName:@"NavigationController"];
+            [self callViewWithName:@"NavigationInit"];
         } else {
             [self alert:@"OPS! Ocorreu uma falha"];
         }
